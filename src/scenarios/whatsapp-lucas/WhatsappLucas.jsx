@@ -43,7 +43,7 @@ export default function WhatsappLucas() {
 
   return (
     <SimulationLayout
-      title="CAS 4 — WhatsApp 'Lucas'"
+      title="CAS 4 - WhatsApp 'Lucas'"
       verdict="arnaque"
       clues={CLUES}
       conclusion={CONCLUSION}

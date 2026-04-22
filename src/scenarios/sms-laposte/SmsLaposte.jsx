@@ -40,7 +40,7 @@ const ACTION_MODALS = {
 export default function SmsLaposte() {
   return (
     <SimulationLayout
-      title="CAS 1 — SMS La Poste"
+      title="CAS 1 - SMS La Poste"
       verdict="arnaque"
       clues={CLUES}
       conclusion={CONCLUSION}

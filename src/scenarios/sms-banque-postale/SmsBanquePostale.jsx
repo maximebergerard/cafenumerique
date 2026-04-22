@@ -15,7 +15,7 @@ const CLUES = [
   },
   {
     label: "Mise en garde explicite contre l'arnaque",
-    detail: '"Ne communiquez jamais votre code" — une vraie banque vous rappelle activement de vous méfier. Une arnaque ne le ferait pas.',
+    detail: '"Ne communiquez jamais votre code" - une vraie banque vous rappelle activement de vous méfier. Une arnaque ne le ferait pas.',
   },
   {
     label: 'Numéro court officiel (3639)',
@@ -35,7 +35,7 @@ export default function SmsBanquePostale() {
 
   return (
     <SimulationLayout
-      title="CAS 5 — SMS La Banque Postale"
+      title="CAS 5 - SMS La Banque Postale"
       verdict="vrai"
       clues={CLUES}
       conclusion={CONCLUSION}
@@ -68,7 +68,7 @@ export default function SmsBanquePostale() {
                 </p>
                 <span className={styles.msgTime}>09:41</span>
 
-                {/* Clue 1: no link — we add a visual note for the clue panel */}
+                {/* Clue 1: no link - we add a visual note for the clue panel */}
                 <Clue index={1} activeIndex={activeIndex} type="ok" as="div">
                   <div className={styles.noLinkNote}>
                     ✅ Aucun lien dans ce message

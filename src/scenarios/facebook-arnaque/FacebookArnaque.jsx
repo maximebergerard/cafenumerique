@@ -5,7 +5,7 @@ import styles from './FacebookArnaque.module.css'
 const CLUES = [
   {
     label: 'Pas de badge de vérification',
-    detail: "Les vraies marques ont un badge bleu ✓ sur Facebook. 'Super Promos FR' n'en a pas — n'importe qui peut créer cette page.",
+    detail: "Les vraies marques ont un badge bleu ✓ sur Facebook. 'Super Promos FR' n'en a pas - n'importe qui peut créer cette page.",
   },
   {
     label: 'La remise de -90%',
@@ -39,7 +39,7 @@ const ACTION_MODALS = {
 export default function FacebookArnaque() {
   return (
     <SimulationLayout
-      title="CAS 3 — Fausse pub Facebook"
+      title="CAS 3 - Fausse pub Facebook"
       verdict="arnaque"
       clues={CLUES}
       conclusion={CONCLUSION}
@@ -79,7 +79,7 @@ export default function FacebookArnaque() {
                     <Clue index={0} activeIndex={activeIndex} type="danger" as="span">
                       <span className={styles.postName}>Super Promos FR</span>
                     </Clue>
-                    {/* No verification badge — intentionally absent */}
+                    {/* No verification badge - intentionally absent */}
                   </div>
                   <div className={styles.postSub}>
                     <span className={styles.sponsored}>Sponsorisé</span>
@@ -96,7 +96,7 @@ export default function FacebookArnaque() {
 
               {/* Post text */}
               <p className={styles.postText}>
-                🔥 VENTE FLASH — 48H SEULEMENT ! Robot Cuisine Pro à prix CASSÉ. Livraison offerte, stock limité !
+                🔥 VENTE FLASH - 48H SEULEMENT ! Robot Cuisine Pro à prix CASSÉ. Livraison offerte, stock limité !
               </p>
 
               {/* Product image */}

@@ -19,7 +19,7 @@ const CLUES = [
   },
   {
     label: 'Messages cohérents et personnels',
-    detail: "Il propose de venir vous voir et d'apporter un dessert — c'est naturel et personnel. Les arnaques sont des scripts génériques envoyés en masse.",
+    detail: "Il propose de venir vous voir et d'apporter un dessert - c'est naturel et personnel. Les arnaques sont des scripts génériques envoyés en masse.",
   },
 ]
 
@@ -35,7 +35,7 @@ export default function WhatsappFamille() {
 
   return (
     <SimulationLayout
-      title="CAS 6 — WhatsApp Lucas (vrai)"
+      title="CAS 6 - WhatsApp Lucas (vrai)"
       verdict="vrai"
       clues={CLUES}
       conclusion={CONCLUSION}

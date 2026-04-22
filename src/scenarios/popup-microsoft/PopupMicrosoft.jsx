@@ -42,7 +42,7 @@ export default function PopupMicrosoft() {
 
   return (
     <SimulationLayout
-      title="CAS 2 — Fausse alerte Microsoft"
+      title="CAS 2 - Fausse alerte Microsoft"
       verdict="arnaque"
       clues={CLUES}
       conclusion={CONCLUSION}
@@ -94,7 +94,7 @@ export default function PopupMicrosoft() {
                       </svg>
                       <Clue index={1} activeIndex={activeIndex} type="danger" as="span">
                         <span className={styles.titleBarText}>
-                          Windows Sécurité — Microsoft Support
+                          Windows Sécurité - Microsoft Support
                         </span>
                       </Clue>
                     </div>
@@ -107,7 +107,7 @@ export default function PopupMicrosoft() {
                     <div className={styles.dialogContent}>
                       <Clue index={1} activeIndex={activeIndex} type="danger" as="div">
                         <h2 className={styles.dialogTitle}>
-                          🚨 ALERTE SÉCURITÉ — ACCÈS NON AUTORISÉ DÉTECTÉ
+                          🚨 ALERTE SÉCURITÉ - ACCÈS NON AUTORISÉ DÉTECTÉ
                         </h2>
                       </Clue>
                       <p className={styles.dialogText}>
