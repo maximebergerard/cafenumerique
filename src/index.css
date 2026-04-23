@@ -1,3 +1,57 @@
+:root {
+  /* ── Brand purple ── */
+  --c-primary: #27173A;
+  --c-primary-dark: #1b0f28;
+  --c-primary-mid: #3d2060;
+
+  /* ── Violet accent ── */
+  --c-accent: #8B5CF6;
+  --c-accent-hover: #7C3AED;
+  --c-accent-light: #EDE9FE;
+  --c-accent-pale: #F5F2FF;
+
+  /* ── Pink accent ── */
+  --c-pink: #DB2777;
+  --c-pink-hover: #be185d;
+  --c-pink-light: #FCE7F3;
+
+  /* ── Surfaces ── */
+  --c-bg: #F8F7FC;
+  --c-surface: #FFFFFF;
+  --c-surface-alt: #F3F0F9;
+
+  /* ── Text ── */
+  --c-text: #1A0F2E;
+  --c-text-2: #6B5C7E;
+  --c-text-3: #9B8AAF;
+
+  /* ── Borders ── */
+  --c-border: #E5DEF5;
+  --c-border-subtle: #F0EBF8;
+
+  /* ── Semantic ── */
+  --c-danger: #DC2626;
+  --c-danger-light: #FEE2E2;
+  --c-success: #16A34A;
+  --c-success-light: #DCFCE7;
+
+  /* ── Radii ── */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-full: 999px;
+
+  /* ── Shadows (purple-tinted) ── */
+  --shadow-sm: 0 1px 3px rgba(39,23,58,0.07), 0 1px 2px rgba(39,23,58,0.04);
+  --shadow-md: 0 4px 14px rgba(39,23,58,0.10), 0 2px 4px rgba(39,23,58,0.06);
+  --shadow-lg: 0 8px 28px rgba(39,23,58,0.13), 0 3px 8px rgba(39,23,58,0.07);
+
+  /* ── Transitions ── */
+  --t-fast: 150ms ease;
+  --t-base: 200ms ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +60,23 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background: #f0f2f5;
+  background: var(--c-bg);
+  color: var(--c-text);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Sora', 'DM Sans', sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+a {
+  color: inherit;
 }

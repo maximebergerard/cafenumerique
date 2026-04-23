@@ -5,7 +5,7 @@
   transition: outline 0.2s, background 0.2s;
 }
 
-/* Active state — pulsing outline */
+/* Active state - pulsing outline */
 .clue.active.danger {
   outline: 2px solid #f39c12;
   outline-offset: 2px;
@@ -20,7 +20,7 @@
   animation: pulseOk 1.2s ease-in-out infinite;
 }
 
-/* Seen state — faint outline */
+/* Seen state - faint outline */
 .clue.seen.danger {
   outline: 1px solid rgba(243, 156, 18, 0.5);
   outline-offset: 2px;

@@ -1,11 +1,18 @@
-import styles from './RetenirPage.module.css'
+import {
+  ShieldAlert,
+  Bot,
+  Smartphone,
+  MessageSquare,
+  ExternalLink,
+} from "lucide-react";
+import styles from "./RetenirPage.module.css";
 
-// ── Numéro de séance — à mettre à jour à chaque café numérique ──
-const SESSION = "Café numérique #7"
+// ── Numéro de séance - à mettre à jour à chaque café numérique ──
+const SESSION = "Café numérique #7";
 
 const SECTIONS = [
   {
-    icon: "🛡️",
+    icon: "arnaques",
     title: "Arnaques en ligne",
     blocks: [
       {
@@ -20,27 +27,36 @@ const SECTIONS = [
       {
         heading: "Les règles d'or",
         items: [
-          ["La banque, les impôts, la police", "ne demandent jamais votre code ou mot de passe"],
-          ["Le cadenas dans le navigateur", "ne veut pas dire que le site est honnête"],
+          [
+            "La banque, les impôts, la police",
+            "ne demandent jamais votre code ou mot de passe",
+          ],
+          [
+            "Le cadenas dans le navigateur",
+            "ne veut pas dire que le site est honnête",
+          ],
           ["En cas de doute", "→ on rappelle soi-même sur le numéro officiel"],
           ["On en parle à un proche", "avant d'agir"],
         ],
       },
       {
         heading: "La ressource",
-        resource: { label: "cybermalveillance.gouv.fr", url: "https://www.cybermalveillance.gouv.fr" },
+        resource: {
+          label: "cybermalveillance.gouv.fr",
+          url: "https://www.cybermalveillance.gouv.fr",
+        },
       },
     ],
   },
   {
-    icon: "🤖",
+    icon: "ia",
     title: "Intelligence Artificielle",
     blocks: [
       {
         heading: "Ce que c'est",
         bullets: [
           "Un programme qui a lu des milliards de textes et sait répondre à des questions",
-          "Un assistant très cultivé — mais qui peut se tromper et inventer des choses",
+          "Un assistant très cultivé - mais qui peut se tromper et inventer des choses",
           "Pas de la magie : c'est un outil, comme un moteur de recherche évolué",
         ],
       },
@@ -74,11 +90,11 @@ const SECTIONS = [
     ],
   },
   {
-    icon: "📱",
+    icon: "lexique",
     title: "Story, Like, Reel… le lexique",
     lexique: [
       ["Story", "Photo/vidéo qui disparaît en 24h"],
-      ["Like", "Le pouce ou cœur pour dire \"j'aime\""],
+      ["Like", 'Le pouce ou cœur pour dire "j\'aime"'],
       ["Reel", "Courte vidéo avec musique"],
       ["DM", "Message privé"],
       ["Mème", "Image humoristique qui se partage"],
@@ -91,13 +107,28 @@ const SECTIONS = [
       ["Scroller", "Faire défiler avec le doigt"],
     ],
   },
-]
+];
 
 const TAKEAWAYS = [
-  { topic: "Sur les arnaques", text: "La règle numéro 1 : prendre le temps de souffler avant d'agir" },
-  { topic: "Sur l'IA", text: "C'est un outil puissant mais imparfait. Essayez une fois cette semaine" },
-  { topic: "Sur le lexique", text: "Le langage des jeunes a toujours existé. Maintenant vous parlez leur langue 😄" },
-]
+  {
+    topic: "Sur les arnaques",
+    text: "La règle numéro 1 : prendre le temps de souffler avant d'agir",
+  },
+  {
+    topic: "Sur l'IA",
+    text: "C'est un outil puissant mais imparfait. Essayez une fois cette semaine",
+  },
+  {
+    topic: "Sur le lexique",
+    text: "Le langage des jeunes a toujours existé. Maintenant vous parlez leur langue !",
+  },
+];
+
+const ICON_MAP = {
+  arnaques: ShieldAlert,
+  ia: Bot,
+  lexique: Smartphone,
+};
 
 export default function RetenirPage() {
   return (
@@ -108,84 +139,112 @@ export default function RetenirPage() {
       </header>
 
       <main className={styles.main}>
-        {SECTIONS.map((section) => (
-          <section key={section.title} className={styles.section}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionIcon}>{section.icon}</span>
-              <h2 className={styles.sectionTitle}>{section.title}</h2>
-            </div>
+        {SECTIONS.map((section) => {
+          const Icon = ICON_MAP[section.icon] || ShieldAlert;
+          return (
+            <section key={section.title} className={styles.section}>
+              <div className={styles.sectionHeader}>
+                <div className={styles.sectionIconWrap}>
+                  <Icon size={18} strokeWidth={2} />
+                </div>
+                <h2 className={styles.sectionTitle}>{section.title}</h2>
+              </div>
 
-            {/* Lexique spécial */}
-            {section.lexique && (
-              <div className={styles.tableWrapper}>
-                <table className={styles.table}>
-                  <thead>
-                    <tr>
-                      <th>Mot</th>
-                      <th>Définition rapide</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {section.lexique.map(([word, def]) => (
-                      <tr key={word}>
-                        <td className={styles.tableWord}>{word}</td>
-                        <td>{def}</td>
+              {/* Lexique spécial */}
+              {section.lexique && (
+                <div className={styles.tableWrapper}>
+                  <table className={styles.table}>
+                    <thead>
+                      <tr>
+                        <th>Mot</th>
+                        <th>Définition rapide</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+                    </thead>
+                    <tbody>
+                      {section.lexique.map(([word, def]) => (
+                        <tr key={word}>
+                          <td className={styles.tableWord}>{word}</td>
+                          <td>{def}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
 
-            {/* Blocs standard */}
-            {section.blocks?.map((block) => (
-              <div key={block.heading} className={styles.block}>
-                <div className={styles.blockHeading}>{block.heading}</div>
+              {/* Blocs standard */}
+              {section.blocks?.map((block) => (
+                <div key={block.heading} className={styles.block}>
+                  <div className={styles.blockHeading}>{block.heading}</div>
 
-                {block.items && (
-                  <ul className={styles.itemList}>
-                    {block.items.map(([label, value]) => (
-                      <li key={label} className={styles.item}>
-                        <span className={styles.itemLabel}>{label}</span>
-                        <span className={styles.itemValue}>{value}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  {block.items && (
+                    <ul className={styles.itemList}>
+                      {block.items.map(([label, value]) => (
+                        <li key={label} className={styles.item}>
+                          <span className={styles.itemLabel}>{label}</span>
+                          <span className={styles.itemValue}>{value}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-                {block.bullets && (
-                  <ul className={styles.bullets}>
-                    {block.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                )}
+                  {block.bullets && (
+                    <ul className={styles.bullets}>
+                      {block.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  )}
 
-                {block.links && (
-                  <div className={styles.linkList}>
-                    {block.links.map((l) => (
-                      <a key={l.name} href={l.url} target="_blank" rel="noopener noreferrer" className={styles.toolLink}>
-                        {l.name} <span className={styles.linkUrl}>{l.url.replace('https://', '')}</span>
-                      </a>
-                    ))}
-                  </div>
-                )}
+                  {block.links && (
+                    <div className={styles.linkList}>
+                      {block.links.map((l) => (
+                        <a
+                          key={l.name}
+                          href={l.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.toolLink}
+                        >
+                          {l.name}
+                          <span className={styles.linkUrl}>
+                            {l.url.replace("https://", "")}
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
 
-                {block.resource && (
-                  <a href={block.resource.url} target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>
-                    🔗 {block.resource.label}
-                  </a>
-                )}
-              </div>
-            ))}
-          </section>
-        ))}
+                  {block.resource && (
+                    <a
+                      href={block.resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.resourceLink}
+                    >
+                      <ExternalLink size={14} strokeWidth={2} />
+                      {block.resource.label}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </section>
+          );
+        })}
 
         {/* Les 3 choses à retenir */}
         <section className={styles.takeawaySection}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionIcon}>💬</span>
-            <h2 className={styles.sectionTitle}>Les 3 choses à retenir</h2>
+            <div
+              className={`${styles.sectionIconWrap} ${styles.sectionIconWrapLight}`}
+            >
+              <MessageSquare size={18} strokeWidth={2} />
+            </div>
+            <h2
+              className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}
+            >
+              Les 3 choses à retenir
+            </h2>
           </div>
           {TAKEAWAYS.map((t) => (
             <div key={t.topic} className={styles.takeaway}>
@@ -197,8 +256,8 @@ export default function RetenirPage() {
       </main>
 
       <footer className={styles.footer}>
-        Créé avec ❤️ pour les Cafés numériques
+        Créé avec soin pour les Cafés numériques
       </footer>
     </div>
-  )
+  );
 }

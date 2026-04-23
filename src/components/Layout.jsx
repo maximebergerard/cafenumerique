@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { Coffee, Menu, X, Mail } from 'lucide-react'
 import styles from './Layout.module.css'
 
 const NAV_LINKS = [
@@ -17,11 +18,10 @@ export default function Layout({ children }) {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link to="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-            <span className={styles.logoIcon}>☕</span>
+            <Coffee size={20} className={styles.logoIcon} />
             <span className={styles.logoText}>Cafés numériques</span>
           </Link>
 
-          {/* Desktop nav */}
           <nav className={styles.nav}>
             {NAV_LINKS.map(({ to, label, end }) => (
               <NavLink
@@ -36,21 +36,20 @@ export default function Layout({ children }) {
               </NavLink>
             ))}
             <a href="mailto:maxime.bergerard@gmail.com" className={styles.contactBtn}>
+              <Mail size={14} />
               Me contacter
             </a>
           </nav>
 
-          {/* Mobile burger */}
           <button
             className={styles.burger}
             onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Menu"
+            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
-            {menuOpen ? '✕' : '☰'}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        {/* Mobile dropdown */}
         {menuOpen && (
           <nav className={styles.mobileNav}>
             {NAV_LINKS.map(({ to, label, end }) => (
@@ -81,7 +80,10 @@ export default function Layout({ children }) {
 
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          <span>☕ Cafés numériques</span>
+          <span className={styles.footerBrand}>
+            <Coffee size={14} />
+            Cafés numériques
+          </span>
           <a href="mailto:maxime.bergerard@gmail.com" className={styles.footerMail}>
             maxime.bergerard@gmail.com
           </a>

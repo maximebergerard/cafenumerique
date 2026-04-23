@@ -13,7 +13,7 @@ export default function LaPostePayment() {
 
   return (
     <div className={styles.page}>
-      {/* Barre navigateur — URL clairement suspecte */}
+      {/* Barre navigateur - URL clairement suspecte */}
       <div className={styles.browserBar}>
         <div className={styles.browserDots}>
           <div className={`${styles.dot} ${styles.dotR}`} />
@@ -21,9 +21,11 @@ export default function LaPostePayment() {
           <div className={`${styles.dot} ${styles.dotG}`} />
         </div>
         <div className={styles.browserUrl}>
-          {/* Pas de cadenas HTTPS — red flag supplémentaire */}
+          {/* Pas de cadenas HTTPS - red flag supplémentaire */}
           ⚠️ <span className={styles.urlDanger}>http://</span>
-          <span className={styles.urlHighlight}>laposte-paiement-rapide.xyz</span>
+          <span className={styles.urlHighlight}>
+            laposte-paiement-rapide.xyz
+          </span>
           <span className={styles.urlText}>/fr/checkout?ref=FR882341XP</span>
         </div>
       </div>
@@ -35,7 +37,9 @@ export default function LaPostePayment() {
             <div className={styles.logo}>La Poste</div>
             <div className={styles.headerText}>
               <div className={styles.headerTitle}>Règlement sécurisé</div>
-              <div className={styles.headerSub}>Frais de livraison — Colis FR882341XP</div>
+              <div className={styles.headerSub}>
+                Frais de livraison - Colis FR882341XP
+              </div>
             </div>
           </div>
 
@@ -112,9 +116,11 @@ export default function LaPostePayment() {
 
       {/* Popup révélation */}
       {revealed && (
-        <div className={styles.modalBackdrop} onClick={() => navigate("/laposte")}>
+        <div
+          className={styles.modalBackdrop}
+          onClick={() => navigate("/laposte")}
+        >
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-
             <div className={styles.modalTop}>
               <div className={styles.modalIcon}>💳</div>
               <div className={styles.modalBadge}>Arnaque réussie</div>
@@ -124,38 +130,44 @@ export default function LaPostePayment() {
               Votre carte vient d'être volée.
             </h2>
             <p className={styles.modalSub}>
-              En situation réelle, ces données seraient déjà entre les mains des escrocs.{" "}
+              En situation réelle, ces données seraient déjà entre les mains des
+              escrocs.{" "}
               <strong>Le groupe n'a pas réussi à vous arrêter à temps.</strong>
             </p>
 
             <div className={styles.divider} />
 
-            <p className={styles.indicesLabel}>Ce que tout le monde aurait dû voir :</p>
+            <p className={styles.indicesLabel}>
+              Ce que tout le monde aurait dû voir :
+            </p>
             <div className={styles.indices}>
               <div className={styles.indice}>
                 <span className={styles.indiceIcon}>🔓</span>
                 <span>
-                  <strong>HTTP sans cadenas</strong> — aucun site de paiement sérieux
-                  n'utilise HTTP. HTTPS est obligatoire.
+                  <strong>HTTP sans cadenas</strong> - aucun site de paiement
+                  sérieux n'utilise HTTP. HTTPS est obligatoire.
                 </span>
               </div>
               <div className={styles.indice}>
                 <span className={styles.indiceIcon}>🌐</span>
                 <span>
-                  <strong>laposte-paiement-rapide.xyz</strong> — le domaine officiel
-                  de La Poste c'est laposte.fr, point.
+                  <strong>laposte-paiement-rapide.xyz</strong> - le domaine
+                  officiel de La Poste c'est laposte.fr, point.
                 </span>
               </div>
               <div className={styles.indice}>
                 <span className={styles.indiceIcon}>🛡️</span>
                 <span>
-                  <strong>Les badges "Sécurisé"</strong> sont des emojis collés là
-                  pour rassurer — ils ne garantissent rien.
+                  <strong>Les badges "Sécurisé"</strong> sont des emojis collés
+                  là pour rassurer - ils ne garantissent rien.
                 </span>
               </div>
             </div>
 
-            <button className={styles.modalBtn} onClick={() => navigate("/laposte")}>
+            <button
+              className={styles.modalBtn}
+              onClick={() => navigate("/laposte")}
+            >
               ← Retour au mail pour débriefer
             </button>
           </div>

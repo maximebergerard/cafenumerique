@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FileText, Clock } from 'lucide-react'
 import Layout from '../components/Layout.jsx'
 import styles from './RecapsPage.module.css'
 
@@ -30,6 +31,9 @@ export default function RecapsPage() {
           <div className={styles.list}>
             {RECAPS.map((r) => (
               <Link key={r.id} to={r.path} className={styles.card}>
+                <div className={styles.cardIconWrap}>
+                  <FileText size={22} strokeWidth={1.75} />
+                </div>
                 <div className={styles.cardLeft}>
                   <div className={styles.cardDate}>{r.date}</div>
                   <div className={styles.cardTitle}>{r.title}</div>
@@ -46,7 +50,9 @@ export default function RecapsPage() {
 
             {/* Entrées futures */}
             <div className={styles.cardFuture}>
-              <div className={styles.futureIcon}>📋</div>
+              <div className={styles.futureIconWrap}>
+                <Clock size={20} strokeWidth={1.75} />
+              </div>
               <div>
                 <div className={styles.futureTitle}>Prochaines séances</div>
                 <div className={styles.futureDesc}>Les récaps des prochains ateliers apparaîtront ici au fil des séances.</div>

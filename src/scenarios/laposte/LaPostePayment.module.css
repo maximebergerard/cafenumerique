@@ -41,7 +41,7 @@
   gap: 0.3rem;
 }
 
-/* HTTP sans cadenas — rouge discret */
+/* HTTP sans cadenas - rouge discret */
 .urlDanger { color: #e74c3c; }
 .urlHighlight { color: #ff9f43; }
 .urlText { color: #aaa; }

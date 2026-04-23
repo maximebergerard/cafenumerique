@@ -2,41 +2,46 @@
 
 /* ── HERO ── */
 .hero {
-  background: #1c1c1e;
+  background: linear-gradient(140deg, #2d1a45 0%, var(--c-primary) 50%, #1b0f28 100%);
   color: #fff;
-  padding: 5rem 1.5rem;
+  padding: 5.5rem 1.5rem 6.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .heroInner {
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
+  position: relative;
 }
 
 .heroBadge {
   display: inline-block;
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-  font-size: 0.78rem;
+  background: rgba(139,92,246,0.2);
+  color: #C4B5FD;
+  border: 1px solid rgba(139,92,246,0.35);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  margin-bottom: 1.25rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--r-full);
+  margin-bottom: 1.5rem;
 }
 
 .heroTitle {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.025em;
 }
 
 .heroSubtitle {
   font-size: 1.1rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.65;
-  margin-bottom: 2rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
   max-width: 520px;
 }
 
@@ -48,53 +53,65 @@
 
 /* ── BUTTONS ── */
 .ctaPrimary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background: #fff;
-  color: #1c1c1e;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  color: var(--c-primary);
+  padding: 0.8rem 1.7rem;
+  border-radius: var(--r-md);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
-  transition: opacity 0.15s;
+  transition: background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 
-.ctaPrimary:hover { opacity: 0.88; }
+.ctaPrimary:hover {
+  background: #F5F2FF;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.22);
+}
 
 .ctaSecondary {
-  display: inline-block;
-  color: rgba(255,255,255,0.8);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255,255,255,0.85);
+  padding: 0.8rem 1.7rem;
+  border-radius: var(--r-md);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  border: 1px solid rgba(255,255,255,0.25);
-  transition: background 0.15s;
+  border: 1px solid rgba(255,255,255,0.22);
+  transition: background var(--t-fast), border-color var(--t-fast);
 }
 
-.ctaSecondary:hover { background: rgba(255,255,255,0.08); }
+.ctaSecondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.4);
+}
 
 /* ── SECTIONS ── */
-.section { padding: 4rem 1.5rem; }
-.sectionAlt { background: #f9f9fb; }
+.section { padding: 4.5rem 1.5rem; }
+.sectionAlt { background: var(--c-surface-alt); }
 
 .sectionInner {
-  max-width: 900px;
+  max-width: 940px;
   margin: 0 auto;
 }
 
 .sectionTitle {
-  font-size: 1.55rem;
+  font-size: 1.65rem;
   font-weight: 700;
-  color: #1c1c1e;
+  color: var(--c-text);
   margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
 }
 
 .sectionDesc {
-  color: #8e8e93;
+  color: var(--c-text-2);
   margin-bottom: 2rem;
   font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 /* ── THÈMES ── */
@@ -108,68 +125,92 @@
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  background: #fff;
-  border: 1px solid #e5e5ea;
-  border-radius: 10px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
   padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--t-base), border-color var(--t-base);
 }
 
-.themeIcon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+.themeCard:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--c-accent-light);
+}
+
+.themeIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--c-accent-light);
+  color: var(--c-accent-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
 .themeLabel {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
-  color: #1c1c1e;
-  margin-bottom: 0.3rem;
+  color: var(--c-text);
+  margin-bottom: 0.35rem;
 }
 
 .themeDesc {
   font-size: 0.85rem;
-  color: #8e8e93;
-  line-height: 1.55;
+  color: var(--c-text-2);
+  line-height: 1.62;
 }
 
 /* ── ÉTAPES ── */
 .stepsRow {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
 }
 
 .step {
-  background: #fff;
-  border: 1px solid #e5e5ea;
-  border-radius: 10px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
   padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .stepNum {
-  width: 32px;
-  height: 32px;
-  background: #1c1c1e;
+  width: 30px;
+  height: 30px;
+  background: var(--c-primary);
   color: #fff;
-  border-radius: 50%;
+  border-radius: var(--r-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 0.9rem;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.stepIcon {
+  color: var(--c-accent);
+  margin-bottom: 0.65rem;
+  display: block;
 }
 
 .stepTitle {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
-  color: #1c1c1e;
+  color: var(--c-text);
   margin-bottom: 0.4rem;
 }
 
-.stepDesc { font-size: 0.85rem; color: #8e8e93; line-height: 1.55; }
+.stepDesc { font-size: 0.85rem; color: var(--c-text-2); line-height: 1.62; }
 
 /* ── RESSOURCES ── */
 .resourcesRow {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   gap: 1rem;
 }
 
@@ -177,56 +218,86 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: #fff;
-  border: 1px solid #e5e5ea;
-  border-radius: 10px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
   padding: 1.25rem;
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
 }
 
 .resourceCard:hover {
-  border-color: #1c1c1e;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-color: var(--c-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
-.resourceIcon { font-size: 1.6rem; flex-shrink: 0; }
+.resourceIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-md);
+  background: var(--c-accent-light);
+  color: var(--c-accent-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
 .resourceLabel {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
-  color: #1c1c1e;
+  color: var(--c-text);
   margin-bottom: 0.3rem;
 }
 
-.resourceDesc { font-size: 0.83rem; color: #8e8e93; line-height: 1.5; }
+.resourceDesc { font-size: 0.83rem; color: var(--c-text-2); line-height: 1.55; }
 
 .resourceArrow {
   margin-left: auto;
-  color: #8e8e93;
+  color: var(--c-text-3);
   font-size: 1.1rem;
   flex-shrink: 0;
+  transition: transform var(--t-fast), color var(--t-fast);
+}
+
+.resourceCard:hover .resourceArrow {
+  transform: translateX(3px);
+  color: var(--c-accent);
 }
 
 /* ── CONTACT ── */
 .sectionContact {
-  background: #1c1c1e;
+  background: linear-gradient(140deg, #2d1a45 0%, var(--c-primary) 100%);
   color: #fff;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
+
+.sectionContact .sectionInner { position: relative; }
+
 .contactTitle {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.75rem;
 }
 
 .contactDesc {
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.68);
   max-width: 480px;
   margin: 0 auto 2rem;
-  line-height: 1.65;
+  line-height: 1.75;
   font-size: 0.95rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .hero { padding: 4rem 1.25rem 5rem; }
+  .section { padding: 3.5rem 1.25rem; }
+  .heroTitle { letter-spacing: -0.015em; }
 }

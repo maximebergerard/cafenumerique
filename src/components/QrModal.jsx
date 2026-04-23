@@ -15,7 +15,7 @@ export default function QrModal({ onClose }) {
             value={url}
             size={220}
             bgColor="#ffffff"
-            fgColor="#1c1c1e"
+            fgColor="#27173A"
             level="M"
           />
         </div>

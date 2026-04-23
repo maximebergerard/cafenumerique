@@ -1,0 +1,79 @@
+.wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Grille de points ── */
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.075) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  /* Fondu aux bords pour éviter l'effet grille trop dur */
+  mask-image: radial-gradient(ellipse 85% 85% at 62% 38%, black 15%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 62% 38%, black 15%, transparent 72%);
+}
+
+/* ── Sphère principale — violet, haut-droite ── */
+.orb1 {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  right: -140px;
+  top: -120px;
+  /* Dégradé radial simulant la lumière sur une sphère */
+  background: radial-gradient(
+    circle at 36% 30%,
+    rgba(235,228,255,0.92) 0%,
+    rgba(167,139,250,0.72) 16%,
+    rgba(124,58,237,0.52) 42%,
+    rgba(76,29,149,0.28) 68%,
+    transparent 86%
+  );
+  animation: float1 9s ease-in-out infinite;
+}
+
+/* ── Sphère secondaire — indigo-bleu, bas-gauche ── */
+.orb2 {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  left: -55px;
+  bottom: -70px;
+  background: radial-gradient(
+    circle at 38% 33%,
+    rgba(224,231,255,0.88) 0%,
+    rgba(129,140,248,0.62) 24%,
+    rgba(67,56,202,0.38) 54%,
+    transparent 78%
+  );
+  animation: float2 11s ease-in-out infinite;
+}
+
+/* ── SVG superposé ── */
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Flottement très doux ── */
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(-10px, 14px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(8px, -12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb1, .orb2 { animation: none; }
+}
