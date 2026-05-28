@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLargeFont } from '../hooks/useLargeFont.js'
 import styles from './SimulationLayout.module.css'
 
 export default function SimulationLayout({
@@ -11,6 +12,7 @@ export default function SimulationLayout({
   children,
 }) {
   const navigate = useNavigate()
+  const [large, toggleFont] = useLargeFont()
   const [phase, setPhase] = useState('discovery')
   const [activeIndex, setActiveIndex] = useState(-1)
   const [actionModal, setActionModal] = useState(null)
@@ -52,11 +54,14 @@ export default function SimulationLayout({
     <div className={styles.layout}>
       {/* Top bar */}
       <div className={styles.topBar}>
-        <button className={styles.backBtn} onClick={() => navigate('/')}>
+        <button className={styles.backBtn} onClick={() => navigate('/arnaques')}>
           ← Retour
         </button>
         <h1 className={styles.topTitle}>{title}</h1>
         <span className={`${styles.verdictBadge} ${verdictClass}`}>{verdictLabel}</span>
+        <button className="font-toggle-btn" style={{ color: 'rgba(255,255,255,0.7)' }} onClick={toggleFont} title="Taille du texte">
+          {large ? 'A−' : 'A+'}
+        </button>
       </div>
 
       {/* Scene area */}

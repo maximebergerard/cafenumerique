@@ -12,7 +12,7 @@ export default function SceneDecor({ className = '' }) {
       {/* Dot grid */}
       <div className={styles.dotGrid} />
 
-      {/* Sphere orbs — simulated 3D highlight */}
+      {/* Sphere orbs - simulated 3D highlight */}
       <div className={styles.orb1} />
       <div className={styles.orb2} />
 
@@ -41,7 +41,7 @@ export default function SceneDecor({ className = '' }) {
           </linearGradient>
         </defs>
 
-        {/* ── Anneau principal — ellipse perspective ── */}
+        {/* ── Anneau principal - ellipse perspective ── */}
         <ellipse
           cx="730" cy="185"
           rx="228" ry="80"

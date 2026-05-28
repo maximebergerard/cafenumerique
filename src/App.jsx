@@ -6,6 +6,7 @@ import AteliersPage from './pages/AteliersPage.jsx'
 import SimulationsPage from './pages/SimulationsPage.jsx'
 import RecapsPage from './pages/RecapsPage.jsx'
 import RetenirPage from './pages/RetenirPage.jsx'
+import ChiffrementPage from './pages/ChiffrementPage.jsx'
 
 // Scénarios (plein écran, sans nav)
 import LaPosteScenario from './scenarios/laposte/LaPosteScenario.jsx'
@@ -16,6 +17,7 @@ import FacebookArnaque from './scenarios/facebook-arnaque/FacebookArnaque.jsx'
 import WhatsappLucas from './scenarios/whatsapp-lucas/WhatsappLucas.jsx'
 import SmsBanquePostale from './scenarios/sms-banque-postale/SmsBanquePostale.jsx'
 import WhatsappFamille from './scenarios/whatsapp-famille/WhatsappFamille.jsx'
+import WhatsappGroupe from './scenarios/whatsapp-groupe/WhatsappGroupe.jsx'
 
 export default function App() {
   return (
@@ -36,6 +38,8 @@ export default function App() {
       <Route path="/whatsapp-lucas" element={<WhatsappLucas />} />
       <Route path="/sms-banque-postale" element={<SmsBanquePostale />} />
       <Route path="/whatsapp-famille" element={<WhatsappFamille />} />
+      <Route path="/whatsapp-groupe" element={<WhatsappGroupe />} />
+      <Route path="/chiffrement" element={<ChiffrementPage />} />
     </Routes>
   )
 }

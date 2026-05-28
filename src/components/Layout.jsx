@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Coffee, Menu, X, Mail } from 'lucide-react'
+import { useLargeFont } from '../hooks/useLargeFont.js'
 import styles from './Layout.module.css'
 
 const NAV_LINKS = [
@@ -12,6 +13,7 @@ const NAV_LINKS = [
 
 export default function Layout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [large, toggleFont] = useLargeFont()
 
   return (
     <div className={styles.shell}>
@@ -35,6 +37,9 @@ export default function Layout({ children }) {
                 {label}
               </NavLink>
             ))}
+            <button className="font-toggle-btn" style={{ color: 'var(--c-text-2)' }} onClick={toggleFont} title="Taille du texte">
+              {large ? 'A−' : 'A+'}
+            </button>
             <a href="mailto:maxime.bergerard@gmail.com" className={styles.contactBtn}>
               <Mail size={14} />
               Me contacter

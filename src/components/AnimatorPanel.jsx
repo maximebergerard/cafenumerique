@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLargeFont } from "../hooks/useLargeFont.js";
 import styles from "./AnimatorPanel.module.css";
 
 /**
@@ -17,15 +18,19 @@ export default function AnimatorPanel({
 }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const [large, toggleFont] = useLargeFont();
 
   return (
     <>
       <div className={styles.controls}>
-        <button className={styles.backBtn} onClick={() => navigate("/")}>
+        <button className={styles.backBtn} onClick={() => navigate("/arnaques")}>
           ← Scénarios
         </button>
         <button className={styles.triggerBtn} onClick={() => setOpen(true)}>
           🔍 Révéler les indices
+        </button>
+        <button className={styles.fontBtn} onClick={toggleFont} title="Taille du texte">
+          {large ? "A−" : "A+"}
         </button>
       </div>
 

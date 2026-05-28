@@ -327,11 +327,18 @@
 
 .modalBtn:hover { filter: brightness(1.1); }
 
-/* Bouton retour discret */
-.backBtn {
+/* Contrôles animateur (bas-droite) */
+.animatorControls {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  z-index: 100;
+}
+
+.backBtn {
   background: #2c2c2e;
   color: #aeaeb2;
   border: 1px solid #3d3d3d;

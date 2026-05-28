@@ -9,12 +9,23 @@ import {
   Building2,
   MessageCircle,
   QrCode,
+  Lock,
 } from "lucide-react";
 import Layout from "../components/Layout.jsx";
 import QrModal from "../components/QrModal.jsx";
 import styles from "./SimulationsPage.module.css";
 
 const ICE_BREAKERS = [
+  {
+    id: "chiffrement",
+    path: "/chiffrement",
+    Icon: Lock,
+    label: "Le chiffrement de bout en bout",
+    description:
+      "Démonstration interactive : pourquoi un SMS est une lettre ouverte, et comment WhatsApp chiffre vos messages. Envoyez un message et observez ce que voit un intercepteur.",
+    tags: ["Chiffrement", "WhatsApp", "Sécurité"],
+    type: "ice-breaker",
+  },
   {
     id: "laposte",
     path: "/laposte",
@@ -23,6 +34,16 @@ const ICE_BREAKERS = [
     description:
       "L'animateur joue le rôle de quelqu'un qui reçoit un mail de phishing. Le groupe doit le démasquer. Idéal pour lancer la séance.",
     tags: ["Phishing", "Urgence artificielle", "Faux lien"],
+    type: "ice-breaker",
+  },
+  {
+    id: "whatsapp-groupe",
+    path: "/whatsapp-groupe",
+    Icon: MessageCircle,
+    label: "Ice-breaker CN8 - Le groupe famille de l'enfer",
+    description:
+      "Reconstitution d'un groupe WhatsApp de famille : vocal de 3 minutes à 7h, avalanche de GIFs, 'ok' de la nièce après 3 semaines... Révélation progressive pour l'animateur.",
+    tags: ["WhatsApp", "Groupe", "Humour", "CN8"],
     type: "ice-breaker",
   },
 ];
@@ -129,8 +150,8 @@ export default function SimulationsPage() {
                   </div>
                   <div className={styles.cardBody}>
                     <div className={styles.cardTop}>
-                      <span className={styles.cardLabel}>{s.label}</span>
                       <span className={styles.typeBadge}>Théâtre-forum</span>
+                      <span className={styles.cardLabel}>{s.label}</span>
                     </div>
                     <p className={styles.cardDesc}>{s.description}</p>
                     <div className={styles.tags}>
@@ -168,7 +189,6 @@ export default function SimulationsPage() {
                   </div>
                   <div className={styles.cardBody}>
                     <div className={styles.cardTop}>
-                      <span className={styles.cardLabel}>{s.label}</span>
                       <span
                         className={
                           s.verdict === "arnaque"
@@ -178,6 +198,7 @@ export default function SimulationsPage() {
                       >
                         {s.verdict === "arnaque" ? "Arnaque" : "Vrai"}
                       </span>
+                      <span className={styles.cardLabel}>{s.label}</span>
                     </div>
                     <p className={styles.cardDesc}>{s.description}</p>
                     <div className={styles.tags}>

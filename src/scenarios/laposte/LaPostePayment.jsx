@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLargeFont } from "../../hooks/useLargeFont.js";
 import styles from "./LaPostePayment.module.css";
 
 export default function LaPostePayment() {
   const navigate = useNavigate();
   const [revealed, setRevealed] = useState(false);
+  const [large, toggleFont] = useLargeFont();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -174,11 +176,16 @@ export default function LaPostePayment() {
         </div>
       )}
 
-      {/* Bouton retour discret */}
+      {/* Contrôles animateur */}
       {!revealed && (
-        <button className={styles.backBtn} onClick={() => navigate("/laposte")}>
-          ← Retour au mail
-        </button>
+        <div className={styles.animatorControls}>
+          <button className={styles.backBtn} onClick={() => navigate("/laposte")}>
+            ← Retour au mail
+          </button>
+          <button className="font-toggle-btn" style={{ color: '#aeaeb2' }} onClick={toggleFont} title="Taille du texte">
+            {large ? "A−" : "A+"}
+          </button>
+        </div>
       )}
     </div>
   );

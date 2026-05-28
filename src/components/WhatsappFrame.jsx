@@ -36,7 +36,7 @@ export function SmsBubble({ text, time, sent = false }) {
   )
 }
 
-export default function WhatsappFrame({ contactName, contactAvatar, isUnknown = false, children }) {
+export default function WhatsappFrame({ contactName, contactAvatar, isUnknown = false, contactStatus, children }) {
   return (
     <div className={styles.waShell}>
       {/* Header */}
@@ -52,7 +52,7 @@ export default function WhatsappFrame({ contactName, contactAvatar, isUnknown = 
         <div className={styles.waContactInfo}>
           <div className={styles.waContactName}>{contactName}</div>
           <div className={styles.waContactStatus}>
-            {isUnknown ? 'Numéro inconnu' : 'En ligne'}
+            {contactStatus ?? (isUnknown ? 'Numéro inconnu' : 'En ligne')}
           </div>
         </div>
         <div className={styles.waHeaderIcons}>
