@@ -9,6 +9,11 @@ import styles from "./RetenirPage.module.css";
 
 const SESSION = "Café numérique #8";
 
+// ✏️ VAINQUEURS — À remplir après la séance !
+// Remplace null par un tableau de prénoms, ex : ['Marie', 'Jean-Pierre']
+// Laisse null pour afficher le placeholder mystère
+const WINNERS = null
+
 const SECTIONS = [
   {
     icon: "whatsapp",
@@ -151,6 +156,31 @@ export default function RetenirPage8() {
       </header>
 
       <main className={styles.main}>
+
+        {/* ── Bloc vainqueurs ── */}
+        <div className={WINNERS ? styles.winnersCard : styles.winnersCardPending}>
+          <div className={styles.winnersTrophy}>🏆</div>
+          {WINNERS ? (
+            <>
+              <div className={styles.winnersLabel}>Légendes du Défi des pros</div>
+              <div className={styles.winnersNames}>
+                {WINNERS.join(' & ')}
+              </div>
+              <div className={styles.winnersSub}>
+                Inscrits à jamais dans les annales du Café numérique #8
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.winnersLabel}>Légendes du Défi des pros</div>
+              <div className={styles.winnersPending}>??? & ???</div>
+              <div className={styles.winnersSub}>
+                Les vainqueurs seront révélés très bientôt...
+              </div>
+            </>
+          )}
+        </div>
+
         {SECTIONS.map((section) => {
           const Icon = ICON_MAP[section.icon] || Bot;
           return (
