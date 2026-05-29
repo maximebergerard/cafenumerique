@@ -108,6 +108,7 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  position: relative;
 }
 
 .hint {
@@ -116,6 +117,45 @@
   text-align: center;
   margin: -8px 0 -4px;
 }
+
+/* Bouton supprimer */
+.removeBtn {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.2);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 4px;
+  transition: color 0.12s, background 0.12s;
+}
+.removeBtn:hover { color: #f87171; background: rgba(220,38,38,0.1); }
+
+/* Carte "ajouter" */
+.addCard {
+  border: 1.5px dashed #3a3a3c;
+  border-radius: 14px;
+  background: transparent;
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 12px;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  min-height: 110px;
+}
+.addCard:hover { border-color: #636366; color: white; background: rgba(255,255,255,0.03); }
+
+.addIcon  { font-size: 1.4rem; font-weight: 300; line-height: 1; }
+.addLabel { font-size: 0.75rem; font-weight: 600; }
 
 /* Nom éditable */
 .nameBtn {

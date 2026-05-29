@@ -2,62 +2,78 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './ScoresCn8Page.module.css'
 
-const NB_BINOMES = 6
+const STORAGE_KEY = 'cn8_teams'
 
-function defaultScores() {
-  return Array.from({ length: NB_BINOMES }, (_, i) => ({ id: i + 1, pts: 0 }))
-}
-function defaultNames() {
-  return Array.from({ length: NB_BINOMES }, (_, i) => `Binôme ${i + 1}`)
+function defaultTeams() {
+  return {
+    nextId: 7,
+    list: Array.from({ length: 6 }, (_, i) => ({ id: i + 1, name: `Binôme ${i + 1}`, pts: 0 })),
+  }
 }
 
-function load(key, fallback) {
+function loadTeams() {
   try {
-    const raw = localStorage.getItem(key)
-    return raw ? JSON.parse(raw) : fallback()
-  } catch { return fallback() }
+    const raw = localStorage.getItem(STORAGE_KEY)
+    return raw ? JSON.parse(raw) : defaultTeams()
+  } catch { return defaultTeams() }
 }
 
 export default function ScoresCn8Page() {
-  const [scores, setScores]       = useState(() => load('cn8_scores_v2', defaultScores))
-  const [names, setNames]         = useState(() => load('cn8_names', defaultNames))
-  const [showRanking, setShowRanking] = useState(false)
+  const [{ nextId, list }, setState] = useState(loadTeams)
+  const [showRanking, setShowRanking]   = useState(false)
   const [confirmReset, setConfirmReset] = useState(false)
-  const [editingId, setEditingId] = useState(null)
-  const [draft, setDraft]         = useState('')
+  const [editingId, setEditingId]       = useState(null)
+  const [draft, setDraft]               = useState('')
   const inputRef = useRef(null)
+  const newCardRef = useRef(null)
 
-  useEffect(() => { localStorage.setItem('cn8_scores_v2', JSON.stringify(scores)) }, [scores])
-  useEffect(() => { localStorage.setItem('cn8_names', JSON.stringify(names)) }, [names])
+  // Persistance
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ nextId, list }))
+  }, [nextId, list])
 
-  // Focus l'input quand on commence à éditer
-  useEffect(() => { if (editingId !== null) inputRef.current?.select() }, [editingId])
+  // Focus sur l'input quand on édite
+  useEffect(() => {
+    if (editingId !== null) inputRef.current?.select()
+  }, [editingId])
 
-  function adjust(id, delta) {
-    setScores(prev => prev.map(b => b.id === id ? { ...b, pts: Math.max(0, b.pts + delta) } : b))
+  function update(fn) { setState(prev => ({ ...prev, list: fn(prev.list) })) }
+
+  function adjustPts(id, delta) {
+    update(l => l.map(t => t.id === id ? { ...t, pts: Math.max(0, t.pts + delta) } : t))
   }
 
-  function startEdit(id, currentName) {
-    setEditingId(id)
-    setDraft(currentName)
-  }
+  function startEdit(id, name) { setEditingId(id); setDraft(name) }
 
   function commitEdit() {
     if (editingId === null) return
-    setNames(prev => prev.map((n, i) => i === editingId - 1 ? (draft.trim() || n) : n))
+    update(l => l.map(t => t.id === editingId ? { ...t, name: draft.trim() || t.name } : t))
     setEditingId(null)
   }
 
+  function addTeam() {
+    const newId = nextId
+    setState(prev => ({
+      nextId: prev.nextId + 1,
+      list: [...prev.list, { id: newId, name: `Équipe ${newId}`, pts: 0 }],
+    }))
+    // Démarre directement en mode édition du nouveau nom
+    setTimeout(() => setEditingId(newId), 0)
+    setTimeout(() => newCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50)
+  }
+
+  function removeTeam(id) {
+    if (list.length <= 1) return
+    update(l => l.filter(t => t.id !== id))
+    if (editingId === id) setEditingId(null)
+  }
+
   function reset() {
-    setScores(defaultScores())
+    update(l => l.map(t => ({ ...t, pts: 0 })))
     setConfirmReset(false)
   }
 
-  const nameOf = (id) => names[id - 1] ?? `Binôme ${id}`
-
-  const ranking = [...scores]
-    .map(s => ({ ...s, name: nameOf(s.id) }))
-    .sort((a, b) => b.pts - a.pts)
+  const ranking = [...list].sort((a, b) => b.pts - a.pts)
 
   return (
     <div className={styles.page}>
@@ -68,7 +84,7 @@ export default function ScoresCn8Page() {
         <div className={styles.headerActions}>
           {confirmReset ? (
             <>
-              <span className={styles.confirmText}>Reset ?</span>
+              <span className={styles.confirmText}>Reset pts ?</span>
               <button className={styles.btnYes} onClick={reset}>Oui</button>
               <button className={styles.btnNo} onClick={() => setConfirmReset(false)}>Non</button>
             </>
@@ -80,12 +96,25 @@ export default function ScoresCn8Page() {
 
       <main className={styles.main}>
 
-        <p className={styles.hint}>Appuyez sur un nom pour le modifier</p>
+        <p className={styles.hint}>Touchez un nom pour le modifier</p>
 
         <div className={styles.grid}>
-          {scores.map(({ id, pts }) => (
-            <div key={id} className={styles.card}>
+          {list.map(({ id, name, pts }, idx) => (
+            <div
+              key={id}
+              className={styles.card}
+              ref={idx === list.length - 1 ? newCardRef : null}
+            >
+              {/* Bouton supprimer */}
+              {list.length > 1 && (
+                <button
+                  className={styles.removeBtn}
+                  onClick={() => removeTeam(id)}
+                  title="Supprimer cette équipe"
+                >×</button>
+              )}
 
+              {/* Nom éditable */}
               {editingId === id ? (
                 <input
                   ref={inputRef}
@@ -97,19 +126,25 @@ export default function ScoresCn8Page() {
                   maxLength={20}
                 />
               ) : (
-                <button className={styles.nameBtn} onClick={() => startEdit(id, nameOf(id))}>
-                  {nameOf(id)} ✏️
+                <button className={styles.nameBtn} onClick={() => startEdit(id, name)}>
+                  {name} ✏️
                 </button>
               )}
 
+              {/* Stepper points */}
               <div className={styles.stepper}>
-                <button className={styles.stepBtn} onClick={() => adjust(id, -1)} disabled={pts === 0}>−</button>
+                <button className={styles.stepBtn} onClick={() => adjustPts(id, -1)} disabled={pts === 0}>−</button>
                 <span className={styles.pts}>{pts}</span>
-                <button className={styles.stepBtn} onClick={() => adjust(id, +1)}>+</button>
+                <button className={styles.stepBtn} onClick={() => adjustPts(id, +1)}>+</button>
               </div>
-
             </div>
           ))}
+
+          {/* Bouton ajouter une équipe */}
+          <button className={styles.addCard} onClick={addTeam}>
+            <span className={styles.addIcon}>+</span>
+            <span className={styles.addLabel}>Ajouter une équipe</span>
+          </button>
         </div>
 
         <button className={styles.toggleBtn} onClick={() => setShowRanking(v => !v)}>
@@ -118,7 +153,7 @@ export default function ScoresCn8Page() {
 
         {showRanking && (
           <div className={styles.ranking}>
-            {ranking.map(({ id, pts, name }, idx) => (
+            {ranking.map(({ id, name, pts }, idx) => (
               <div key={id} className={`${styles.rankRow} ${idx === 0 && pts > 0 ? styles.rankFirst : ''}`}>
                 <span className={styles.rankPos}>
                   {pts > 0 ? (['🥇','🥈','🥉'][idx] ?? `${idx + 1}.`) : `${idx + 1}.`}
