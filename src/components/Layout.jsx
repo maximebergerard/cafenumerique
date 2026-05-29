@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { to: '/', label: 'Accueil', end: true },
   { to: '/ateliers', label: 'Les ateliers' },
   { to: '/arnaques', label: 'Simulations' },
+  { to: '/videos', label: 'Vidéos' },
   { to: '/recaps', label: 'Récaps' },
 ]
 

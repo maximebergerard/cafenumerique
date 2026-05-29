@@ -215,6 +215,14 @@ export default function SimulationsPage() {
             </div>
           </section>
         </div>
+
+        {/* Lien animateur discret */}
+        <div className={styles.animatorBar}>
+          <Link to="/scores-cn8" className={styles.animatorLink}>
+            🎯 Résultats CN8
+          </Link>
+        </div>
+
       </div>
     </Layout>
   );

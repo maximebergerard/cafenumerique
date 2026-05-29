@@ -5,6 +5,7 @@ import {
   MessageSquare,
   ExternalLink,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import styles from "./RetenirPage.module.css";
 
 // ── Numéro de séance - à mettre à jour à chaque café numérique ──
@@ -133,6 +134,9 @@ const ICON_MAP = {
 export default function RetenirPage() {
   return (
     <div className={styles.page}>
+      <nav className={styles.topNav}>
+        <Link to="/recaps" className={styles.topNavBack}>← Récaps</Link>
+      </nav>
       <header className={styles.header}>
         <div className={styles.session}>{SESSION}</div>
         <h1 className={styles.title}>Ce qu'il faut retenir</h1>

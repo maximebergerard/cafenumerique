@@ -4,7 +4,7 @@ import styles from './QrModal.module.css'
 // Affiche un QR code en plein écran pointant vers la page mémo.
 // Conçu pour être projeté en fin de séance.
 export default function QrModal({ onClose }) {
-  const url = `${window.location.origin}/retenir`
+  const url = `${window.location.origin}/retenir-cn8`
 
   return (
     <div className={styles.backdrop} onClick={onClose}>

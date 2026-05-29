@@ -5,6 +5,22 @@
   color: var(--c-text);
 }
 
+/* ── Top nav ── */
+.topNav {
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border-subtle);
+  padding: 10px 1.5rem;
+}
+
+.topNavBack {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--c-text-3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.topNavBack:hover { color: var(--c-text); }
+
 /* ── Header ── */
 .header {
   background: linear-gradient(140deg, #2d1a45 0%, var(--c-primary) 100%);
@@ -162,6 +178,45 @@
   font-weight: 700;
   font-size: 1.1rem;
   line-height: 1.4;
+}
+
+/* ── Steps (liste numérotée) ── */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.step {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.stepNum {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--c-accent-light);
+  color: var(--c-accent-hover);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin-top: 0.05rem;
+}
+
+.stepText {
+  color: var(--c-text-2);
+  flex: 1;
 }
 
 /* ── Tool links ── */

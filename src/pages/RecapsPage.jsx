@@ -6,6 +6,14 @@ import styles from './RecapsPage.module.css'
 // Ajouter une entrée ici à chaque nouvelle séance
 const RECAPS = [
   {
+    id: 8,
+    path: '/retenir-cn8',
+    date: 'Mai 2026',
+    title: 'Séance #8',
+    themes: ['WhatsApp', 'Intelligence artificielle', 'Deepfakes'],
+    desc: 'Arnaques sur WhatsApp, protéger son compte, la formule du prompt IA et les deepfakes vocaux.',
+  },
+  {
     id: 7,
     path: '/retenir',
     date: 'Avril 2026',

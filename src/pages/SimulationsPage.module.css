@@ -198,6 +198,25 @@
   flex-shrink: 0;
 }
 
+/* ── Barre animateur discrète ── */
+.animatorBar {
+  max-width: 960px;
+  margin: 3rem auto 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--c-border-subtle);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.animatorLink {
+  font-size: 0.75rem;
+  color: var(--c-text-3);
+  text-decoration: none;
+  opacity: 0.45;
+  transition: opacity 0.15s;
+}
+.animatorLink:hover { opacity: 1; }
+
 @media (max-width: 640px) {
   .page { padding: 2rem 1.25rem; }
 }
