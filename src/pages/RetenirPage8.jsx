@@ -12,7 +12,8 @@ const SESSION = "Café numérique #8";
 // ✏️ VAINQUEURS — À remplir après la séance !
 // Remplace null par un tableau de prénoms, ex : ['Marie', 'Jean-Pierre']
 // Laisse null pour afficher le placeholder mystère
-const WINNERS = null
+const WINNERS = ['Danièle', 'Mauricette']
+const WINNERS_SUB = 'Venues tout droit des Sénioriales pour régner sur le Défi des pros 👑'
 
 const SECTIONS = [
   {
@@ -167,7 +168,7 @@ export default function RetenirPage8() {
                 {WINNERS.join(' & ')}
               </div>
               <div className={styles.winnersSub}>
-                Inscrits à jamais dans les annales du Café numérique #8
+                {WINNERS_SUB ?? 'Inscrits à jamais dans les annales du Café numérique #8'}
               </div>
             </>
           ) : (
