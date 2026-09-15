@@ -1,0 +1,53 @@
+.depliable {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.resume {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: var(--ai-tap, 3.5rem);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: var(--ai-text, 1.25rem);
+  user-select: none;
+}
+
+.resume::-webkit-details-marker { display: none; }
+
+.icone { display: flex; flex-shrink: 0; }
+.titre { flex: 1; }
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform var(--t-base);
+}
+
+.depliable[open] .chevron { transform: rotate(180deg); }
+
+.contenu {
+  padding: 0 1rem 1.1rem;
+}
+
+/* Si vous bloquez : encadré bien visible et rassurant */
+.aide {
+  background: var(--c-accent-pale);
+  border: 2px solid var(--c-accent);
+  color: var(--c-primary);
+}
+
+.aide .resume:hover { background: var(--c-accent-light); }
+
+/* Pour aller plus loin : en retrait, jamais au niveau de l'essentiel */
+.bonus {
+  background: transparent;
+  border: 2px dashed var(--c-border);
+  color: var(--c-text-2);
+}
+
+.bonus .resume { font-weight: 600; }
+.bonus .resume:hover { background: var(--c-surface-alt); color: var(--c-text); }
+.bonus[open] { color: var(--c-text); }

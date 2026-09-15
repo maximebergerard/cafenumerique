@@ -26,6 +26,13 @@ import SmsBanquePostale from "./scenarios/sms-banque-postale/SmsBanquePostale.js
 import WhatsappFamille from "./scenarios/whatsapp-famille/WhatsappFamille.jsx";
 import WhatsappGroupe from "./scenarios/whatsapp-groupe/WhatsappGroupe.jsx";
 
+// Atelier IA
+import DefisListePage from "./atelier-ia/pages/DefisListePage.jsx";
+import DefiPage from "./atelier-ia/pages/DefiPage.jsx";
+import IaOuPasPage from "./atelier-ia/pages/IaOuPasPage.jsx";
+import ApresPage from "./atelier-ia/pages/ApresPage.jsx";
+import AnimateurPage from "./atelier-ia/pages/AnimateurPage.jsx";
+
 export default function App() {
   return (
     <>
@@ -52,7 +59,18 @@ export default function App() {
         <Route path="/whatsapp-famille" element={<WhatsappFamille />} />
         <Route path="/whatsapp-groupe" element={<WhatsappGroupe />} />
         <Route path="/chiffrement" element={<ChiffrementPage />} />
-        <Route path="/scores-cn8" element={<ScoresCn8Page />} />
+        <Route path="/scores-cn8" element={<ScoresCn8Page key="cn8" />} />
+
+        {/* Atelier IA */}
+        <Route path="/atelier-ia/defis" element={<DefisListePage />} />
+        <Route path="/atelier-ia/defis/:id" element={<DefiPage />} />
+        <Route path="/atelier-ia/ia-ou-pas" element={<IaOuPasPage />} />
+        <Route
+          path="/atelier-ia/scores"
+          element={<ScoresCn8Page key="atelier-ia" storageKey="atelier_ia_scores" title="Scores Atelier IA" backTo="/atelier-ia/animateur" />}
+        />
+        <Route path="/atelier-ia/apres" element={<ApresPage />} />
+        <Route path="/atelier-ia/animateur" element={<AnimateurPage />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />

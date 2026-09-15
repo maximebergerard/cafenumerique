@@ -1,0 +1,223 @@
+.page {
+  composes: projection from '../theme.module.css';
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* ── Scène : visuel seul, puis visuel + panneau ── */
+.scene {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  transition: grid-template-columns 0.4s ease;
+}
+
+.sceneAvecPanneau {
+  grid-template-columns: 1fr minmax(360px, 34vw);
+}
+
+.zoneMedia {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Le cadre épouse le média : les zones en % tombent au bon endroit */
+.cadreMedia {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.media {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 4rem);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+.mediaManquant {
+  width: min(70vw, 900px);
+  max-width: 100%;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  line-height: 1.4;
+  border: 3px dashed var(--ai-p-border);
+  border-radius: 16px;
+  color: var(--ai-p-muted);
+  font-family: monospace;
+}
+
+.lancerVideo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(18, 12, 30, 0.45);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font: inherit;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+/* ── Panneau réponse / indices / débrief ── */
+.panneau {
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 5rem; /* laisse la place aux commandes */
+  animation: glisse 0.4s ease-out;
+}
+
+@keyframes glisse {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.reponse {
+  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-size: var(--ai-p-title);
+  font-weight: 800;
+  line-height: 1.15;
+  padding: 1.2rem 1.5rem;
+  border-radius: 18px;
+  text-align: center;
+  animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.reponse_ia { background: var(--c-pink); color: #fff; }
+.reponse_authentique { background: var(--c-success); color: #fff; }
+.reponse_indecidable { background: #FBBF24; color: #1A0F2E; }
+
+.indicesTitre {
+  font-size: var(--ai-p-text);
+  color: var(--ai-p-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.listeIndices {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.indice {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  background: var(--ai-p-surface);
+  border: 2px solid var(--ai-p-border);
+  border-radius: 14px;
+  opacity: 0.75;
+  animation: glisse 0.35s ease-out;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+
+.indiceActif { opacity: 1; }
+.indiceActif.indice_danger { border-color: #f39c12; }
+.indiceActif.indice_ok { border-color: #27ae60; }
+
+.indiceNumero {
+  flex-shrink: 0;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+}
+
+.indice_danger .indiceNumero { background: #e67e22; }
+.indice_ok .indiceNumero { background: #27ae60; }
+
+.indiceTitre { font-weight: 700; }
+.indiceDetail { color: var(--ai-p-muted); margin-top: 0.2rem; }
+
+.debrief {
+  background: #fff;
+  color: var(--c-primary);
+  border-radius: 18px;
+  padding: 1.3rem 1.5rem;
+  font-size: calc(var(--ai-p-text) * 1.1);
+  font-weight: 600;
+  animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.debriefTitre {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--c-accent-hover);
+  margin-bottom: 0.3rem;
+}
+
+/* ── Compteur et commandes discrètes ── */
+.compteur {
+  position: fixed;
+  top: 1rem;
+  left: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ai-p-muted);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.commandes {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0.35;
+  transition: opacity var(--t-base);
+}
+
+.commandes:hover,
+.commandes:focus-within { opacity: 1; }
+
+.commande {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ai-p-surface);
+  border: 1px solid var(--ai-p-border);
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.commande:hover { background: var(--c-primary-mid); }

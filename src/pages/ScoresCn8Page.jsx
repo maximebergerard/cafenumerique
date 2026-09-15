@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './ScoresCn8Page.module.css'
 
-const STORAGE_KEY = 'cn8_teams'
-
 function defaultTeams() {
   return {
     nextId: 7,
@@ -11,15 +9,16 @@ function defaultTeams() {
   }
 }
 
-function loadTeams() {
+function loadTeams(storageKey) {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(storageKey)
     return raw ? JSON.parse(raw) : defaultTeams()
   } catch { return defaultTeams() }
 }
 
-export default function ScoresCn8Page() {
-  const [{ nextId, list }, setState] = useState(loadTeams)
+// Réutilisée par /scores-cn8 et /atelier-ia/scores : chaque page a sa propre clé de stockage
+export default function ScoresCn8Page({ storageKey = 'cn8_teams', title = 'Scores CN8', backTo = '/arnaques' }) {
+  const [{ nextId, list }, setState] = useState(() => loadTeams(storageKey))
   const [showRanking, setShowRanking]   = useState(false)
   const [confirmReset, setConfirmReset] = useState(false)
   const [editingId, setEditingId]       = useState(null)
@@ -29,8 +28,8 @@ export default function ScoresCn8Page() {
 
   // Persistance
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ nextId, list }))
-  }, [nextId, list])
+    localStorage.setItem(storageKey, JSON.stringify({ nextId, list }))
+  }, [storageKey, nextId, list])
 
   // Focus sur l'input quand on édite
   useEffect(() => {
@@ -79,8 +78,8 @@ export default function ScoresCn8Page() {
     <div className={styles.page}>
 
       <header className={styles.header}>
-        <Link to="/arnaques" className={styles.backBtn}>← Retour</Link>
-        <span className={styles.title}>Scores CN8</span>
+        <Link to={backTo} className={styles.backBtn}>← Retour</Link>
+        <span className={styles.title}>{title}</span>
         <div className={styles.headerActions}>
           {confirmReset ? (
             <>

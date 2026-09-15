@@ -1,0 +1,59 @@
+/* Mêmes couleurs que components/Clue.module.css */
+.zone {
+  position: absolute;
+  border-radius: 10px;
+  pointer-events: none;
+  animation: apparition 0.35s ease-out;
+}
+
+.badge {
+  position: absolute;
+  top: -0.9em;
+  left: -0.9em;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.1rem, 1.6vw, 1.8rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+}
+
+.actif.danger {
+  border: 5px solid #f39c12;
+  background: rgba(243, 156, 18, 0.14);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.35);
+  animation: apparition 0.35s ease-out, pulseDanger 1.2s ease-in-out infinite;
+}
+
+.actif.ok {
+  border: 5px solid #27ae60;
+  background: rgba(39, 174, 96, 0.14);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.35);
+  animation: apparition 0.35s ease-out, pulseOk 1.2s ease-in-out infinite;
+}
+
+.vu.danger { border: 3px solid rgba(243, 156, 18, 0.7); }
+.vu.ok { border: 3px solid rgba(39, 174, 96, 0.7); }
+
+.danger .badge { background: #e67e22; }
+.ok .badge { background: #27ae60; }
+.vu .badge { opacity: 0.8; }
+
+@keyframes apparition {
+  from { opacity: 0; transform: scale(1.15); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseDanger {
+  0%, 100% { border-color: #f39c12; }
+  50% { border-color: #e74c3c; }
+}
+
+@keyframes pulseOk {
+  0%, 100% { border-color: #27ae60; }
+  50% { border-color: #2ecc71; }
+}

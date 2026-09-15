@@ -1,0 +1,186 @@
+.page {
+  composes: participant from '../theme.module.css';
+  padding: 1.5rem var(--ai-gutter) 3rem;
+}
+
+/* Laisse la place au bouton flottant en bas */
+.pageDefi { padding-bottom: 7rem; }
+
+.inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titrePage {
+  font-size: var(--ai-h1);
+  line-height: 1.2;
+  color: var(--c-primary);
+}
+
+.intro { color: var(--ai-muted); margin-top: -0.5rem; }
+
+/* ── Liste des défis ── */
+.cartes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.carte {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 5.5rem;
+  padding: 1.1rem;
+  background: var(--c-surface);
+  border: 2px solid var(--c-border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--c-text);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.carte:hover {
+  border-color: var(--c-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.numero {
+  flex-shrink: 0;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--r-full);
+  background: var(--c-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.carteTexte {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.carteSurtitre {
+  font-size: var(--ai-text-small);
+  font-weight: 700;
+  color: var(--c-accent-hover);
+}
+
+.carteTitre {
+  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.duree {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--ai-text-small);
+  color: var(--ai-muted);
+  font-weight: 500;
+}
+
+.carteFleche { flex-shrink: 0; color: var(--c-primary); }
+
+/* ── Page d'un défi ── */
+.enTete {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mission {
+  background: var(--c-primary);
+  color: #fff;
+  border-radius: var(--r-xl);
+  padding: 1.25rem;
+  font-size: 1.3rem;
+  line-height: 1.45;
+}
+
+.missionTitre {
+  font-size: var(--ai-text-small);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #E4DAF5;
+  margin-bottom: 0.4rem;
+}
+
+.bloc { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.titreBloc {
+  font-size: var(--ai-h2);
+  color: var(--c-primary);
+}
+
+.etapes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.etape {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 0.9rem 1rem;
+}
+
+.etapeNumero {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--r-full);
+  background: var(--c-accent-light);
+  color: var(--c-primary);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* L'essentiel : niveau principal, fort contraste */
+.socle {
+  background: var(--c-surface);
+  border: 3px solid var(--c-primary);
+  border-radius: var(--r-xl);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.socleTitre {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--ai-h2);
+  color: var(--c-primary);
+  margin-bottom: 0.6rem;
+}
+
+.puces {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-left: 1.4rem;
+}
+
+.puces li::marker { color: var(--c-accent-hover); }
