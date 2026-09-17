@@ -8,9 +8,15 @@
 //
 // Pour ajouter une page : ajouter la <Route> dans App.jsx ET une entrée ici.
 // Le build échoue si les deux listes ne correspondent pas.
+// Ateliers et guides sont générés depuis src/content/ : rien à ajouter ici pour eux.
+//
+// schema : données structurées ajoutées au build (voir scripts/schema.js)
 //
 // index: false → la page n'apparaît pas dans Google (noindex) ni dans le sitemap.
 // ─────────────────────────────────────────────────────────────────────────────
+
+import { ATELIERS } from '../content/ateliers.js'
+import { GUIDES } from '../content/guides.js'
 
 export const SITE_URL = 'https://cafenumerique.fr'
 export const SITE_NAME = 'Cafés numériques'
@@ -29,10 +35,49 @@ export const ROUTES = [
   },
   {
     path: '/ateliers',
-    title: 'Les ateliers',
-    description: "Le format des Cafés numériques : 2h, 10 personnes maximum, on apprend en faisant grâce au théâtre-forum.",
-    // Page encore en construction : à passer à true quand le contenu sera en ligne
-    index: false,
+    title: 'Ateliers numériques pour adultes et seniors',
+    description:
+      "Ateliers de 2h en petit groupe sur l'intelligence artificielle, les arnaques en ligne et WhatsApp. Théâtre-forum et pratique guidée, pour grands débutants.",
+    index: true,
+    schema: 'ateliers',
+  },
+  ...ATELIERS.map((a) => ({
+    path: `/ateliers/${a.slug}`,
+    title: a.seoTitre,
+    description: a.seoDescription,
+    index: true,
+    schema: 'atelier',
+    slug: a.slug,
+  })),
+  {
+    path: '/organiser-un-atelier',
+    title: 'Organiser un atelier numérique dans votre structure',
+    description:
+      'Médiathèques, mairies, CCAS, résidences seniors, associations : comment organiser un Café numérique pour votre public. Déroulé, matériel, questions fréquentes.',
+    index: true,
+    schema: 'faq',
+  },
+  {
+    path: '/guides',
+    title: 'Guides pratiques : arnaques, IA, WhatsApp',
+    description:
+      'Des guides clairs et sans jargon pour reconnaître les arnaques en ligne, repérer les images créées par IA et utiliser WhatsApp en sécurité.',
+    index: true,
+  },
+  ...GUIDES.map((g) => ({
+    path: `/guides/${g.slug}`,
+    title: g.seoTitre,
+    description: g.seoDescription,
+    index: true,
+    schema: 'guide',
+    slug: g.slug,
+  })),
+  {
+    path: '/a-propos',
+    title: 'Maxime Bergerard, animateur des Cafés numériques',
+    description:
+      "Diplômé d'HETIC, expert en ingénierie numérique, Maxime Bergerard anime des ateliers numériques conviviaux pour que personne ne rate le train du numérique.",
+    index: true,
   },
   {
     path: '/arnaques',
@@ -78,7 +123,7 @@ export const ROUTES = [
   },
   {
     path: '/contact',
-    title: 'Organiser un atelier numérique',
+    title: 'Contact',
     description:
       'Association, mairie, médiathèque, résidence seniors : contactez Maxime Bergerard pour organiser un Café numérique.',
     index: true,

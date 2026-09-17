@@ -39,7 +39,6 @@
 .card:hover {
   border-color: var(--c-accent);
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .cardIconWrap {
@@ -61,8 +60,6 @@
   color: var(--c-text-3);
   font-weight: 600;
   margin-bottom: 0.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
 }
 
 .cardTitle {

@@ -15,6 +15,12 @@
   --c-pink-hover: #be185d;
   --c-pink-light: #FCE7F3;
 
+  /* ── Ambre et lilas : couleurs des formes (aplats, jamais de dégradés) ── */
+  --c-amber: #F59E0B;
+  --c-amber-light: #FDEBC8;
+  --c-lilac: #C4B5FD;
+  --c-lilac-light: #EDE9FE;
+
   /* ── Surfaces ── */
   --c-bg: #F8F7FC;
   --c-surface: #FFFFFF;
@@ -42,10 +48,14 @@
   --r-xl: 20px;
   --r-full: 999px;
 
-  /* ── Shadows (purple-tinted) ── */
+  /* ── Ombres : discrètes (pas de halos ni d'effets de survol qui soulèvent) ── */
   --shadow-sm: 0 1px 3px rgba(39,23,58,0.07), 0 1px 2px rgba(39,23,58,0.04);
   --shadow-md: 0 4px 14px rgba(39,23,58,0.10), 0 2px 4px rgba(39,23,58,0.06);
   --shadow-lg: 0 8px 28px rgba(39,23,58,0.13), 0 3px 8px rgba(39,23,58,0.07);
+
+  /* ── Typographie ── */
+  --font-display: 'Sora', 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 
   /* ── Transitions ── */
   --t-fast: 150ms ease;
@@ -68,7 +78,8 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
 }
 
 :focus-visible {

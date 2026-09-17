@@ -1,15 +1,40 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { Coffee, Menu, X, Mail } from 'lucide-react'
+import { Coffee, Menu, X } from 'lucide-react'
 import { useLargeFont } from '../hooks/useLargeFont.js'
 import styles from './Layout.module.css'
+import { ATELIERS } from '../content/ateliers.js'
+import { GUIDES } from '../content/guides.js'
 
 const NAV_LINKS = [
-  { to: '/', label: 'Accueil', end: true },
   { to: '/ateliers', label: 'Les ateliers' },
+  { to: '/guides', label: 'Guides' },
   { to: '/arnaques', label: 'Simulations' },
-  { to: '/videos', label: 'Vidéos' },
   { to: '/recaps', label: 'Récaps' },
+  { to: '/a-propos', label: 'À propos' },
+]
+
+const FOOTER_COLUMNS = [
+  {
+    title: 'Les ateliers',
+    links: [
+      ...ATELIERS.map((a) => ({ to: `/ateliers/${a.slug}`, label: a.nom })),
+      { to: '/organiser-un-atelier', label: 'Organiser un atelier' },
+    ],
+  },
+  {
+    title: 'Guides',
+    links: GUIDES.map((g) => ({ to: `/guides/${g.slug}`, label: g.seoTitre })),
+  },
+  {
+    title: 'Ressources',
+    links: [
+      { to: '/arnaques', label: "Simulations d'arnaques" },
+      { to: '/recaps', label: 'Récaps des séances' },
+      { to: '/a-propos', label: 'À propos' },
+      { to: '/contact', label: 'Contact' },
+    ],
+  },
 ]
 
 export default function Layout({ children }) {
@@ -21,7 +46,7 @@ export default function Layout({ children }) {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link to="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-            <Coffee size={20} className={styles.logoIcon} />
+            <Coffee size={22} strokeWidth={2.2} className={styles.logoIcon} />
             <span className={styles.logoText}>Cafés numériques</span>
           </Link>
 
@@ -38,12 +63,11 @@ export default function Layout({ children }) {
                 {label}
               </NavLink>
             ))}
-            <button className="font-toggle-btn" style={{ color: 'var(--c-text-2)' }} onClick={toggleFont} title="Taille du texte">
+            <button className="font-toggle-btn" style={{ color: 'var(--c-text)' }} onClick={toggleFont} title="Taille du texte">
               {large ? 'A−' : 'A+'}
             </button>
-            <Link to="/contact" className={styles.contactBtn}>
-              <Mail size={14} />
-              Me contacter
+            <Link to="/organiser-un-atelier" className={styles.contactBtn}>
+              Organiser un atelier
             </Link>
           </nav>
 
@@ -72,11 +96,11 @@ export default function Layout({ children }) {
               </NavLink>
             ))}
             <Link
-              to="/contact"
+              to="/organiser-un-atelier"
               className={styles.mobileContactBtn}
               onClick={() => setMenuOpen(false)}
             >
-              Me contacter
+              Organiser un atelier
             </Link>
           </nav>
         )}
@@ -85,14 +109,29 @@ export default function Layout({ children }) {
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <span className={styles.footerBrand}>
-            <Coffee size={14} />
-            Cafés numériques
-          </span>
-          <Link to="/contact" className={styles.footerMail}>
-            Me contacter
-          </Link>
+        <div className={styles.footerGrid}>
+          <div>
+            <Link to="/" className={styles.footerBrand}>
+              <Coffee size={14} />
+              Cafés numériques
+            </Link>
+            <p className={styles.footerTagline}>
+              Ateliers numériques conviviaux pour adultes et seniors, animés par Maxime Bergerard.
+            </p>
+            <Link to="/contact" className={styles.footerMail}>
+              Me contacter
+            </Link>
+          </div>
+          {FOOTER_COLUMNS.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <div className={styles.footerTitle}>{col.title}</div>
+              <ul className={styles.footerLinks}>
+                {col.links.map((l) => (
+                  <li key={l.to}><Link to={l.to}>{l.label}</Link></li>
+                ))}
+              </ul>
+            </nav>
+          ))}
         </div>
       </footer>
     </div>
