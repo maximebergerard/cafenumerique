@@ -1,48 +1,45 @@
 :root {
-  /* ── Encre (texte, aplats sombres) ── */
-  --c-primary: #1F1B2D;
-  --c-primary-dark: #110F19;
-  --c-primary-mid: #36304A;
+  /* ── Brand purple ── */
+  --c-primary: #27173A;
+  --c-primary-dark: #1b0f28;
+  --c-primary-mid: #3d2060;
 
-  /* ── Tomate : couleur d'accent principale ── */
-  --c-accent: #D9481F;
-  --c-accent-hover: #B63A16;
-  --c-accent-light: #F8D9CC;
-  --c-accent-pale: #FBEDE6;
+  /* ── Violet accent ── */
+  --c-accent: #8B5CF6;
+  --c-accent-hover: #7C3AED;
+  --c-accent-light: #EDE9FE;
+  --c-accent-pale: #F5F2FF;
 
-  /* ── Couleurs des formes (aplats, jamais de dégradés) ── */
-  --c-mustard: #F0B23A;
-  --c-mustard-light: #FAE6B8;
-  --c-sage: #8FB595;
-  --c-sage-light: #DCEBDD;
-  --c-lilac: #B9A5EA;
-  --c-lilac-light: #E9E1F9;
-  --c-sky: #8EC1E3;
+  /* ── Pink accent ── */
+  --c-pink: #DB2777;
+  --c-pink-hover: #be185d;
+  --c-pink-light: #FCE7F3;
 
-  /* Ancien rose : conservé pour les pages de l'atelier IA */
-  --c-pink: #D9481F;
-  --c-pink-hover: #B63A16;
-  --c-pink-light: #F8D9CC;
+  /* ── Ambre et lilas : couleurs des formes (aplats, jamais de dégradés) ── */
+  --c-amber: #F59E0B;
+  --c-amber-light: #FDEBC8;
+  --c-lilac: #C4B5FD;
+  --c-lilac-light: #EDE9FE;
 
-  /* ── Surfaces : papier ── */
-  --c-bg: #F6F0E6;
-  --c-surface: #FFFCF6;
-  --c-surface-alt: #EFE5D5;
+  /* ── Surfaces ── */
+  --c-bg: #F8F7FC;
+  --c-surface: #FFFFFF;
+  --c-surface-alt: #F3F0F9;
 
-  /* ── Texte ── */
-  --c-text: #1F1B2D;
-  --c-text-2: #564F62;
-  --c-text-3: #857D8F;
+  /* ── Text ── */
+  --c-text: #1A0F2E;
+  --c-text-2: #6B5C7E;
+  --c-text-3: #9B8AAF;
 
-  /* ── Bordures ── */
-  --c-border: #DDD0BC;
-  --c-border-subtle: #EAE0D0;
+  /* ── Borders ── */
+  --c-border: #E5DEF5;
+  --c-border-subtle: #F0EBF8;
 
   /* ── Semantic ── */
-  --c-danger: #C2331B;
-  --c-danger-light: #F8DDD5;
-  --c-success: #2F7D4B;
-  --c-success-light: #DCEBDD;
+  --c-danger: #DC2626;
+  --c-danger-light: #FEE2E2;
+  --c-success: #16A34A;
+  --c-success-light: #DCFCE7;
 
   /* ── Radii ── */
   --r-sm: 6px;
@@ -51,14 +48,14 @@
   --r-xl: 20px;
   --r-full: 999px;
 
-  /* ── Ombres : quasi absentes, le relief vient des aplats et des bordures ── */
-  --shadow-sm: none;
-  --shadow-md: none;
-  --shadow-lg: 0 12px 32px rgba(31, 27, 45, 0.16);
+  /* ── Ombres : discrètes (pas de halos ni d'effets de survol qui soulèvent) ── */
+  --shadow-sm: 0 1px 3px rgba(39,23,58,0.07), 0 1px 2px rgba(39,23,58,0.04);
+  --shadow-md: 0 4px 14px rgba(39,23,58,0.10), 0 2px 4px rgba(39,23,58,0.06);
+  --shadow-lg: 0 8px 28px rgba(39,23,58,0.13), 0 3px 8px rgba(39,23,58,0.07);
 
   /* ── Typographie ── */
-  --font-display: 'Young Serif', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Sora', 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 
   /* ── Transitions ── */
   --t-fast: 150ms ease;
@@ -80,20 +77,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Titres : serif à une seule graisse, jamais de gras synthétique */
-h1, h2 {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-synthesis: none;
-  letter-spacing: -0.01em;
-}
-
-h3, h4 {
-  font-family: var(--font-body);
+  letter-spacing: -0.015em;
 }
 
 :focus-visible {
-  outline: 3px solid var(--c-primary);
+  outline: 3px solid var(--c-accent);
   outline-offset: 2px;
   border-radius: var(--r-sm);
 }

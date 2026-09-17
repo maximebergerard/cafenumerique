@@ -52,14 +52,14 @@
   left: -36px;
   bottom: -40px;
   border-radius: 50%;
-  background: var(--c-mustard);
+  background: var(--c-amber);
   pointer-events: none;
 }
 
 .session {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--c-mustard);
+  color: var(--c-amber);
   margin-bottom: 0.4rem;
   position: relative;
 }
@@ -93,13 +93,13 @@
 }
 
 .winnersCard {
-  background: var(--c-mustard);
-  border: 2px solid var(--c-primary);
+  background: var(--c-amber);
+  border: 1px solid #d97706;
 }
 
 .winnersCardPending {
   background: var(--c-surface);
-  border: 2px dashed var(--c-primary);
+  border: 2px dashed var(--c-border);
 }
 
 .winnersTrophy {
@@ -143,9 +143,10 @@
 /* ── Section ── */
 .section {
   background: var(--c-surface);
-  border-radius: 16px;
+  border-radius: var(--r-xl);
   overflow: hidden;
-  border: 2px solid var(--c-primary);
+  border: 1px solid var(--c-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .sectionHeader {
@@ -160,7 +161,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--c-mustard-light);
+  background: var(--c-amber-light);
   color: var(--c-primary);
   display: flex;
   align-items: center;
@@ -169,7 +170,7 @@
 }
 
 .sectionIconWrapLight {
-  background: var(--c-mustard);
+  background: var(--c-amber);
   color: var(--c-primary);
 }
 
@@ -381,7 +382,7 @@
 /* ── Takeaway section ── */
 .takeawaySection {
   background: var(--c-primary);
-  border-radius: 16px;
+  border-radius: var(--r-xl);
   overflow: hidden;
   border: none;
 }
@@ -400,7 +401,7 @@
 .takeawayTopic {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--c-mustard);
+  color: var(--c-amber);
   margin-bottom: 0.3rem;
 }
 

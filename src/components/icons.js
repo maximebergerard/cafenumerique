@@ -21,4 +21,4 @@ export const ICONS = {
 }
 
 // Couleurs cycliques des pastilles d'icônes (aplats clairs)
-export const DOT_COLORS = ['var(--c-accent-light)', 'var(--c-mustard-light)', 'var(--c-sage-light)', 'var(--c-lilac-light)']
+export const DOT_COLORS = ['var(--c-accent-light)', 'var(--c-amber-light)', 'var(--c-pink-light)', 'var(--c-lilac-light)']
