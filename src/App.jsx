@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import Seo from "./components/Seo.jsx";
 
 // Pages publiques
 import HomePage from "./pages/HomePage.jsx";
@@ -11,6 +12,7 @@ import RetenirPage from "./pages/RetenirPage.jsx";
 import ChiffrementPage from "./pages/ChiffrementPage.jsx";
 import VideosPage from "./pages/VideosPage.jsx";
 import RetenirPage8 from "./pages/RetenirPage8.jsx";
+import RetenirPage9 from "./pages/RetenirPage9.jsx";
 import ScoresCn8Page from "./pages/ScoresCn8Page.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
@@ -37,6 +39,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Seo />
       <Routes>
         {/* Pages publiques avec nav */}
         <Route path="/" element={<HomePage />} />
@@ -45,6 +48,7 @@ export default function App() {
         <Route path="/recaps" element={<RecapsPage />} />
         <Route path="/retenir" element={<RetenirPage />} />
         <Route path="/retenir-cn8" element={<RetenirPage8 />} />
+        <Route path="/retenir-cn9" element={<RetenirPage9 />} />
         <Route path="/videos" element={<VideosPage />} />
         <Route path="/contact" element={<ContactPage />} />
 

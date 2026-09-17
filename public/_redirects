@@ -1,1 +1,3 @@
+# Fichier de secours : au build, scripts/prerender.mjs le remplace dans dist/
+# par une version complète (vraies erreurs 404, pages pré-générées).
 /* /index.html 200

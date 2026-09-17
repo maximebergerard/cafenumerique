@@ -1,11 +1,5 @@
-import {
-  MessageCircle,
-  Bot,
-  MessageSquare,
-  ExternalLink,
-} from "lucide-react";
-import { Link } from "react-router-dom";
-import styles from "./RetenirPage.module.css";
+import { MessageCircle, Bot } from "lucide-react";
+import RecapFiche from "../components/RecapFiche.jsx";
 
 const SESSION = "Café numérique #8";
 
@@ -147,144 +141,14 @@ const ICON_MAP = {
 
 export default function RetenirPage8() {
   return (
-    <div className={styles.page}>
-      <nav className={styles.topNav}>
-        <Link to="/recaps" className={styles.topNavBack}>← Récaps</Link>
-      </nav>
-      <header className={styles.header}>
-        <div className={styles.session}>{SESSION}</div>
-        <h1 className={styles.title}>Ce qu'il faut retenir</h1>
-      </header>
-
-      <main className={styles.main}>
-
-        {/* ── Bloc vainqueurs ── */}
-        <div className={WINNERS ? styles.winnersCard : styles.winnersCardPending}>
-          <div className={styles.winnersTrophy}>🏆</div>
-          {WINNERS ? (
-            <>
-              <div className={styles.winnersLabel}>Légendes du Défi des pros</div>
-              <div className={styles.winnersNames}>
-                {WINNERS.join(' & ')}
-              </div>
-              <div className={styles.winnersSub}>
-                {WINNERS_SUB ?? 'Inscrits à jamais dans les annales du Café numérique #8'}
-              </div>
-            </>
-          ) : (
-            <>
-              <div className={styles.winnersLabel}>Légendes du Défi des pros</div>
-              <div className={styles.winnersPending}>??? & ???</div>
-              <div className={styles.winnersSub}>
-                Les vainqueurs seront révélés très bientôt...
-              </div>
-            </>
-          )}
-        </div>
-
-        {SECTIONS.map((section) => {
-          const Icon = ICON_MAP[section.icon] || Bot;
-          return (
-            <section key={section.title} className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <div className={styles.sectionIconWrap}>
-                  <Icon size={18} strokeWidth={2} />
-                </div>
-                <h2 className={styles.sectionTitle}>{section.title}</h2>
-              </div>
-
-              {section.blocks?.map((block) => (
-                <div key={block.heading} className={styles.block}>
-                  <div className={styles.blockHeading}>{block.heading}</div>
-
-                  {block.items && (
-                    <ul className={styles.itemList}>
-                      {block.items.map(([label, value]) => (
-                        <li key={label} className={styles.item}>
-                          <span className={styles.itemLabel}>{label}</span>
-                          <span className={styles.itemValue}>{value}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {block.steps && (
-                    <ol className={styles.steps}>
-                      {block.steps.map((s, i) => (
-                        <li key={i} className={styles.step}>
-                          <span className={styles.stepNum}>{i + 1}</span>
-                          <span className={styles.stepText}>{s}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  )}
-
-                  {block.bullets && (
-                    <ul className={styles.bullets}>
-                      {block.bullets.map((b) => (
-                        <li key={b}>{b}</li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {block.links && (
-                    <div className={styles.linkList}>
-                      {block.links.map((l) => (
-                        <a
-                          key={l.name}
-                          href={l.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.toolLink}
-                        >
-                          {l.name}
-                          <span className={styles.linkUrl}>
-                            {l.url.replace("https://", "")}
-                          </span>
-                        </a>
-                      ))}
-                    </div>
-                  )}
-
-                  {block.resource && (
-                    <a
-                      href={block.resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.resourceLink}
-                    >
-                      <ExternalLink size={14} strokeWidth={2} />
-                      {block.resource.label}
-                    </a>
-                  )}
-                </div>
-              ))}
-            </section>
-          );
-        })}
-
-        {/* Les 3 choses à retenir */}
-        <section className={styles.takeawaySection}>
-          <div className={styles.sectionHeader}>
-            <div className={`${styles.sectionIconWrap} ${styles.sectionIconWrapLight}`}>
-              <MessageSquare size={18} strokeWidth={2} />
-            </div>
-            <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>
-              Les 3 choses à retenir
-            </h2>
-          </div>
-          {TAKEAWAYS.map((t) => (
-            <div key={t.topic} className={styles.takeaway}>
-              <div className={styles.takeawayTopic}>{t.topic}</div>
-              <div className={styles.takeawayText}>{t.text}</div>
-            </div>
-          ))}
-        </section>
-      </main>
-
-      <footer className={styles.footer}>
-        Créé avec soin pour les Cafés numériques
-      </footer>
-    </div>
+    <RecapFiche
+      session={SESSION}
+      winners={WINNERS}
+      winnersLabel="Légendes du Défi des pros"
+      winnersSub={WINNERS_SUB}
+      sections={SECTIONS}
+      icons={ICON_MAP}
+      takeaways={TAKEAWAYS}
+    />
   );
 }

@@ -10,16 +10,13 @@ import styles from './AnimateurPage.module.css'
 const { interface: ui, liens } = atelierIa.animateur
 const CHEMIN_DEFIS = '/atelier-ia/defis'
 
-// Page privée : absente des menus et non indexée par les moteurs de recherche
+// Page privée : absente des menus et non indexée (noindex géré dans src/seo/routes.js)
 export default function AnimateurPage() {
   const [qrEnGrand, setQrEnGrand] = useState(false)
   const tailleQrGrand = Math.round(Math.min(window.innerWidth, window.innerHeight) * 0.6)
 
   return (
     <div className={styles.page}>
-      <meta name="robots" content="noindex, nofollow" />
-      <title>{ui.titrePage}</title>
-
       <div className={styles.inner}>
         <h1 className={styles.titrePage}>{ui.titrePage}</h1>
 

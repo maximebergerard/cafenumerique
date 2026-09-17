@@ -6,6 +6,14 @@ import styles from './RecapsPage.module.css'
 // Ajouter une entrée ici à chaque nouvelle séance
 const RECAPS = [
   {
+    id: 9,
+    path: '/retenir-cn9',
+    date: 'Septembre 2026',
+    title: 'Séance #9',
+    themes: ['Intelligence artificielle', 'Images générées', 'Deepfakes'],
+    desc: 'Bien écrire à une IA, ce qu\'il ne faut jamais lui confier, repérer une image ou une vidéo créée par IA et déjouer les arnaques aux deepfakes.',
+  },
+  {
     id: 8,
     path: '/retenir-cn8',
     date: 'Mai 2026',

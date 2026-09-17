@@ -74,8 +74,6 @@ export default function IaOuPasPage() {
 
   return (
     <div className={styles.page}>
-      <meta name="robots" content="noindex, nofollow" />
-
       <div className={`${styles.scene} ${reponseVisible ? styles.sceneAvecPanneau : ''}`}>
         <div className={styles.zoneMedia}>
           <div className={styles.cadreMedia}>

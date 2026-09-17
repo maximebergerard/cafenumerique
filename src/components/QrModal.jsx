@@ -5,7 +5,7 @@ import styles from './QrModal.module.css'
 // Conçu pour être projeté (par défaut : le mémo de fin de séance).
 export default function QrModal({
   onClose,
-  path = '/retenir-cn8',
+  path = '/retenir-cn9',
   label = 'Scannez pour garder le mémo',
   closeLabel = 'Fermer ✕',
   size = 220,
