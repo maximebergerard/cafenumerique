@@ -6,6 +6,11 @@ import Seo from "./components/Seo.jsx";
 // Pages publiques
 import HomePage from "./pages/HomePage.jsx";
 import AteliersPage from "./pages/AteliersPage.jsx";
+import AtelierPage from "./pages/AtelierPage.jsx";
+import OrganiserPage from "./pages/OrganiserPage.jsx";
+import AProposPage from "./pages/AProposPage.jsx";
+import GuidesPage from "./pages/GuidesPage.jsx";
+import GuidePage from "./pages/GuidePage.jsx";
 import SimulationsPage from "./pages/SimulationsPage.jsx";
 import RecapsPage from "./pages/RecapsPage.jsx";
 import RetenirPage from "./pages/RetenirPage.jsx";
@@ -44,6 +49,11 @@ export default function App() {
         {/* Pages publiques avec nav */}
         <Route path="/" element={<HomePage />} />
         <Route path="/ateliers" element={<AteliersPage />} />
+        <Route path="/ateliers/:slug" element={<AtelierPage />} />
+        <Route path="/organiser-un-atelier" element={<OrganiserPage />} />
+        <Route path="/guides" element={<GuidesPage />} />
+        <Route path="/guides/:slug" element={<GuidePage />} />
+        <Route path="/a-propos" element={<AProposPage />} />
         <Route path="/arnaques" element={<SimulationsPage />} />
         <Route path="/recaps" element={<RecapsPage />} />
         <Route path="/retenir" element={<RetenirPage />} />

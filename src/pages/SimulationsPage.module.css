@@ -81,7 +81,6 @@
 
 .card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .cardArnaque:hover { border-color: rgba(220,38,38,0.28); }

@@ -5,7 +5,7 @@
 //   favicon.svg, favicon-48.png, apple-touch-icon.png, icon-192.png, icon-512.png
 //   og-image.png (1200×630) : aperçu affiché quand on partage un lien du site
 //
-// Les textes utilisent les polices système du Mac (Avenir Next).
+// Titres en Young Serif (scripts/fonts, licence OFL), textes en Avenir Next (police système du Mac).
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { writeFileSync } from 'node:fs'
@@ -20,66 +20,66 @@ const COFFEE = `
   <path d="M10 2v2"/><path d="M14 2v2"/><path d="M6 2v2"/>
   <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/>`
 
-const icon = (rx) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3d2060"/><stop offset="1" stop-color="#27173A"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="${rx}" fill="url(#bg)"/>
-  <g transform="translate(13 13) scale(1.6)" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${COFFEE}</g>
+// Mêmes couleurs que src/index.css
+const INK = '#1F1B2D'
+const PAPER = '#F6F0E6'
+const TOMATO = '#D9481F'
+const MUSTARD = '#F0B23A'
+const SAGE = '#8FB595'
+const LILAC = '#B9A5EA'
+
+// Pastille tomate + tasse, comme le logo de la nav.
+// round : favicon (disque) ; sinon carré papier (iOS/Android arrondissent eux-mêmes)
+const icon = (round) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  ${round ? '' : `<rect width="64" height="64" fill="${PAPER}"/>`}
+  <circle cx="32" cy="32" r="${round ? 32 : 26}" fill="${TOMATO}"/>
+  <g transform="translate(${round ? 14 : 17.5} ${round ? 14 : 17.5}) scale(${round ? 1.5 : 1.21})" fill="none" stroke="${PAPER}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${COFFEE}</g>
 </svg>`
 
+// Aperçu de partage : papier, titre serif, tasse en formes (même dessin que CupComposition)
 const OG = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2d1a45"/><stop offset="1" stop-color="#1b0f28"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.78" cy="0.3" r="0.55">
-      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.45"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow2" cx="0.1" cy="1" r="0.5">
-      <stop offset="0" stop-color="#DB2777" stop-opacity="0.22"/><stop offset="1" stop-color="#DB2777" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <rect width="1200" height="630" fill="${PAPER}"/>
+  <rect x="0" y="600" width="1200" height="30" fill="${INK}"/>
 
-  <g transform="translate(88 92)">
-    <rect width="88" height="88" rx="22" fill="#8B5CF6" fill-opacity="0.18" stroke="#A78BFA" stroke-opacity="0.35"/>
-    <g transform="translate(20 20) scale(2)" fill="none" stroke="#DDD6FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${COFFEE}</g>
+  <g transform="translate(700 120) scale(1.18)">
+    <circle cx="238" cy="168" r="128" fill="${MUSTARD}"/>
+    <path d="M0 110 A110 110 0 0 1 110 0 L110 110 Z" fill="${LILAC}"/>
+    <rect x="338" y="18" width="48" height="48" rx="6" fill="${SAGE}" transform="rotate(14 362 42)"/>
+    <circle cx="344" cy="226" r="36" fill="none" stroke="${INK}" stroke-width="20"/>
+    <path d="M104 190 H344 A120 120 0 0 1 104 190 Z" fill="${TOMATO}"/>
+    <rect x="96" y="178" width="256" height="18" rx="9" fill="${INK}"/>
+    <rect x="62" y="324" width="330" height="20" rx="10" fill="${INK}"/>
+    <g fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round">
+      <path d="M178 150 q-18 -22 0 -44 t0 -44"/><path d="M228 146 q-18 -22 0 -44 t0 -44"/><path d="M278 150 q-18 -22 0 -44 t0 -44"/>
+    </g>
   </g>
 
-  <g font-family="Avenir Next, Helvetica Neue, Arial" fill="#FFFFFF">
-    <text x="88" y="318" font-size="92" font-weight="700" letter-spacing="-2">Cafés numériques</text>
-    <text x="90" y="384" font-size="36" font-weight="500" fill="#DDD6FE">Des ateliers conviviaux pour apprivoiser le numérique</text>
-    <text x="90" y="430" font-size="36" font-weight="500" fill="#DDD6FE">sans jargon, sans jugement, en petit groupe.</text>
+  <text x="80" y="118" font-family="Avenir Next" font-size="30" font-weight="600" fill="${TOMATO}">Cafés numériques · Maxime Bergerard</text>
+  <g font-family="Young Serif" font-size="84" fill="${INK}">
+    <text x="76" y="250">Des ateliers</text>
+    <text x="76" y="350">numériques</text>
+    <text x="76" y="450">conviviaux</text>
   </g>
-
-  <g font-family="Avenir Next, Helvetica Neue, Arial" font-size="26" font-weight="600" fill="#F5F2FF">
-    <rect x="88" y="492" width="252" height="54" rx="27" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-opacity="0.18"/>
-    <text x="214" y="528" text-anchor="middle">Arnaques en ligne</text>
-    <rect x="356" y="492" width="310" height="54" rx="27" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-opacity="0.18"/>
-    <text x="511" y="528" text-anchor="middle">Intelligence artificielle</text>
-    <rect x="682" y="492" width="232" height="54" rx="27" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-opacity="0.18"/>
-    <text x="798" y="528" text-anchor="middle">Réseaux sociaux</text>
-  </g>
+  <path d="M80 476 q20 -15 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="${MUSTARD}" stroke-width="9" stroke-linecap="round"/>
+  <text x="80" y="548" font-family="Avenir Next" font-size="32" font-weight="500" fill="#564F62">pour adultes et seniors · cafenumerique.fr</text>
 </svg>`
 
 function png(svg, width) {
   const resvg = new Resvg(svg, {
     fitTo: { mode: 'width', value: width },
-    font: { loadSystemFonts: true, defaultFontFamily: 'Avenir Next' },
+    font: {
+      loadSystemFonts: true,
+      fontFiles: [join(dirname(fileURLToPath(import.meta.url)), 'fonts', 'YoungSerif-Regular.ttf')],
+      defaultFontFamily: 'Avenir Next',
+    },
   })
   return resvg.render().asPng()
 }
 
-// Favicon arrondi ; icônes d'écran d'accueil carrées (iOS et Android arrondissent eux-mêmes)
-writeFileSync(join(pub, 'favicon.svg'), icon(14))
-writeFileSync(join(pub, 'favicon-48.png'), png(icon(14), 48))
-writeFileSync(join(pub, 'apple-touch-icon.png'), png(icon(0), 180))
-writeFileSync(join(pub, 'icon-192.png'), png(icon(0), 192))
-writeFileSync(join(pub, 'icon-512.png'), png(icon(0), 512))
+writeFileSync(join(pub, 'favicon.svg'), icon(true))
+writeFileSync(join(pub, 'favicon-48.png'), png(icon(true), 48))
+writeFileSync(join(pub, 'apple-touch-icon.png'), png(icon(false), 180))
+writeFileSync(join(pub, 'icon-192.png'), png(icon(false), 192))
+writeFileSync(join(pub, 'icon-512.png'), png(icon(false), 512))
 writeFileSync(join(pub, 'og-image.png'), png(OG, 1200))
 console.log('✓ Images générées dans public/')

@@ -8,7 +8,8 @@
 //
 // Ce script, à partir de src/seo/routes.js :
 //   1. vérifie que chaque <Route> de App.jsx a ses métadonnées (et inversement)
-//   2. écrit un fichier HTML par page, avec le bon <head>
+//   2. écrit un fichier HTML par page, avec le bon <head>, et pour les pages
+//      indexées le contenu complet pré-rendu (build SSR dans dist-ssr/)
 //   3. écrit un 404.html (noindex) et un _redirects qui renvoie un vrai code 404
 //   4. écrit le sitemap.xml
 // ─────────────────────────────────────────────────────────────────────────────
@@ -16,11 +17,11 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { schemaFor } from './schema.mjs'
 import {
   ROUTES,
   NOT_FOUND,
   SITE_URL,
-  SITE_NAME,
   DEFAULT_IMAGE,
   DEFAULT_DESCRIPTION,
   fullTitle,
@@ -29,14 +30,17 @@ import {
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
+const { render: renderApp } = await import(join(root, 'dist-ssr/entry-server.js'))
 
 // ── 1. App.jsx et routes.js doivent décrire les mêmes pages ──
+// App.jsx peut déclarer "/guides/:slug" alors que routes.js liste chaque guide.
 const appPaths = [...readFileSync(join(root, 'src/App.jsx'), 'utf8').matchAll(/path="([^"]+)"/g)]
   .map((m) => m[1])
   .filter((p) => p !== '*')
+const toRegex = (p) => new RegExp(`^${p.replace(/:[^/]+/g, '[^/]+')}$`)
 const seoPaths = ROUTES.map((r) => r.path)
-const missingSeo = appPaths.filter((p) => !seoPaths.includes(p))
-const missingApp = seoPaths.filter((p) => !appPaths.includes(p))
+const missingSeo = appPaths.filter((p) => !seoPaths.some((s) => s === p || toRegex(p).test(s)))
+const missingApp = seoPaths.filter((s) => !appPaths.some((p) => p === s || toRegex(p).test(s)))
 if (missingSeo.length || missingApp.length) {
   if (missingSeo.length) console.error('✗ Routes sans métadonnées dans src/seo/routes.js :', missingSeo)
   if (missingApp.length) console.error('✗ Métadonnées sans <Route> dans App.jsx :', missingApp)
@@ -55,37 +59,6 @@ function setAttr(html, selector, attr, value) {
   return html.replace(re, `$1${escape(value)}$2`)
 }
 
-const JSON_LD_HOME = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebSite',
-      '@id': `${SITE_URL}/#website`,
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-      inLanguage: 'fr-FR',
-      publisher: { '@id': `${SITE_URL}/#maxime` },
-    },
-    {
-      '@type': 'Person',
-      '@id': `${SITE_URL}/#maxime`,
-      name: 'Maxime Bergerard',
-      jobTitle: "Animateur d'ateliers numériques",
-      url: `${SITE_URL}/`,
-    },
-    {
-      '@type': 'Service',
-      name: 'Cafés numériques',
-      serviceType: "Ateliers d'inclusion numérique",
-      description:
-        'Ateliers de 2h en petit groupe (10 personnes maximum) pour apprivoiser le numérique : arnaques en ligne, intelligence artificielle, réseaux sociaux, messageries.',
-      provider: { '@id': `${SITE_URL}/#maxime` },
-      availableLanguage: 'fr',
-      url: `${SITE_URL}/`,
-    },
-  ],
-}
-
 function render(route, pathname) {
   const title = fullTitle(route)
   const url = canonicalUrl(pathname)
@@ -99,9 +72,15 @@ function render(route, pathname) {
   html = setAttr(html, '<meta property="og:image"', 'content', `${SITE_URL}${route.image ?? DEFAULT_IMAGE}`)
   html = setAttr(html, '<meta name="description"', 'content', route.description ?? DEFAULT_DESCRIPTION)
   html = setAttr(html, '<meta property="og:description"', 'content', route.description ?? DEFAULT_DESCRIPTION)
-  if (route.path === '/') {
-    const jsonLd = JSON.stringify(JSON_LD_HOME).replace(/</g, '\\u003c')
+  const schema = route.index && schemaFor(route)
+  if (schema) {
+    const jsonLd = JSON.stringify(schema).replace(/</g, '\\u003c')
     html = html.replace('</head>', `  <script type="application/ld+json">${jsonLd}</script>\n  </head>`)
+  }
+  // Contenu complet pour les pages indexées. Les simulations restent rendues
+  // côté navigateur uniquement (elles lisent l'heure, le stockage local…).
+  if (route.index) {
+    html = html.replace('<div id="root"></div>', `<div id="root">${renderApp(pathname)}</div>`)
   }
   return html
 }

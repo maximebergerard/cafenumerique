@@ -1,60 +1,28 @@
 import { Link } from "react-router-dom";
-import {
-  ShieldAlert,
-  Bot,
-  Smartphone,
-  Mail,
-  Users,
-  HelpCircle,
-  Play,
-  Theater,
-  FileText,
-} from "lucide-react";
+import { Sparkles, Theater, FileText } from "lucide-react";
 import Layout from "../components/Layout.jsx";
-import SceneDecor from "../components/SceneDecor.jsx";
+import { CupComposition, Squiggle, BandShapes } from "../components/Shapes.jsx";
+import { ICONS, DOT_COLORS } from "../components/icons.js";
+import { ATELIERS, SUR_MESURE } from "../content/ateliers.js";
+import { GUIDES } from "../content/guides.js";
+import { INTERVENANT, STRUCTURES } from "../content/site.js";
 import styles from "./HomePage.module.css";
-
-const THEMES = [
-  {
-    Icon: ShieldAlert,
-    label: "Arnaques en ligne",
-    desc: "Phishing, faux SMS, pop-ups alarmantes… apprendre à repérer les signaux d'alarme.",
-  },
-  {
-    Icon: Bot,
-    label: "Intelligence artificielle",
-    desc: "Comprendre ce que c'est, comment s'en servir, et pourquoi il faut vérifier les infos.",
-  },
-  {
-    Icon: Smartphone,
-    label: "Réseaux sociaux",
-    desc: "Vie privée, paramètres, lexique des jeunes, algorithmes et désinformation.",
-  },
-  {
-    Icon: Mail,
-    label: "Messagerie & mails",
-    desc: "Boîtes mail, pièces jointes, spam, et bonnes pratiques du quotidien.",
-  },
-];
 
 const HOW_IT_WORKS = [
   {
-    Icon: Users,
     step: "1",
     title: "Un atelier de 2h",
-    desc: "En petit groupe (6 à 10 personnes), dans un lieu de proximité.",
+    desc: "En petit groupe, jusqu'à 10 personnes, directement dans vos locaux.",
   },
   {
-    Icon: HelpCircle,
     step: "2",
     title: "Aucun prérequis",
-    desc: "On part de vos questions et de vos expériences réelles.",
+    desc: "Pensé pour les grands débutants. On part des questions et des expériences de chacun.",
   },
   {
-    Icon: Play,
     step: "3",
     title: "On apprend en faisant",
-    desc: "Jeux de rôle, simulations, mises en situation - pas de cours magistral.",
+    desc: "Théâtre-forum, simulations réalistes, pratique guidée : pas de cours magistral.",
   },
 ];
 
@@ -64,44 +32,70 @@ export default function HomePage() {
       <div className={styles.page}>
         {/* Hero */}
         <section className={styles.hero}>
-          <SceneDecor />
           <div className={styles.heroInner}>
-            <div className={styles.heroBadge}>Ateliers numériques</div>
-            <h1 className={styles.heroTitle}>Les Cafés numériques</h1>
+            <div className={styles.heroText}>
+            <p className={styles.heroBadge}>Cafés numériques · Maxime Bergerard</p>
+            <h1 className={styles.heroTitle}>
+              Des ateliers numériques{" "}
+              <span className={styles.marked}>
+                conviviaux
+                <Squiggle className={styles.squiggle} />
+              </span>{" "}
+              pour adultes et seniors
+            </h1>
             <p className={styles.heroSubtitle}>
-              Des ateliers conviviaux pour apprivoiser le numérique - sans
-              jargon, sans jugement, en petit groupe.
+              Arnaques en ligne, intelligence artificielle, WhatsApp : on
+              apprivoise le numérique sans jargon, sans jugement, en petit
+              groupe.
             </p>
             <div className={styles.heroCtas}>
-              <Link to="/contact" className={styles.ctaPrimary}>
+              <Link to="/organiser-un-atelier" className={styles.ctaPrimary}>
                 Organiser un atelier
               </Link>
               <Link to="/ateliers" className={styles.ctaSecondary}>
-                Découvrir le format →
+                Découvrir les ateliers
               </Link>
             </div>
+            </div>
+            <CupComposition className={styles.heroArt} />
           </div>
         </section>
 
-        {/* Les thèmes */}
+        {/* Les ateliers */}
         <section className={styles.section}>
           <div className={styles.sectionInner}>
-            <h2 className={styles.sectionTitle}>Les thèmes abordés</h2>
+            <h2 className={styles.sectionTitle}>Les ateliers</h2>
             <p className={styles.sectionDesc}>
               Chaque atelier se concentre sur un sujet du quotidien numérique.
             </p>
             <div className={styles.themesGrid}>
-              {THEMES.map(({ Icon, label, desc }) => (
-                <div key={label} className={styles.themeCard}>
-                  <div className={styles.themeIconWrap}>
-                    <Icon size={22} strokeWidth={1.75} />
-                  </div>
-                  <div>
-                    <div className={styles.themeLabel}>{label}</div>
-                    <div className={styles.themeDesc}>{desc}</div>
-                  </div>
+              {ATELIERS.map((a, i) => {
+                const Icon = ICONS[a.icon];
+                return (
+                  <Link
+                    key={a.slug}
+                    to={`/ateliers/${a.slug}`}
+                    className={styles.themeCard}
+                  >
+                    <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}>
+                      <Icon size={22} strokeWidth={1.75} />
+                    </div>
+                    <div>
+                      <h3 className={styles.themeLabel}>{a.nom}</h3>
+                      <p className={styles.themeDesc}>{a.accroche}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+              <Link to="/contact" className={styles.themeCard}>
+                <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[ATELIERS.length % DOT_COLORS.length] }}>
+                  <Sparkles size={22} strokeWidth={1.75} />
                 </div>
-              ))}
+                <div>
+                  <h3 className={styles.themeLabel}>{SUR_MESURE.titre}</h3>
+                  <p className={styles.themeDesc}>{SUR_MESURE.texte}</p>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -111,27 +105,65 @@ export default function HomePage() {
           <div className={styles.sectionInner}>
             <h2 className={styles.sectionTitle}>Comment ça marche ?</h2>
             <div className={styles.stepsRow}>
-              {HOW_IT_WORKS.map(({ Icon, step, title, desc }) => (
+              {HOW_IT_WORKS.map(({ step, title, desc }) => (
                 <div key={step} className={styles.step}>
                   <div className={styles.stepNum}>{step}</div>
-                  <Icon
-                    size={20}
-                    strokeWidth={1.75}
-                    className={styles.stepIcon}
-                  />
-                  <div className={styles.stepTitle}>{title}</div>
-                  <div className={styles.stepDesc}>{desc}</div>
+                  <h3 className={styles.stepTitle}>{title}</h3>
+                  <p className={styles.stepDesc}>{desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Ressources */}
+        {/* Pour qui */}
         <section className={styles.section}>
           <div className={styles.sectionInner}>
-            <h2 className={styles.sectionTitle}>Ressources disponibles</h2>
+            <h2 className={styles.sectionTitle}>Pour votre structure</h2>
+            <p className={styles.sectionDesc}>
+              J'interviens auprès des structures qui accueillent des adultes
+              et des seniors.{" "}
+              <Link to="/organiser-un-atelier">Comment ça se passe</Link>
+            </p>
+            <div className={styles.themesGrid}>
+              {STRUCTURES.map((s, i) => {
+                const Icon = ICONS[s.icon];
+                return (
+                  <div key={s.titre} className={styles.themeCard}>
+                    <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}>
+                      <Icon size={22} strokeWidth={1.75} />
+                    </div>
+                    <div>
+                      <h3 className={styles.themeLabel}>{s.titre}</h3>
+                      <p className={styles.themeDesc}>{s.texte}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Ressources */}
+        <section className={`${styles.section} ${styles.sectionAlt}`}>
+          <div className={styles.sectionInner}>
+            <h2 className={styles.sectionTitle}>Ressources gratuites</h2>
+            <p className={styles.sectionDesc}>
+              Pour les participants, et pour tous ceux qui veulent se protéger.
+            </p>
             <div className={styles.resourcesRow}>
+              {GUIDES.map((g) => (
+                <Link
+                  key={g.slug}
+                  to={`/guides/${g.slug}`}
+                  className={styles.resourceCard}
+                >
+                  <div>
+                    <div className={styles.resourceLabel}>{g.titre}</div>
+                    <div className={styles.resourceDesc}>Guide · {g.theme}</div>
+                  </div>
+                </Link>
+              ))}
               <Link to="/arnaques" className={styles.resourceCard}>
                 <div className={styles.resourceIconWrap}>
                   <Theater size={24} strokeWidth={1.75} />
@@ -141,11 +173,9 @@ export default function HomePage() {
                     Simulations d'arnaques
                   </div>
                   <div className={styles.resourceDesc}>
-                    6 mises en situation interactives à explorer en binôme ou en
-                    groupe.
+                    Des mises en situation réalistes pour s'entraîner.
                   </div>
                 </div>
-                <span className={styles.resourceArrow}>→</span>
               </Link>
               <Link to="/recaps" className={styles.resourceCard}>
                 <div className={styles.resourceIconWrap}>
@@ -154,26 +184,36 @@ export default function HomePage() {
                 <div>
                   <div className={styles.resourceLabel}>Récaps des séances</div>
                   <div className={styles.resourceDesc}>
-                    Les fiches "ce qu'il faut retenir" à consulter après chaque
-                    atelier.
+                    Les fiches « ce qu'il faut retenir » après chaque atelier.
                   </div>
                 </div>
-                <span className={styles.resourceArrow}>→</span>
               </Link>
             </div>
           </div>
         </section>
 
+        {/* Intervenant */}
+        <section className={styles.section}>
+          <div className={styles.sectionInner}>
+            <h2 className={styles.sectionTitle}>L'intervenant</h2>
+            <p className={styles.sectionDesc}>
+              <strong>{INTERVENANT.nom}</strong>, {INTERVENANT.role.charAt(0).toLowerCase() + INTERVENANT.role.slice(1)}.{" "}
+              {INTERVENANT.bio[1]}{" "}
+              <Link to="/a-propos">En savoir plus</Link>
+            </p>
+          </div>
+        </section>
+
         {/* CTA contact */}
         <section className={`${styles.section} ${styles.sectionContact}`}>
-          <SceneDecor />
+          <BandShapes className={styles.contactShapes} />
           <div className={styles.sectionInner}>
             <h2 className={styles.contactTitle}>
               Vous souhaitez organiser un atelier ?
             </h2>
             <p className={styles.contactDesc}>
-              Que ce soit pour une association, une mairie, une bibliothèque ou
-              un groupe informel - contactez-moi pour en discuter.
+              Médiathèque, mairie, résidence seniors, association : parlons
+              de votre public, le programme s'adapte à vos besoins.
             </p>
             <Link to="/contact" className={styles.ctaPrimary}>
               Écrire à Maxime
