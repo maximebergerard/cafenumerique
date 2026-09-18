@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Seo from "./components/Seo.jsx";
+import PageTransition from "./components/PageTransition.jsx";
 
 // Pages publiques
 import HomePage from "./pages/HomePage.jsx";
@@ -50,6 +51,7 @@ export default function App() {
           et hydratées) ; les simulations et supports d'animation se chargent
           seulement quand on ouvre leur adresse. */}
       <Suspense fallback={null}>
+      <PageTransition>
       <Routes>
         {/* Pages publiques avec nav */}
         <Route path="/" element={<HomePage />} />
@@ -94,6 +96,7 @@ export default function App() {
         {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </PageTransition>
       </Suspense>
     </>
   );
