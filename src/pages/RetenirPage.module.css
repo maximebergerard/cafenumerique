@@ -1,25 +1,6 @@
-.page {
-  min-height: 100vh;
-  background: var(--c-bg);
-  font-family: 'DM Sans', sans-serif;
-  color: var(--c-text);
-}
-
-/* ── Top nav ── */
-.topNav {
-  background: var(--c-surface);
-  border-bottom: 1px solid var(--c-border-subtle);
-  padding: 10px 1.5rem;
-}
-
-.topNavBack {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--c-text-3);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.topNavBack:hover { color: var(--c-text); }
+/* ── Fil d'Ariane (aligné sur celui des guides et des ateliers) ── */
+.crumbsBar { padding: 1rem 1.5rem; }
+.crumbs { max-width: 1040px; margin: 0 auto; }
 
 /* ── Header ── */
 .header {
@@ -409,12 +390,4 @@
   font-size: 0.9rem;
   color: rgba(255,255,255,0.82);
   line-height: 1.55;
-}
-
-/* ── Footer ── */
-.footer {
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.78rem;
-  color: var(--c-text-3);
 }

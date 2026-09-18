@@ -28,6 +28,7 @@ const website = {
 }
 
 // Fil d'Ariane déduit de l'adresse : /guides/faux-sms-colis → Accueil › Guides › titre
+// Les fiches récap (/retenir, /retenir-cn9…) sont rangées sous Récaps, comme à l'écran.
 const SECTION_LABELS = { ateliers: 'Les ateliers', guides: 'Guides' }
 function breadcrumb(route) {
   const parts = route.path.split('/').filter(Boolean)
@@ -35,6 +36,9 @@ function breadcrumb(route) {
   const items = [{ name: 'Accueil', url: `${SITE_URL}/` }]
   if (parts.length > 1 && SECTION_LABELS[parts[0]]) {
     items.push({ name: SECTION_LABELS[parts[0]], url: canonicalUrl(`/${parts[0]}`) })
+  }
+  if (route.path.startsWith('/retenir')) {
+    items.push({ name: 'Récaps', url: canonicalUrl('/recaps') })
   }
   items.push({ name: route.title, url: canonicalUrl(route.path) })
   return {

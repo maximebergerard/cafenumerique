@@ -21,6 +21,8 @@
 
 .heroShapes { width: 100%; height: auto; }
 
+.heroCrumbs { margin-bottom: 2rem; }
+
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -28,7 +30,6 @@
   list-style: none;
   font-size: 0.88rem;
   color: var(--c-text-2);
-  margin-bottom: 2rem;
 }
 
 .breadcrumb a { color: var(--c-text-2); text-underline-offset: 3px; }

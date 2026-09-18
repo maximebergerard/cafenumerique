@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useLocation } from 'react-router-dom'
 import { Coffee, Menu, X } from 'lucide-react'
 import { useLargeFont } from '../hooks/useLargeFont.js'
 import styles from './Layout.module.css'
@@ -10,7 +10,8 @@ const NAV_LINKS = [
   { to: '/ateliers', label: 'Les ateliers' },
   { to: '/guides', label: 'Guides' },
   { to: '/arnaques', label: 'Simulations' },
-  { to: '/recaps', label: 'Récaps' },
+  // also : les fiches (/retenir, /retenir-cn9…) ne sont pas sous /recaps
+  { to: '/recaps', label: 'Récaps', also: '/retenir' },
   { to: '/a-propos', label: 'À propos' },
 ]
 
@@ -40,6 +41,8 @@ const FOOTER_COLUMNS = [
 export default function Layout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [large, toggleFont] = useLargeFont()
+  const { pathname } = useLocation()
+  const actif = (isActive, also) => isActive || (also && pathname.startsWith(also))
 
   return (
     <div className={styles.shell}>
@@ -51,13 +54,13 @@ export default function Layout({ children }) {
           </Link>
 
           <nav className={styles.nav}>
-            {NAV_LINKS.map(({ to, label, end }) => (
+            {NAV_LINKS.map(({ to, label, end, also }) => (
               <NavLink
                 key={to}
                 to={to}
                 end={end}
                 className={({ isActive }) =>
-                  `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
+                  `${styles.navLink} ${actif(isActive, also) ? styles.navLinkActive : ''}`
                 }
               >
                 {label}
@@ -82,13 +85,13 @@ export default function Layout({ children }) {
 
         {menuOpen && (
           <nav className={styles.mobileNav}>
-            {NAV_LINKS.map(({ to, label, end }) => (
+            {NAV_LINKS.map(({ to, label, end, also }) => (
               <NavLink
                 key={to}
                 to={to}
                 end={end}
                 className={({ isActive }) =>
-                  `${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ''}`
+                  `${styles.mobileNavLink} ${actif(isActive, also) ? styles.mobileNavLinkActive : ''}`
                 }
                 onClick={() => setMenuOpen(false)}
               >

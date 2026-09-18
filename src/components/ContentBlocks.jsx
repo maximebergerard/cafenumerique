@@ -2,23 +2,31 @@ import { Link } from 'react-router-dom'
 import { HeroShapes, BandShapes } from './Shapes.jsx'
 import styles from './Content.module.css'
 
-// En-tête des pages de contenu : fond papier, titre serif, formes à droite.
+// Fil d'Ariane : Accueil / … / page courante
 // crumbs : [{ to, label }] sans la page courante
+export function Breadcrumb({ crumbs = [], current, className }) {
+  return (
+    <nav aria-label="Fil d'Ariane" className={className}>
+      <ol className={styles.breadcrumb}>
+        <li><Link to="/">Accueil</Link></li>
+        {crumbs.map((c) => (
+          <li key={c.to}><Link to={c.to}>{c.label}</Link></li>
+        ))}
+        <li aria-current="page">{current}</li>
+      </ol>
+    </nav>
+  )
+}
+
+// En-tête des pages de contenu : fond papier, titre serif, formes à droite.
+// crumbs, current : voir Breadcrumb
 // shapes : numéro de la composition de formes (0 à 3)
 export function PageHero({ crumbs = [], current, badge, title, lead, shapes = 0, children }) {
   return (
     <header className={styles.hero}>
       <div className={styles.heroInner}>
         <div className={styles.heroText}>
-          <nav aria-label="Fil d'Ariane">
-            <ol className={styles.breadcrumb}>
-              <li><Link to="/">Accueil</Link></li>
-              {crumbs.map((c) => (
-                <li key={c.to}><Link to={c.to}>{c.label}</Link></li>
-              ))}
-              <li aria-current="page">{current}</li>
-            </ol>
-          </nav>
+          <Breadcrumb crumbs={crumbs} current={current} className={styles.heroCrumbs} />
           {badge && <p className={styles.badge}>{badge}</p>}
           <h1 className={styles.heroTitle}>{title}</h1>
           {lead && <p className={styles.heroLead}>{lead}</p>}

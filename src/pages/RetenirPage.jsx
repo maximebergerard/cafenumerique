@@ -5,7 +5,8 @@ import {
   MessageSquare,
   ExternalLink,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Layout from "../components/Layout.jsx";
+import { Breadcrumb } from "../components/ContentBlocks.jsx";
 import styles from "./RetenirPage.module.css";
 
 // ── Numéro de séance - à mettre à jour à chaque café numérique ──
@@ -133,16 +134,20 @@ const ICON_MAP = {
 
 export default function RetenirPage() {
   return (
-    <div className={styles.page}>
-      <nav className={styles.topNav}>
-        <Link to="/recaps" className={styles.topNavBack}>← Récaps</Link>
-      </nav>
+    <Layout>
+      <div className={styles.crumbsBar}>
+        <Breadcrumb
+          crumbs={[{ to: "/recaps", label: "Récaps" }]}
+          current={SESSION}
+          className={styles.crumbs}
+        />
+      </div>
       <header className={styles.header}>
         <div className={styles.session}>{SESSION}</div>
         <h1 className={styles.title}>Ce qu'il faut retenir</h1>
       </header>
 
-      <main className={styles.main}>
+      <div className={styles.main}>
         {SECTIONS.map((section) => {
           const Icon = ICON_MAP[section.icon] || ShieldAlert;
           return (
@@ -257,11 +262,7 @@ export default function RetenirPage() {
             </div>
           ))}
         </section>
-      </main>
-
-      <footer className={styles.footer}>
-        Créé avec soin pour les Cafés numériques
-      </footer>
-    </div>
+      </div>
+    </Layout>
   );
 }
