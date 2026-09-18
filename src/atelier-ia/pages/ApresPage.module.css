@@ -109,7 +109,7 @@
 }
 
 .outilNom {
-  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.35rem;
 }

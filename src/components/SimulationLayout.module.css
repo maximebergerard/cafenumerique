@@ -272,7 +272,7 @@
   font-weight: 700;
   color: white;
   margin-bottom: 0.75rem;
-  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
 }
 
 .conclusionBody {
@@ -345,7 +345,7 @@
   font-weight: 700;
   color: #F87171;
   margin-bottom: 0.75rem;
-  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
 }
 
 .actionModalBody {

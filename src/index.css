@@ -54,7 +54,7 @@
   --shadow-lg: 0 8px 28px rgba(39,23,58,0.13), 0 3px 8px rgba(39,23,58,0.07);
 
   /* ── Typographie ── */
-  --font-display: 'Sora', 'DM Sans', sans-serif;
+  --font-display: 'Montserrat', 'DM Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
   /* ── Transitions ── */
@@ -79,7 +79,8 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  letter-spacing: -0.015em;
+  /* Montserrat est large : on resserre un peu aux grandes tailles */
+  letter-spacing: -0.02em;
 }
 
 :focus-visible {

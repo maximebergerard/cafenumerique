@@ -95,7 +95,7 @@
 }
 
 .reponse {
-  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
   font-size: var(--ai-p-title);
   font-weight: 800;
   line-height: 1.15;
