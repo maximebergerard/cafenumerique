@@ -2,13 +2,14 @@
 // Génère les images de marque dans public/ (à relancer seulement si on change
 // le logo ou le slogan) :  node scripts/images.mjs
 //
-//   favicon.svg, favicon-48.png, apple-touch-icon.png, icon-192.png, icon-512.png
+//   favicon.svg, favicon.ico, favicon-48.png, apple-touch-icon.png, icon-192.png, icon-512.png
 //   og-image.png (1200×630) : aperçu affiché quand on partage un lien du site
 //
 // Les textes utilisent les polices système du Mac (Avenir Next).
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { writeFileSync } from 'node:fs'
+import { Buffer } from 'node:buffer'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Resvg } from '@resvg/resvg-js'
@@ -75,7 +76,33 @@ function png(svg, width) {
   return resvg.render().asPng()
 }
 
+// favicon.ico : c'est le fichier que Google va chercher en priorité pour
+// l'icône affichée dans ses résultats, et que réclament les vieux navigateurs.
+function ico(pngs) {
+  const header = Buffer.alloc(6)
+  header.writeUInt16LE(0, 0)
+  header.writeUInt16LE(1, 2) // type : icône
+  header.writeUInt16LE(pngs.length, 4)
+  let offset = 6 + pngs.length * 16
+  const entries = pngs.map(({ size, data }) => {
+    const e = Buffer.alloc(16)
+    e[0] = size >= 256 ? 0 : size // largeur
+    e[1] = size >= 256 ? 0 : size // hauteur
+    e.writeUInt16LE(1, 4) // plans
+    e.writeUInt16LE(32, 6) // bits par pixel
+    e.writeUInt32LE(data.length, 8)
+    e.writeUInt32LE(offset, 12)
+    offset += data.length
+    return e
+  })
+  return Buffer.concat([header, ...entries, ...pngs.map((p) => p.data)])
+}
+
 writeFileSync(join(pub, 'favicon.svg'), icon(true))
+writeFileSync(
+  join(pub, 'favicon.ico'),
+  ico([16, 32, 48].map((size) => ({ size, data: png(icon(true), size) }))),
+)
 writeFileSync(join(pub, 'favicon-48.png'), png(icon(true), 48))
 writeFileSync(join(pub, 'apple-touch-icon.png'), png(icon(false), 180))
 writeFileSync(join(pub, 'icon-192.png'), png(icon(false), 192))
