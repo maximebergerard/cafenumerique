@@ -1,7 +1,3 @@
-import { useId } from 'react'
-
-import styles from './Shapes.module.css'
-
 // Formes décoratives en aplats (pas de dégradés, pas d'ombres).
 // Toutes sont purement décoratives : aria-hidden.
 
@@ -13,27 +9,10 @@ const C = {
   lilac: 'var(--c-lilac)',
 }
 
-// Une vague verticale bien plus haute que la zone visible : en la faisant
-// défiler vers le haut d'exactement une période, la boucle est invisible.
-const PERIODE = 36
-
-function vague(x, basY) {
-  let d = `M${x} ${basY} q-14 -18 0 -${PERIODE}`
-  for (let i = 0; i < 9; i += 1) d += ` t0 -${PERIODE}`
-  return d
-}
-
 // Tasse de café construite avec des formes simples (page d'accueil)
 export function CupComposition({ className }) {
-  const fenetre = useId()
   return (
     <svg className={className} viewBox="0 0 420 380" aria-hidden="true" focusable="false">
-      <defs>
-        {/* Fenêtre par laquelle on voit la vapeur */}
-        <clipPath id={fenetre}>
-          <rect x="150" y="46" width="160" height="126" />
-        </clipPath>
-      </defs>
       {/* Soleil moutarde derrière */}
       <circle cx="238" cy="168" r="128" fill={C.amber} />
       {/* Quart de cercle lilas */}
@@ -47,12 +26,11 @@ export function CupComposition({ className }) {
       <rect x="96" y="178" width="256" height="18" rx="9" fill={C.ink} />
       {/* Soucoupe */}
       <rect x="62" y="324" width="330" height="20" rx="10" fill={C.ink} />
-      {/* Vapeur : de longues vagues défilent derrière une fenêtre invisible,
-          ce qui donne l'ondulation. Animation dans Shapes.module.css. */}
-      <g clipPath={`url(#${fenetre})`} fill="none" stroke={C.ink} strokeWidth="9" strokeLinecap="round">
-        <path className={styles.steam} d={vague(178, 168)} />
-        <path className={styles.steam} d={vague(228, 164)} />
-        <path className={styles.steam} d={vague(278, 168)} />
+      {/* Vapeur (sans animation pour le moment) */}
+      <g fill="none" stroke={C.ink} strokeWidth="9" strokeLinecap="round">
+        <path d="M178 150 q-18 -22 0 -44 t0 -44" />
+        <path d="M228 146 q-18 -22 0 -44 t0 -44" />
+        <path d="M278 150 q-18 -22 0 -44 t0 -44" />
       </g>
       {/* Pointillés */}
       <g fill={C.ink}>
