@@ -19,7 +19,7 @@ export default function GuidesPage() {
         <div className={styles.inner}>
           <div className={styles.grid}>
             {GUIDES.map((g) => (
-              <Link key={g.slug} to={`/guides/${g.slug}`} className={styles.card}>
+              <Link key={g.slug} to={`/guides/${g.slug}`} className={`${styles.card} reveal`}>
                 <div className={styles.cardKicker}>{g.theme}</div>
                 <h2 className={styles.cardTitle}>{g.titre}</h2>
                 <p className={styles.cardText}>{g.resume}</p>

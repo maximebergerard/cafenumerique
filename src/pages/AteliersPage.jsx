@@ -33,7 +33,7 @@ export default function AteliersPage() {
             {ATELIERS.map((a, i) => {
               const Icon = ICONS[a.icon]
               return (
-                <Link key={a.slug} to={`/ateliers/${a.slug}`} className={styles.card}>
+                <Link key={a.slug} to={`/ateliers/${a.slug}`} className={`${styles.card} reveal`}>
                   <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} strokeWidth={1.75} /></div>
                   <div className={styles.cardKicker}>{a.nom}</div>
                   <h3 className={styles.cardTitle}>{a.titre}</h3>
@@ -63,7 +63,7 @@ export default function AteliersPage() {
             {METHODE.map((m, i) => {
               const Icon = ICONS[m.icon]
               return (
-                <div key={m.titre} className={styles.card}>
+                <div key={m.titre} className={`${styles.card} reveal`}>
                   <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} strokeWidth={1.75} /></div>
                   <h3 className={styles.cardTitle}>{m.titre}</h3>
                   <p className={styles.cardText}>{m.texte}</p>

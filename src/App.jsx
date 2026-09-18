@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
@@ -14,37 +15,41 @@ import GuidePage from "./pages/GuidePage.jsx";
 import SimulationsPage from "./pages/SimulationsPage.jsx";
 import RecapsPage from "./pages/RecapsPage.jsx";
 import RetenirPage from "./pages/RetenirPage.jsx";
-import ChiffrementPage from "./pages/ChiffrementPage.jsx";
+const ChiffrementPage = lazy(() => import("./pages/ChiffrementPage.jsx"));
 import VideosPage from "./pages/VideosPage.jsx";
 import RetenirPage8 from "./pages/RetenirPage8.jsx";
 import RetenirPage9 from "./pages/RetenirPage9.jsx";
-import ScoresCn8Page from "./pages/ScoresCn8Page.jsx";
+const ScoresCn8Page = lazy(() => import("./pages/ScoresCn8Page.jsx"));
 import ContactPage from "./pages/ContactPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 // Scénarios (plein écran, sans nav)
-import LaPosteScenario from "./scenarios/laposte/LaPosteScenario.jsx";
-import LaPostePayment from "./scenarios/laposte/LaPostePayment.jsx";
-import SmsLaposte from "./scenarios/sms-laposte/SmsLaposte.jsx";
-import PopupMicrosoft from "./scenarios/popup-microsoft/PopupMicrosoft.jsx";
-import FacebookArnaque from "./scenarios/facebook-arnaque/FacebookArnaque.jsx";
-import WhatsappLucas from "./scenarios/whatsapp-lucas/WhatsappLucas.jsx";
-import SmsBanquePostale from "./scenarios/sms-banque-postale/SmsBanquePostale.jsx";
-import WhatsappFamille from "./scenarios/whatsapp-famille/WhatsappFamille.jsx";
-import WhatsappGroupe from "./scenarios/whatsapp-groupe/WhatsappGroupe.jsx";
+const LaPosteScenario = lazy(() => import("./scenarios/laposte/LaPosteScenario.jsx"));
+const LaPostePayment = lazy(() => import("./scenarios/laposte/LaPostePayment.jsx"));
+const SmsLaposte = lazy(() => import("./scenarios/sms-laposte/SmsLaposte.jsx"));
+const PopupMicrosoft = lazy(() => import("./scenarios/popup-microsoft/PopupMicrosoft.jsx"));
+const FacebookArnaque = lazy(() => import("./scenarios/facebook-arnaque/FacebookArnaque.jsx"));
+const WhatsappLucas = lazy(() => import("./scenarios/whatsapp-lucas/WhatsappLucas.jsx"));
+const SmsBanquePostale = lazy(() => import("./scenarios/sms-banque-postale/SmsBanquePostale.jsx"));
+const WhatsappFamille = lazy(() => import("./scenarios/whatsapp-famille/WhatsappFamille.jsx"));
+const WhatsappGroupe = lazy(() => import("./scenarios/whatsapp-groupe/WhatsappGroupe.jsx"));
 
 // Atelier IA
-import DefisListePage from "./atelier-ia/pages/DefisListePage.jsx";
-import DefiPage from "./atelier-ia/pages/DefiPage.jsx";
-import IaOuPasPage from "./atelier-ia/pages/IaOuPasPage.jsx";
-import ApresPage from "./atelier-ia/pages/ApresPage.jsx";
-import AnimateurPage from "./atelier-ia/pages/AnimateurPage.jsx";
+const DefisListePage = lazy(() => import("./atelier-ia/pages/DefisListePage.jsx"));
+const DefiPage = lazy(() => import("./atelier-ia/pages/DefiPage.jsx"));
+const IaOuPasPage = lazy(() => import("./atelier-ia/pages/IaOuPasPage.jsx"));
+const ApresPage = lazy(() => import("./atelier-ia/pages/ApresPage.jsx"));
+const AnimateurPage = lazy(() => import("./atelier-ia/pages/AnimateurPage.jsx"));
 
 export default function App() {
   return (
     <>
       <ScrollToTop />
       <Seo />
+      {/* Les pages publiques sont dans le paquet principal (elles sont pré-rendues
+          et hydratées) ; les simulations et supports d'animation se chargent
+          seulement quand on ouvre leur adresse. */}
+      <Suspense fallback={null}>
       <Routes>
         {/* Pages publiques avec nav */}
         <Route path="/" element={<HomePage />} />
@@ -89,6 +94,7 @@ export default function App() {
         {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </Suspense>
     </>
   );
 }

@@ -114,3 +114,36 @@ html.large-fonts {
 .font-toggle-btn:hover {
   opacity: 1;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Animations
+   Règle de base : rien d'indispensable ne dépend d'une animation, et tout
+   s'arrête si la personne a demandé à réduire les animations dans son système.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Apparition des blocs au défilement.
+   Géré par le navigateur (animation-timeline), sans JavaScript : si le
+   navigateur ne connaît pas, le contenu s'affiche normalement, sans rien casser. */
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: apparition linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 25%;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import styles from './Shapes.module.css'
+
 // Formes décoratives en aplats (pas de dégradés, pas d'ombres).
 // Toutes sont purement décoratives : aria-hidden.
 
@@ -26,8 +28,8 @@ export function CupComposition({ className }) {
       <rect x="96" y="178" width="256" height="18" rx="9" fill={C.ink} />
       {/* Soucoupe */}
       <rect x="62" y="324" width="330" height="20" rx="10" fill={C.ink} />
-      {/* Vapeur */}
-      <g fill="none" stroke={C.ink} strokeWidth="9" strokeLinecap="round">
+      {/* Vapeur : animée dans Shapes.module.css */}
+      <g className={styles.steam} fill="none" stroke={C.ink} strokeWidth="9" strokeLinecap="round">
         <path d="M178 150 q-18 -22 0 -44 t0 -44" />
         <path d="M228 146 q-18 -22 0 -44 t0 -44" />
         <path d="M278 150 q-18 -22 0 -44 t0 -44" />

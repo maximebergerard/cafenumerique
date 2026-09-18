@@ -44,9 +44,16 @@
   border-radius: 50%;
   background: var(--c-accent);
   color: var(--c-surface);
+  transition: background var(--t-base), transform var(--t-base);
 }
 
-.logo:hover .logoIcon { background: var(--c-primary); }
+.logo:hover .logoIcon {
+  background: var(--c-primary);
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.logo { transition: color var(--t-fast); }
+.logo:hover { color: var(--c-accent-hover); }
 
 /* Desktop nav */
 .nav {

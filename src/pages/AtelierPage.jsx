@@ -67,7 +67,7 @@ export default function AtelierPage() {
         <div className={styles.narrow}>
           <h2 className={styles.h2}>Le déroulé</h2>
           <p className={styles.lead}>Deux heures rythmées, qui s'adaptent au groupe.</p>
-          <ol className={styles.steps}>
+          <ol className={`${styles.steps} reveal`}>
             {atelier.deroule.map((d) => (
               <li key={d.titre}>
                 <span className={styles.stepTitle}>{d.titre}</span>
@@ -92,19 +92,19 @@ export default function AtelierPage() {
             <h2 className={styles.h2}>Pour aller plus loin</h2>
             <div className={styles.stack}>
               {guides.map((g) => (
-                <Link key={g.slug} to={`/guides/${g.slug}`} className={styles.card}>
+                <Link key={g.slug} to={`/guides/${g.slug}`} className={`${styles.card} reveal`}>
                   <span className={styles.cardKicker}>Guide</span>
                   <span className={styles.cardTitle}>{g.titre}</span>
                 </Link>
               ))}
               {atelier.simulations && (
-                <Link to={atelier.simulations} className={styles.card}>
+                <Link to={atelier.simulations} className={`${styles.card} reveal`}>
                   <span className={styles.cardKicker}>S'entraîner</span>
                   <span className={styles.cardTitle}>Les simulations d'arnaques</span>
                 </Link>
               )}
               {atelier.recap && (
-                <Link to={atelier.recap} className={styles.card}>
+                <Link to={atelier.recap} className={`${styles.card} reveal`}>
                   <span className={styles.cardKicker}>Exemple de fiche récap</span>
                   <span className={styles.cardTitle}>Ce que les participants ont retenu</span>
                 </Link>

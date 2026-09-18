@@ -30,7 +30,7 @@ export default function OrganiserPage() {
             {STRUCTURES.map((s, i) => {
               const Icon = ICONS[s.icon]
               return (
-                <div key={s.titre} className={styles.card}>
+                <div key={s.titre} className={`${styles.card} reveal`}>
                   <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} strokeWidth={1.75} /></div>
                   <h3 className={styles.cardTitle}>{s.titre}</h3>
                   <p className={styles.cardText}>{s.texte}</p>
@@ -45,7 +45,7 @@ export default function OrganiserPage() {
         <div className={styles.narrow}>
           <h2 className={styles.h2}>Comment ça se passe</h2>
           <p className={styles.lead}>De la première prise de contact à l'après-atelier.</p>
-          <ol className={styles.steps}>
+          <ol className={`${styles.steps} reveal`}>
             {ORGANISER.etapes.map((e) => (
               <li key={e.titre}>
                 <span className={styles.stepTitle}>{e.titre}</span>
@@ -83,7 +83,7 @@ export default function OrganiserPage() {
       <section className={`${styles.section} ${styles.sectionAlt}`}>
         <div className={styles.narrow}>
           <h2 className={styles.h2}>Questions fréquentes</h2>
-          <div className={styles.faq}>
+          <div className={`${styles.faq} reveal`}>
             {ORGANISER.faq.map((f) => (
               <details key={f.q}>
                 <summary>{f.q}</summary>

@@ -78,7 +78,7 @@ export default function GuidePage() {
           </nav>
 
           {guide.sections.map((s, i) => (
-            <section key={s.titre} id={ancre(i)} className={styles.articleSection}>
+            <section key={s.titre} id={ancre(i)} className={`${styles.articleSection} reveal`}>
               <h2>{s.titre}</h2>
               {s.blocs.map((b, j) => <Bloc key={j} bloc={b} />)}
             </section>
@@ -86,7 +86,7 @@ export default function GuidePage() {
 
           <div className={styles.aside}>
             {guide.simulation && (
-              <Link to={guide.simulation.path} className={styles.card}>
+              <Link to={guide.simulation.path} className={`${styles.card} reveal`}>
                 <div className={styles.cardIcon} style={{ background: DOT_COLORS[1] }}><Theater size={22} strokeWidth={1.75} /></div>
                 <div className={styles.cardKicker}>S'entraîner</div>
                 <span className={styles.cardTitle}>{guide.simulation.label}</span>
@@ -94,7 +94,7 @@ export default function GuidePage() {
               </Link>
             )}
             {atelier && (
-              <Link to={`/ateliers/${atelier.slug}`} className={styles.card}>
+              <Link to={`/ateliers/${atelier.slug}`} className={`${styles.card} reveal`}>
                 <div className={styles.cardIcon} style={{ background: DOT_COLORS[2] }}><Coffee size={22} strokeWidth={1.75} /></div>
                 <div className={styles.cardKicker}>L'atelier</div>
                 <span className={styles.cardTitle}>{atelier.titre}</span>
