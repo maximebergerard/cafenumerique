@@ -41,6 +41,13 @@ export default function DefiPage() {
             </span>
           </header>
 
+          <aside className={styles.rappel}>
+            <span className={styles.rappelTitre}>{ui.rappelTitre}</span>
+            <ul className={styles.rappelListe}>
+              {ui.rappel.map((point, i) => <li key={i}>{point}</li>)}
+            </ul>
+          </aside>
+
           <section className={styles.mission}>
             <h2 className={styles.missionTitre}>{ui.mission}</h2>
             <p>{defi.mission}</p>

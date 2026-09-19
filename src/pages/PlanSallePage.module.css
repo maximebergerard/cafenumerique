@@ -1,0 +1,146 @@
+.page { padding: 2.5rem 1.5rem 4rem; }
+
+.inner { max-width: 940px; margin: 0 auto; }
+
+.entete { margin-bottom: 2.5rem; }
+
+.titre { font-size: 2rem; color: var(--c-text); margin-bottom: 0.6rem; }
+
+.intro { color: var(--c-text-2); line-height: 1.7; max-width: 46em; }
+
+/* ── La salle : deux tables côte à côte ── */
+.salle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Une table et ses trois places, en grille : la place du haut au-dessus,
+   les deux autres de part et d'autre. Le côté libre est celui de l'écran. */
+.bloc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-areas:
+    ".      haut    ."
+    "gauche table   droite"
+    ".      nom     .";
+  gap: 0.75rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.zone {
+  grid-area: table;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  transform: rotate(var(--inclinaison));
+}
+
+.table {
+  position: absolute;
+  inset: 0;
+  background: var(--c-surface-alt);
+  border: 2px solid var(--c-border);
+  border-radius: 6px;
+}
+
+/* ── Les places autour de la table ── */
+.place {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.haut { grid-area: haut; }
+.gauche { grid-area: gauche; }
+.droite { grid-area: droite; }
+
+.placeLibelle {
+  font-size: 0.78rem;
+  color: var(--c-text-3);
+  text-align: center;
+}
+
+.champ {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.5rem 0.6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-text);
+  background: var(--c-surface);
+  border: 2px solid var(--c-border);
+  border-radius: var(--r-md);
+  text-align: center;
+}
+
+.champ::placeholder { font-weight: 400; color: var(--c-text-3); }
+
+.champ:focus {
+  outline: none;
+  border-color: var(--c-accent);
+  background: var(--c-accent-pale);
+}
+
+.nomTable {
+  grid-area: nom;
+  margin-top: 0.75rem;
+  font-weight: 700;
+  color: var(--c-text-2);
+}
+
+/* ── Repère de la salle ── */
+.ecran {
+  margin: 2rem auto 0;
+  max-width: 420px;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  background: var(--c-primary);
+  color: var(--c-surface);
+  border-radius: var(--r-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ── Barre du bas ── */
+.barre {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--c-border);
+  padding-top: 1.25rem;
+}
+
+.compteur { color: var(--c-text-2); font-size: 0.95rem; }
+
+.effacer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.5rem 1.1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--c-text);
+  background: var(--c-surface);
+  border: 2px solid var(--c-border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+
+.effacer:hover { border-color: var(--c-danger); color: var(--c-danger); }
+
+@media (max-width: 860px) {
+  .page { padding: 2rem 1rem 3rem; }
+  .salle { grid-template-columns: 1fr; gap: 3rem; }
+  .bloc { max-width: 420px; margin: 0 auto; }
+}

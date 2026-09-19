@@ -21,6 +21,7 @@ import VideosPage from "./pages/VideosPage.jsx";
 import RetenirPage8 from "./pages/RetenirPage8.jsx";
 import RetenirPage9 from "./pages/RetenirPage9.jsx";
 const ScoresCn8Page = lazy(() => import("./pages/ScoresCn8Page.jsx"));
+const PlanSallePage = lazy(() => import("./pages/PlanSallePage.jsx"));
 import ContactPage from "./pages/ContactPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 
@@ -81,6 +82,7 @@ export default function App() {
         <Route path="/whatsapp-groupe" element={<WhatsappGroupe />} />
         <Route path="/chiffrement" element={<ChiffrementPage />} />
         <Route path="/scores-cn8" element={<ScoresCn8Page key="cn8" />} />
+        <Route path="/plan-salle" element={<PlanSallePage />} />
 
         {/* Atelier IA */}
         <Route path="/atelier-ia/defis" element={<DefisListePage />} />

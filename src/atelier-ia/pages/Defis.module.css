@@ -184,3 +184,46 @@
 }
 
 .puces li::marker { color: var(--c-accent-hover); }
+
+/* ── Rappel des trois ingrédients, en haut de chaque défi ── */
+.rappel {
+  background: var(--c-accent-pale);
+  border: 1px solid var(--c-accent-light);
+  border-radius: var(--r-lg);
+  padding: 1rem 1.1rem;
+}
+
+.rappelTitre {
+  display: block;
+  font-weight: 700;
+  color: var(--c-accent-hover);
+  margin-bottom: 0.4rem;
+  font-size: var(--ai-text-small);
+}
+
+.rappelListe {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: var(--ai-text-small);
+  color: var(--c-text);
+}
+
+.rappelListe li { display: flex; gap: 0.6rem; }
+.rappelListe li::before { content: '›'; color: var(--c-accent-hover); font-weight: 700; }
+
+/* ── Lien vers la page d'après ── */
+.lienApres {
+  align-self: center;
+  margin-top: 0.5rem;
+  min-height: var(--ai-tap);
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  color: var(--ai-muted);
+  font-size: var(--ai-text-small);
+  text-underline-offset: 4px;
+}
+
+.lienApres:hover { color: var(--c-accent-hover); }

@@ -20,8 +20,8 @@ export const atelierIa = {
   // ═══════════════════════════════════════════════════════════════════════════
   defis: {
     interface: {
-      titrePage: "TODO: titre de la page des défis",
-      intro: "TODO: phrase d'accueil (ex. Choisissez le défi annoncé par l'animateur)",
+      titrePage: "Les défis",
+      intro: "Choisissez le défi annoncé par l'animateur.",
       numero: "Défi {n}",
       voirLeDefi: "Voir le défi",
       mission: "Votre mission",
@@ -31,6 +31,15 @@ export const atelierIa = {
       siVousBloquez: "Si vous bloquez",
       retourDefis: "Revenir aux défis",
       defiIntrouvable: "Ce défi n'existe pas ou a changé d'adresse.",
+      // Encadré rappelé en haut de chaque défi
+      rappelTitre: "Les trois ingrédients",
+      rappel: [
+        "Qui je suis et à qui je parle",
+        "Ce que je veux exactement, longueur comprise",
+        "Comment je veux que ça sonne",
+      ],
+      // Lien discret en bas de la liste, pour ceux qui vont vite
+      lienApres: "Déjà fini ? La page à garder pour après l'atelier",
     },
 
     // Structure par défi : id, titre, duree, mission, etapes[], socle[], bonus[], siVousBloquez[]
@@ -38,62 +47,72 @@ export const atelierIa = {
     liste: [
       {
         id: "defi-1",
-        titre: "TODO: titre du défi 1",
-        duree: "TODO: durée (ex. 15 min)",
-        mission: "TODO: mission du défi 1, 2 phrases maximum.",
+        titre: "Le mot au voisin",
+        duree: "20 min",
+        mission:
+          "Votre voisin se gare régulièrement devant votre portail. Vous voulez lui laisser un mot dans sa boîte aux lettres, ferme, mais sans se fâcher.",
         etapes: [
-          "TODO: étape 1 du défi 1",
-          "TODO: étape 2 du défi 1",
-          "TODO: étape 3 du défi 1",
+          "Manche 1 : demandez à l'IA d'écrire ce mot, comme vous le sentez.",
+          "On compare les résultats tous ensemble.",
+          "Manche 2 : reformulez votre demande, et ajoutez un détail vrai de votre situation (le prénom du voisin, son chien, le bonjour du matin).",
         ],
         socle: [
-          "TODO: point essentiel 1 du défi 1",
-          "TODO: point essentiel 2 du défi 1",
+          "Obtenir un mot plus court et plus personnel qu'à la manche 1.",
         ],
         bonus: [
-          "TODO: pour aller plus loin 1 du défi 1",
+          "Redemandez la même chose en deux lignes maximum.",
         ],
         siVousBloquez: [
-          "TODO: aide 1 du défi 1",
-          "TODO: aide 2 du défi 1",
+          "Qu'est-ce que je sais de la situation que la machine ne peut pas deviner ?",
+          "Dites-lui la longueur que vous voulez.",
+          "Dites-lui sur quel ton vous voulez que ça sonne.",
         ],
       },
       {
         id: "defi-2",
-        titre: "TODO: titre du défi 2",
-        duree: "TODO: durée",
-        mission: "TODO: mission du défi 2, 2 phrases maximum.",
+        titre: "La commande impossible",
+        duree: "15 min",
+        mission:
+          "Reproduire l'image affichée à l'écran. Un seul prompt, un seul essai, un seul téléphone par binôme.",
         etapes: [
-          "TODO: étape 1 du défi 2",
-          "TODO: étape 2 du défi 2",
+          "Regardez l'image et listez tout ce que vous y voyez.",
+          "Écrivez votre demande d'un seul coup.",
+          "Envoyez votre résultat dans le groupe WhatsApp.",
         ],
         socle: [
-          "TODO: point essentiel 1 du défi 2",
+          "Avoir décrit au moins quatre éléments de l'image.",
         ],
         bonus: [
-          "TODO: pour aller plus loin 1 du défi 2",
+          "Après la révélation du vrai prompt, corrigez une seule chose.",
         ],
         siVousBloquez: [
-          "TODO: aide 1 du défi 2",
+          "Qui ou quoi : le personnage principal.",
+          "Quoi : ce qu'il est en train de faire.",
+          "Comment : le décor, l'époque, l'angle de vue.",
         ],
       },
       {
         id: "defi-3",
-        titre: "TODO: titre du défi 3",
-        duree: "TODO: durée",
-        mission: "TODO: mission du défi 3, 2 phrases maximum.",
+        titre: "Le génie du quotidien",
+        duree: "12 min",
+        mission:
+          "Trouvez-lui un vrai travail : quelque chose qui vous sert pour de vrai cette semaine.",
         etapes: [
-          "TODO: étape 1 du défi 3",
-          "TODO: étape 2 du défi 3",
+          "Tirez deux papiers, gardez celui que vous préférez. Ou gardez votre propre idée si vous en avez une.",
+          "Formulez votre demande avec les trois ingrédients.",
+          "Relancez au moins une fois pour améliorer le résultat.",
+          "Passez votre téléphone à la table d'à côté.",
         ],
         socle: [
-          "TODO: point essentiel 1 du défi 3",
+          "Obtenir un résultat que vous pourriez vraiment utiliser.",
         ],
         bonus: [
-          "TODO: pour aller plus loin 1 du défi 3",
+          "Demandez le même contenu dans un autre format.",
         ],
         siVousBloquez: [
-          "TODO: aide 1 du défi 3",
+          "Dites-lui pour qui c'est.",
+          "Dites-lui ce que vous voulez en faire.",
+          "Si le résultat est trop long, dites-le-lui.",
         ],
       },
     ],
@@ -232,10 +251,12 @@ export const atelierIa = {
   // ═══════════════════════════════════════════════════════════════════════════
   apres: {
     interface: {
-      titrePage: "TODO: titre de la page (ex. Après l'atelier IA)",
-      intro: "TODO: phrase d'introduction",
+      titrePage: "Après l'atelier",
+      intro: "Tout ce qu'on a fait ensemble, à retrouver tranquillement chez vous.",
       defiDeLaSemaine: "Le défi de la semaine",
       outils: "Les outils pour essayer",
+      outilsNote: "Tous gratuits pour ce qu'on a fait aujourd'hui.",
+      regles: "Les deux règles",
       ouvrir: "Ouvrir {nom}",
       recap: "Ce qu'on a vu ensemble",
       quiz: "Quelques questions pour s'entraîner",
@@ -251,69 +272,84 @@ export const atelierIa = {
 
     // Mis en avant tout en haut de la page
     defiDeLaSemaine: {
-      titre: "TODO: titre du défi de la semaine",
-      texte: "TODO: description du défi de la semaine",
+      titre: "Le papier que vous ne comprenez pas",
+      texte:
+        "Prenez en photo un papier que vous ne comprenez pas, et demandez-lui de vous l'expliquer en trois phrases. C'est tout.",
     },
 
     // Gros boutons, ouverts dans un nouvel onglet
     outils: [
-      { id: "chatgpt", nom: "ChatGPT", url: "https://chatgpt.com", description: "TODO: une phrase sur ChatGPT" },
-      { id: "claude", nom: "Claude", url: "https://claude.ai", description: "TODO: une phrase sur Claude" },
-      { id: "gemini", nom: "Gemini", url: "https://gemini.google.com", description: "TODO: une phrase sur Gemini" },
+      { id: "chatgpt", nom: "ChatGPT", url: "https://chatgpt.com", description: "Le plus connu. Celui qu'on a utilisé pour les défis." },
+      { id: "claude", nom: "Claude", url: "https://claude.ai", description: "Très à l'aise pour écrire des textes et des courriers." },
+      { id: "gemini", nom: "Gemini", url: "https://gemini.google.com", description: "Celui de Google, pratique depuis un téléphone Android." },
+    ],
+
+    // Encadré : les deux règles à ne pas oublier
+    regles: [
+      {
+        titre: "Ne tapez rien que vous ne diriez pas à voix haute dans une salle d'attente.",
+        texte:
+          "Jamais de numéro de sécurité sociale, de mot de passe, de coordonnées bancaires, ni la santé de quelqu'un d'autre.",
+      },
+      {
+        titre: "Elle a toujours l'air sûre d'elle, même quand elle se trompe.",
+        texte: "Dès que c'est un chiffre, une date, une adresse ou un prix, on vérifie ailleurs.",
+      },
     ],
 
     // Points courts
     recap: [
-      "TODO: point clé 1 de la séance",
-      "TODO: point clé 2 de la séance",
-      "TODO: point clé 3 de la séance",
+      "Les trois ingrédients d'une bonne demande : qui je suis et à qui je parle, ce que je veux exactement (longueur comprise), comment je veux que ça sonne.",
+      "On peut lui demander de recommencer autrement, autant de fois qu'on veut, sans tout retaper.",
+      "Une image parfaitement normale peut avoir été fabriquée : vous en avez fabriqué une vous-mêmes.",
     ],
 
     // 5 questions de remobilisation, à faire quelques jours après.
     // Chaque choix a son propre feedback explicatif (jamais un simple "faux").
     quiz: {
-      intro: "TODO: consigne (ex. À faire quelques jours après l'atelier, sans pression)",
-      conclusion: "TODO: message de fin, encourageant",
+      intro:
+        "À faire quelques jours après l'atelier, tranquillement, sans pression. Se tromper fait partie du jeu : c'est comme ça qu'on retient.",
+      conclusion:
+        "Voilà, vous en savez déjà plus que la plupart des gens sur le sujet. Le reste vient en s'en servant, un petit peu chaque semaine.",
       questions: [
         {
           id: "q1",
-          question: "TODO: question 1",
+          question: "Une réponse très bien écrite est forcément juste.",
           choix: [
-            { texte: "TODO: choix A", correct: true, feedback: "TODO: pourquoi c'est la bonne réponse" },
-            { texte: "TODO: choix B", correct: false, feedback: "TODO: explication bienveillante" },
-            { texte: "TODO: choix C", correct: false, feedback: "TODO: explication bienveillante" },
+            { texte: "Vrai", correct: false, feedback: "C'est le piège le plus courant : elle écrit toujours bien, même quand le fond est faux. La qualité du style ne dit rien de l'exactitude." },
+            { texte: "Faux", correct: true, feedback: "Exactement. Elle écrit toujours bien, ça ne dit rien sur le fond. Un chiffre, une date, une adresse : on vérifie ailleurs." },
           ],
         },
         {
           id: "q2",
-          question: "TODO: question 2",
+          question: "Ce que j'écris dans l'IA reste sur mon téléphone.",
           choix: [
-            { texte: "TODO: choix A", correct: false, feedback: "TODO: explication" },
-            { texte: "TODO: choix B", correct: true, feedback: "TODO: explication" },
+            { texte: "Vrai", correct: false, feedback: "Non : ce que vous tapez part chez une entreprise, sur ses ordinateurs, et ça y reste. D'où la règle de la salle d'attente." },
+            { texte: "Faux", correct: true, feedback: "Bien vu. Ça part chez une entreprise et ça reste chez elle. On n'y met donc rien qu'on ne dirait pas à voix haute dans une salle d'attente." },
           ],
         },
         {
           id: "q3",
-          question: "TODO: question 3",
+          question: "Je peux lui demander de recommencer autrement sans tout retaper.",
           choix: [
-            { texte: "TODO: choix A", correct: false, feedback: "TODO: explication" },
-            { texte: "TODO: choix B", correct: true, feedback: "TODO: explication" },
+            { texte: "Vrai", correct: true, feedback: "Oui, et autant de fois que vous voulez : « plus court », « plus simple », « plus chaleureux ». C'est même là que les bons résultats arrivent." },
+            { texte: "Faux", correct: false, feedback: "Si, justement : elle se souvient de la conversation en cours. Un simple « plus court » suffit, pas besoin de tout réécrire." },
           ],
         },
         {
           id: "q4",
-          question: "TODO: question 4",
+          question: "Une photo parfaitement normale peut avoir été fabriquée.",
           choix: [
-            { texte: "TODO: choix A", correct: true, feedback: "TODO: explication" },
-            { texte: "TODO: choix B", correct: false, feedback: "TODO: explication" },
+            { texte: "Vrai", correct: true, feedback: "Oui, et vous en avez fabriqué une vous-mêmes pendant l'atelier. D'où le réflexe : qui publie cette image, et où est-elle déjà apparue ?" },
+            { texte: "Faux", correct: false, feedback: "Si : souvenez-vous, vous en avez fabriqué une vous-mêmes pendant l'atelier, sans aucun défaut visible." },
           ],
         },
         {
           id: "q5",
-          question: "TODO: question 5",
+          question: "Pour qu'elle réponde bien, il faut lui dire qui je suis, ce que je veux exactement et sur quel ton.",
           choix: [
-            { texte: "TODO: choix A", correct: false, feedback: "TODO: explication" },
-            { texte: "TODO: choix B", correct: true, feedback: "TODO: explication" },
+            { texte: "Vrai", correct: true, feedback: "Ce sont les trois ingrédients. C'est ce qui a fait toute la différence entre la manche 1 et la manche 2 du mot au voisin." },
+            { texte: "Faux", correct: false, feedback: "Ce sont pourtant les trois ingrédients vus ensemble : sans eux, elle répond à côté ou beaucoup trop long." },
           ],
         },
       ],
@@ -323,11 +359,11 @@ export const atelierIa = {
     // premiereVisite : null pour ne rien afficher la première fois.
     // retours : on prend le message au plus grand `apresJours` atteint.
     messagesVisite: {
-      premiereVisite: "TODO: message de bienvenue (ou null)",
+      premiereVisite: null,
       retours: [
-        { apresJours: 0, texte: "TODO: retour le même jour" },
-        { apresJours: 1, texte: "TODO: retour après 1 jour ou plus" },
-        { apresJours: 7, texte: "TODO: retour après une semaine ou plus" },
+        { apresJours: 0, texte: "Content de vous revoir. Tout est là, prenez votre temps." },
+        { apresJours: 1, texte: "Vous revoilà : c'est exactement comme ça qu'on retient. Essayez les questions, plus bas." },
+        { apresJours: 7, texte: "Une semaine déjà. Si vous n'avez pas encore fait le défi de la semaine, c'est le moment." },
       ],
     },
   },

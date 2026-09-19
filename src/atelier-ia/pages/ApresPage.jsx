@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { ExternalLink, Heart, Target, CheckCircle2, Lightbulb } from 'lucide-react'
+import { ExternalLink, Heart, Target, CheckCircle2, Lightbulb, ShieldAlert } from 'lucide-react'
 import Layout from '../../components/Layout.jsx'
 import { atelierIa } from '../../content/atelier-ia.js'
 import { remplir } from '../texte.js'
 import styles from './ApresPage.module.css'
 
-const { interface: ui, defiDeLaSemaine, outils, recap, quiz, messagesVisite } = atelierIa.apres
+const { interface: ui, defiDeLaSemaine, outils, regles, recap, quiz, messagesVisite } = atelierIa.apres
 
 const CLE_DERNIERE_VISITE = 'atelier_ia_derniere_visite'
 
@@ -67,6 +67,7 @@ export default function ApresPage() {
 
           <section className={styles.section}>
             <h2 className={styles.titreSection}>{ui.outils}</h2>
+            <p className={styles.note}>{ui.outilsNote}</p>
             <ul className={styles.outils}>
               {outils.map(outil => (
                 <li key={outil.id}>
@@ -77,6 +78,21 @@ export default function ApresPage() {
                     </span>
                     <ExternalLink size={26} aria-hidden="true" />
                   </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.titreSection}>{ui.regles}</h2>
+            <ul className={styles.regles}>
+              {regles.map((regle, i) => (
+                <li key={i} className={styles.regle}>
+                  <ShieldAlert size={26} className={styles.regleIcone} aria-hidden="true" />
+                  <span>
+                    <strong className={styles.regleTitre}>{regle.titre}</strong>
+                    {regle.texte}
+                  </span>
                 </li>
               ))}
             </ul>

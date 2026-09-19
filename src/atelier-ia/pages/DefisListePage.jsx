@@ -33,6 +33,10 @@ export default function DefisListePage() {
               </li>
             ))}
           </ol>
+
+          <Link to="/atelier-ia/apres" className={styles.lienApres}>
+            {ui.lienApres}
+          </Link>
         </div>
       </div>
     </Layout>

@@ -143,6 +143,8 @@ export const ROUTES = [
   { path: '/whatsapp-groupe', title: 'Simulation : groupe WhatsApp', index: false },
   { path: '/chiffrement', title: 'Le chiffrement expliqué', index: false },
   { path: '/scores-cn8', title: 'Scores', index: false },
+  // Page privée d'animation : plan des tables de la médiathèque de Nandy
+  { path: '/plan-salle', title: 'Plan de salle', index: false },
 
   // ── Atelier IA : supports d'animation, non indexés ──
   { path: '/atelier-ia/defis', title: 'Atelier IA : les défis', index: false },
