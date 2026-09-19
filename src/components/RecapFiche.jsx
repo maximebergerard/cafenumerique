@@ -3,6 +3,12 @@ import Layout from "./Layout.jsx";
 import { Breadcrumb } from "./ContentBlocks.jsx";
 import styles from "../pages/RetenirPage.module.css";
 
+// "Nicole & Marie-Lise" à deux, "Nicole, Marie-Lise & Isabelle" au-delà
+function listeDePrenoms(noms) {
+  if (noms.length < 2) return noms.join('')
+  return `${noms.slice(0, -1).join(', ')} & ${noms.at(-1)}`
+}
+
 // Fiche "Ce qu'il faut retenir" d'une séance (à partir de la #8).
 // Chaque page RetenirPageN.jsx ne contient que ses données et appelle ce composant.
 //
@@ -45,7 +51,7 @@ export default function RecapFiche({
             <>
               <div className={styles.winnersLabel}>{winnersLabel}</div>
               <div className={styles.winnersNames}>
-                {winners.join(' & ')}
+                {listeDePrenoms(winners)}
               </div>
               <div className={styles.winnersSub}>
                 {winnersSub ?? `Inscrits à jamais dans les annales du ${session}`}

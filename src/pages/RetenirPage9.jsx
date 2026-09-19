@@ -3,11 +3,9 @@ import RecapFiche from "../components/RecapFiche.jsx";
 
 const SESSION = "Café numérique #9";
 
-// ✏️ VAINQUEURS — À remplir après la séance !
-// Remplace null par un tableau de prénoms, ex : ['Marie', 'Jean-Pierre']
-// Laisse null pour afficher le placeholder mystère
-const WINNERS = null;
-const WINNERS_SUB = null;
+// ✏️ VAINQUEURS de la séance
+const WINNERS = ['Nicole', 'Marie-Lise', 'Isabelle'];
+const WINNERS_SUB = 'Imbattables pour démasquer les images fabriquées 🔍';
 
 const SECTIONS = [
   {
