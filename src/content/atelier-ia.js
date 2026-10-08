@@ -49,10 +49,13 @@ export const atelierIa = {
         id: "defi-1",
         titre: "Le mot au voisin",
         duree: "20 min",
+        // Raconté comme une plainte, pas comme une consigne : sinon les participants
+        // recopient le texte tel quel dans l'IA et n'ont rien à formuler.
+        // Ni le format ni le ton ne sont donnés : c'est à eux de les trouver (manche 2).
         mission:
-          "Votre voisin se gare régulièrement devant votre portail. Vous voulez lui laisser un mot dans sa boîte aux lettres, ferme, mais sans se fâcher.",
+          "« Encore la voiture grise du n°14 devant mon portail ! C'est la troisième fois cette semaine. Ce matin, j'ai failli rater mon rendez-vous chez le kiné. Pourtant on se dit bonjour tous les matins, je n'ai pas envie qu'on se fâche… » Demain matin, un petit mot l'attend dans sa boîte aux lettres.",
         etapes: [
-          "Manche 1 : demandez à l'IA d'écrire ce mot, comme vous le sentez.",
+          "Manche 1 : expliquez la situation à l'IA avec vos propres mots. Interdit de recopier l'écran !",
           "On compare les résultats tous ensemble.",
           "Manche 2 : reformulez votre demande, et ajoutez un détail vrai de votre situation (le prénom du voisin, son chien, le bonjour du matin).",
         ],
