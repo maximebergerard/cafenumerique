@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Avis d'impôt 2026 (fictif) – démo atelier IA</title>
+<!--
+  Document FICTIF pour la démo de l'atelier IA : on le prend en photo avec
+  ChatGPT ou Claude et on demande « Explique-moi ce document en 3 phrases simples ».
+
+  Ce qu'il dit vraiment (réponse attendue) :
+  - C'est l'avis d'impôt 2026 sur les revenus 2025 de Mme Exemple, retraitée.
+  - Elle a trop payé (prélèvement sur sa retraite + crédit d'impôt pour son aide
+    à domicile) : on lui rembourse 547 € par virement, elle n'a rien à faire.
+  - Son taux de prélèvement baisse de 4,1 % à 3,2 % à partir de septembre 2026.
+
+  Pas de logo officiel, pas de vrai nom d'administration, mention « fictif » en pied de page.
+  PDF : supports/faux-avis-impot.pdf (régénérer avec Chrome headless, voir CLAUDE.md).
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #e9e9e9; }
+  body {
+    width: 210mm;
+    min-height: 296mm; /* un poil sous l'A4 : sinon Chrome crée une 2e page vide */
+    margin: 0 auto;
+    background: #fff;
+    color: #1a1a1a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 7.9pt;
+    line-height: 1.28;
+    padding: 7mm 11mm 4mm;
+    display: flex;
+    flex-direction: column;
+  }
+  @media print { html { background: #fff; } }
+
+  /* ── En-tête ── */
+  .top { display: grid; grid-template-columns: 1fr 78mm; gap: 6mm; }
+  .emetteur { font-size: 7.6pt; line-height: 1.35; }
+  .emetteur .bloc {
+    display: inline-block;
+    border-left: 3px solid #1a1a1a;
+    padding-left: 2.5mm;
+    margin-bottom: 3mm;
+    font-weight: bold;
+    font-size: 8pt;
+    text-transform: uppercase;
+    line-height: 1.25;
+  }
+  .refs { border: 0.6pt solid #555; font-size: 7.4pt; }
+  .refs h3 {
+    background: #d9d9d9;
+    font-size: 7.6pt;
+    padding: 1mm 2mm;
+    text-transform: uppercase;
+  }
+  .refs dl { display: grid; grid-template-columns: auto 1fr; gap: 0.6mm 2mm; padding: 1.5mm 2mm; }
+  .refs dt { color: #444; }
+  .refs dd { font-weight: bold; text-align: right; font-family: "Courier New", monospace; font-size: 7.6pt; white-space: nowrap; }
+
+  .adresse {
+    margin: 2mm 0 0 98mm;
+    font-family: "Courier New", monospace;
+    font-size: 9.4pt;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+  .ligne-tri { font-family: "Courier New", monospace; font-size: 6.5pt; color: #555; margin-bottom: 1mm; }
+
+  /* ── Titre ── */
+  .titre {
+    margin-top: 3mm;
+    border-top: 1.4pt solid #1a1a1a;
+    border-bottom: 0.6pt solid #1a1a1a;
+    padding: 1.6mm 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .titre h1 { font-size: 13pt; letter-spacing: 0.02em; }
+  .titre p { font-size: 8.4pt; font-weight: bold; }
+
+  /* ── Synthèse ── */
+  .synthese { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 3mm; border: 0.6pt solid #555; }
+  .synthese div { padding: 1.4mm 2.5mm; border-right: 0.6pt solid #555; }
+  .synthese div:last-child { border-right: 0; background: #ececec; }
+  .synthese span { display: block; font-size: 7pt; color: #444; text-transform: uppercase; }
+  .synthese strong { display: block; font-size: 11pt; margin-top: 0.8mm; font-family: "Courier New", monospace; }
+  .synthese small { display: block; font-size: 6.6pt; color: #444; margin-top: 0.5mm; }
+
+  /* ── Rubriques ── */
+  h2 {
+    margin-top: 2.2mm;
+    background: #d9d9d9;
+    font-size: 8pt;
+    padding: 0.9mm 2mm;
+    text-transform: uppercase;
+    display: flex;
+    gap: 2mm;
+  }
+  h2 b { font-weight: bold; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.8mm; }
+  td, th { padding: 0.32mm 2mm; vertical-align: top; }
+  th { text-align: left; font-size: 7pt; color: #444; font-weight: normal; border-bottom: 0.5pt solid #888; }
+  th.n { text-align: right; }
+  tr + tr td { border-top: 0.4pt dotted #aaa; }
+  td.code { width: 11mm; font-family: "Courier New", monospace; font-size: 7.6pt; color: #333; }
+  td.n { text-align: right; width: 20mm; font-family: "Courier New", monospace; font-size: 8pt; white-space: nowrap; }
+  tr.total td { font-weight: bold; border-top: 0.8pt solid #1a1a1a; }
+  tr.total td.n { font-weight: bold; }
+  .ref { color: #555; font-size: 7pt; }
+
+  .deux { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+
+  .encadre { border: 0.6pt solid #555; padding: 1.5mm 2.2mm; margin-top: 1.2mm; font-size: 7.4pt; }
+  .encadre p + p { margin-top: 1mm; }
+
+  .mentions { margin-top: 3mm; font-size: 6.2pt; color: #333; line-height: 1.3; columns: 4; column-gap: 4mm; text-align: justify; }
+  .mentions p { margin-bottom: 1mm; break-inside: avoid; }
+
+  /* ── Pied de page ── */
+  .pied {
+    margin-top: auto;
+    padding-top: 1mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 6.4pt;
+    color: #555;
+  }
+  .barres {
+    width: 52mm; height: 7mm;
+    background: repeating-linear-gradient(90deg,
+      #1a1a1a 0 1px, transparent 1px 3px, #1a1a1a 3px 5px, transparent 5px 6px,
+      #1a1a1a 6px 7px, transparent 7px 10px, #1a1a1a 10px 13px, transparent 13px 14px);
+  }
+  .fictif { font-size: 6.4pt; color: #777; text-align: center; }
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="emetteur">
+      <div class="bloc">Centre des finances publiques<br>de Villefictive</div>
+      <p>Service des impôts des particuliers (SIP)<br>
+      3 place de l'Hôtel des Finances – 77999 VILLEFICTIVE CEDEX</p>
+      <p style="margin-top:2mm">Accueil sur rendez-vous du lundi au vendredi de 8 h 45 à 12 h 00<br>
+      Pour toute correspondance, rappelez les références ci-contre</p>
+    </div>
+    <div class="refs">
+      <h3>Vos références</h3>
+      <dl>
+        <dt>Numéro fiscal</dt><dd>12 34 567 890 123</dd>
+        <dt>Référence de l'avis</dt><dd>26 77 A123456 78</dd>
+        <dt>N° de rôle / article</dt><dd>R0042 / 01318</dd>
+        <dt>Date d'établissement</dt><dd>31/07/2026</dd>
+        <dt>Date de mise en recouvrement</dt><dd>31/07/2026</dd>
+        <dt>Nombre de parts</dt><dd>1,00</dd>
+        <dt>Situation de famille</dt><dd>V</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="adresse">
+    <div class="ligne-tri">*0779990042* 01318 26 A IR</div>
+    Mme Exemple Michèle<br>
+    12 rue des Lilas<br>
+    77999 Villefictive
+  </div>
+
+  <div class="titre">
+    <h1>AVIS D'IMPÔT 2026</h1>
+    <p>Impôt sur les revenus de l'année 2025 · Régularisation du prélèvement à la source</p>
+  </div>
+
+  <div class="synthese">
+    <div><span>Impôt sur le revenu net</span><strong>786 €</strong><small>avant imputation des crédits (ligne 15)</small></div>
+    <div><span>Revenu fiscal de référence</span><strong>22 480 €</strong><small>art. 1417-IV du CGI</small></div>
+    <div><span>Solde de l'imposition</span><strong>− 547 €</strong><small>somme restituable, voir rubrique 5</small></div>
+  </div>
+
+  <h2><b>1</b> Détail des revenus déclarés et retenus</h2>
+  <table>
+    <tr><th></th><th>Nature</th><th class="n">Déclarant 1</th></tr>
+    <tr><td class="code">1AS</td><td>Pensions, retraites, rentes (montant brut déclaré)</td><td class="n">24 600</td></tr>
+    <tr><td class="code"></td><td>Déduction forfaitaire de 10 % <span class="ref">(art. 158-5-a du CGI, dans la limite du plafond par foyer)</span></td><td class="n">− 2 460</td></tr>
+    <tr><td class="code"></td><td>Pensions nettes imposables</td><td class="n">22 140</td></tr>
+    <tr><td class="code">2TR</td><td>Revenus de capitaux mobiliers soumis au prélèvement forfaitaire unique, non retenus au barème <span class="ref">(option 2OP non exercée)</span></td><td class="n">340</td></tr>
+    <tr><td class="code">6DE</td><td>Charges et déficits déductibles du revenu global</td><td class="n">0</td></tr>
+    <tr class="total"><td class="code"></td><td>Revenu net imposable au barème progressif</td><td class="n">22 140</td></tr>
+  </table>
+
+  <h2><b>2</b> Calcul de l'impôt</h2>
+  <table>
+    <tr><td class="code">10</td><td>Droits simples calculés selon le barème <span class="ref">(art. 197-I du CGI, quotient familial : 22 140 / 1,00 part)</span></td><td class="n">1 159</td></tr>
+    <tr><td class="code">11</td><td>Plafonnement des effets du quotient familial</td><td class="n">sans objet</td></tr>
+    <tr><td class="code">12</td><td>Décote <span class="ref">(art. 197-I-4-a : 897 € − 45,25 % des droits simples)</span></td><td class="n">− 373</td></tr>
+    <tr><td class="code">13</td><td>Impôt après décote</td><td class="n">786</td></tr>
+    <tr><td class="code">14</td><td>Réductions d'impôt imputées <span class="ref">(art. 199 quater B et suivants)</span></td><td class="n">0</td></tr>
+    <tr class="total"><td class="code">15</td><td>Impôt sur le revenu net avant crédits d'impôt</td><td class="n">786</td></tr>
+    <tr><td class="code">7DB</td><td>Crédit d'impôt pour l'emploi d'un salarié à domicile : 50 % de 1 620 € de dépenses retenues <span class="ref">(art. 199 sexdecies)</span></td><td class="n">− 810</td></tr>
+    <tr class="total"><td class="code">16</td><td>Impôt sur le revenu net après imputation des crédits</td><td class="n">− 24</td></tr>
+  </table>
+
+  <div class="deux">
+    <div>
+      <h2><b>3</b> Prélèvements sociaux</h2>
+      <table>
+        <tr><td>Base : revenus du patrimoine et de placement</td><td class="n">340</td></tr>
+        <tr><td>CSG 9,2 % · CRDS 0,5 % · PS 7,5 % (total 17,2 %)</td><td class="n">58</td></tr>
+        <tr><td>Montant déjà prélevé par l'établissement payeur</td><td class="n">− 58</td></tr>
+        <tr class="total"><td>Reste dû au titre des prélèvements sociaux</td><td class="n">0</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2><b>4</b> Prélèvement à la source et avance</h2>
+      <table>
+        <tr><td>Retenue à la source opérée par les organismes verseurs (01/2025 à 12/2025, taux 4,1 %)</td><td class="n">− 1 009</td></tr>
+        <tr><td>Avance de réductions et crédits d'impôt versée le 15/01/2026 (60 %)</td><td class="n">+ 486</td></tr>
+        <tr class="total"><td>Total à imputer</td><td class="n">− 523</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="deux">
+  <div>
+  <h2><b>5</b> Solde de l'imposition et modalités</h2>
+  <table>
+    <tr><td>Impôt sur le revenu net après crédits (ligne 16)</td><td class="n">− 24</td></tr>
+    <tr><td>Prélèvement à la source et avance (rubrique 4)</td><td class="n">− 523</td></tr>
+    <tr class="total"><td>Solde : somme à restituer au contribuable</td><td class="n">− 547</td></tr>
+  </table>
+  <div class="encadre">
+    <p>La somme restituable sera versée par virement à compter du <b>24/07/2026</b> sur le compte bancaire FR76 •••• •••• •••• •••• •••• 123 dont les coordonnées sont détenues par l'administration. Aucune démarche n'est requise de votre part. En l'absence de coordonnées bancaires valides, la restitution est effectuée par lettre-chèque sur le Trésor.</p>
+    <p>Le solde négatif n'emporte aucune obligation de paiement. Il n'y a pas lieu d'y donner suite.</p>
+  </div>
+  </div>
+  <div>
+
+  <h2><b>6</b> Votre taux de prélèvement à la source</h2>
+  <div class="encadre">
+    <p>Taux personnalisé applicable à compter du <b>1<sup>er</sup> septembre 2026</b> : <b>3,2 %</b> (taux antérieur : 4,1 %). Ce taux, calculé à partir des revenus 2025 (impôt sur le revenu net hors crédits ÷ revenus imposables hors abattements), est transmis automatiquement à vos organismes verseurs (caisses de retraite) par l'intermédiaire de la déclaration sociale nominative (DSN) ou de la déclaration PASRAU.</p>
+    <p>Vous pouvez à tout moment opter pour un taux non personnalisé ou moduler votre taux dans votre espace particulier, rubrique « Gérer mon prélèvement à la source », sous réserve que l'écart excède 5 % et 200 € (art. 204 J du CGI).</p>
+  </div>
+  </div>
+  </div>
+
+  <div class="mentions">
+    <p><b>Plafond épargne retraite.</b> Plafond de déduction des cotisations d'épargne retraite pour les revenus 2026 : 4 637 € (plafond 2026 non utilisé 2025, 2024, 2023 inclus). Ce plafond n'est pas reporté sur l'avis du conjoint en l'absence de mutualisation (case 6QR non cochée).</p>
+    <p><b>Contribution exceptionnelle sur les hauts revenus.</b> Votre revenu fiscal de référence étant inférieur au seuil prévu à l'article 223 sexies du CGI, vous n'êtes pas redevable de cette contribution.</p>
+    <p><b>Seuil de mise en recouvrement.</b> Conformément à l'article 1657-1 bis du CGI, les cotisations d'impôt sur le revenu inférieures à 61 € avant imputation des crédits ne sont pas mises en recouvrement. Les restitutions inférieures à 8 € ne sont pas effectuées.</p>
+    <p><b>Délais de réclamation.</b> Vous pouvez contester cette imposition jusqu'au 31 décembre 2028 (art. R*196-1 du Livre des procédures fiscales). La réclamation ne dispense pas du paiement des sommes mises à votre charge, sauf demande expresse de sursis de paiement (art. L. 277 du LPF).</p>
+  </div>
+
+  <div class="pied">
+    <div>Réf. 2042-AVIS-IR · Édition 07/2026 · Page 1/1</div>
+    <div class="fictif">Document fictif réalisé pour un atelier Café numérique, sans valeur administrative.<br>Noms, adresse et références imaginaires.</div>
+    <div class="barres"></div>
+  </div>
+
+</body>
+</html>
