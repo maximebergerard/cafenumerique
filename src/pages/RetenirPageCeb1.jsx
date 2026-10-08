@@ -1,11 +1,14 @@
 import { MessageSquareText, ScanSearch, ShieldAlert, Bot } from "lucide-react";
 import RecapFiche from "../components/RecapFiche.jsx";
 
-const SESSION = "Café numérique #9";
+// Châtelet-en-Brie a sa propre numérotation (Nandy : #7, #8, #9…)
+const SESSION = "Café numérique #1";
+const LIEU = "Châtelet-en-Brie";
 
-// ✏️ VAINQUEURS de la séance
-const WINNERS = ['Nicole', 'Marie-Lise', 'Isabelle'];
-const WINNERS_SUB = 'Imbattables pour démasquer les images fabriquées 🔍';
+// ✏️ VAINQUEURS de la séance : null tant qu'ils ne sont pas connus,
+// puis ['Prénom', 'Prénom'] (et une phrase dans WINNERS_SUB)
+const WINNERS = null;
+const WINNERS_SUB = undefined;
 
 const SECTIONS = [
   {
@@ -157,11 +160,11 @@ const ICON_MAP = {
   ia: Bot,
 };
 
-export default function RetenirPage9() {
+export default function RetenirPageCeb1() {
   return (
     <RecapFiche
       session={SESSION}
-      lieu="Nandy"
+      lieu={LIEU}
       winners={WINNERS}
       winnersLabel="Champions de « IA ou pas ? »"
       winnersSub={WINNERS_SUB}

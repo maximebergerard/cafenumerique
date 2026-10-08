@@ -19,6 +19,31 @@
   max-width: 560px;
 }
 
+/* Une section par lieu d'atelier */
+.lieu { margin-bottom: 3rem; scroll-margin-top: 6rem; }
+
+.lieuTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--c-text);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.lieuTitle svg { color: var(--c-accent); flex-shrink: 0; }
+
+.lieuCount {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--c-text-3);
+}
+
 .list { display: flex; flex-direction: column; gap: 1rem; }
 
 /* Card */

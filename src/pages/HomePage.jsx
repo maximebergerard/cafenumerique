@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Sparkles, Theater, FileText } from "lucide-react";
 import Layout from "../components/Layout.jsx";
 import { CupComposition, Squiggle, BandShapes } from "../components/Shapes.jsx";
+import { Portrait } from "../components/ContentBlocks.jsx";
 import { ICONS, DOT_COLORS } from "../components/icons.js";
 import { ATELIERS, SUR_MESURE } from "../content/ateliers.js";
 import { GUIDES } from "../content/guides.js";
@@ -194,13 +195,16 @@ export default function HomePage() {
 
         {/* Intervenant */}
         <section className={styles.section}>
-          <div className={`${styles.sectionInner} reveal`}>
-            <h2 className={styles.sectionTitle}>L'intervenant</h2>
-            <p className={styles.sectionDesc}>
-              <strong>{INTERVENANT.nom}</strong>, {INTERVENANT.role.charAt(0).toLowerCase() + INTERVENANT.role.slice(1)}.{" "}
-              {INTERVENANT.bio[1]}{" "}
-              <Link to="/a-propos">En savoir plus</Link>
-            </p>
+          <div className={`${styles.sectionInner} ${styles.intervenant} reveal`}>
+            <Portrait src={INTERVENANT.photo} alt={INTERVENANT.nom} className={styles.intervenantPhoto} />
+            <div>
+              <h2 className={styles.sectionTitle}>L'intervenant</h2>
+              <p className={`${styles.sectionDesc} ${styles.intervenantText}`}>
+                <strong>{INTERVENANT.nom}</strong>, {INTERVENANT.role.charAt(0).toLowerCase() + INTERVENANT.role.slice(1)}.{" "}
+                {INTERVENANT.bio[1]}{" "}
+                <Link to="/a-propos">En savoir plus</Link>
+              </p>
+            </div>
           </div>
         </section>
 

@@ -1,5 +1,5 @@
 import Layout from '../components/Layout.jsx'
-import { PageHero, CtaBand } from '../components/ContentBlocks.jsx'
+import { PageHero, CtaBand, Portrait } from '../components/ContentBlocks.jsx'
 import { ICONS, DOT_COLORS } from '../components/icons.js'
 import { INTERVENANT, METHODE } from '../content/site.js'
 import styles from '../components/Content.module.css'
@@ -10,9 +10,9 @@ export default function AProposPage() {
       <PageHero
         current="À propos"
         badge="L'intervenant"
-        shapes={1}
         title={INTERVENANT.nom}
         lead={INTERVENANT.role}
+        aside={<Portrait src={INTERVENANT.photo} alt={INTERVENANT.nom} eager />}
       />
 
       <section className={styles.section}>

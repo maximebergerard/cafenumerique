@@ -105,6 +105,16 @@
 .sectionDesc a { color: var(--c-text); font-weight: 700; text-underline-offset: 4px; text-decoration-color: var(--c-accent); text-decoration-thickness: 2px; }
 .sectionDesc a:hover { color: var(--c-accent-hover); }
 
+/* ── INTERVENANT : photo ronde + texte ── */
+.intervenant {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.intervenantText { margin-bottom: 0; }
+
 /* ── CARTES THÈMES / STRUCTURES ── */
 .themesGrid {
   display: grid;
@@ -269,6 +279,8 @@ a.themeCard:hover { border-color: var(--c-accent); background: var(--c-accent-pa
 
 @media (max-width: 640px) {
   .themesGrid { grid-template-columns: 1fr; }
+  .intervenant { grid-template-columns: 1fr; gap: 1.25rem; }
+  .intervenant .intervenantPhoto { max-width: 150px; }
   .hero { padding: 2.5rem 1rem 3rem; }
   .section { padding: 3.25rem 1rem; }
   .marked { white-space: normal; }

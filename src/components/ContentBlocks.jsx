@@ -18,10 +18,29 @@ export function Breadcrumb({ crumbs = [], current, className }) {
   )
 }
 
+// Photo ronde posée sur des aplats (disque moutarde, carré rose)
+// eager : true quand la photo est visible dès le chargement (en-tête)
+export function Portrait({ src, alt, eager = false, className = '' }) {
+  return (
+    <div className={`${styles.portrait} ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        width="560"
+        height="560"
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        className={styles.portraitImg}
+      />
+    </div>
+  )
+}
+
 // En-tête des pages de contenu : fond papier, titre serif, formes à droite.
 // crumbs, current : voir Breadcrumb
 // shapes : numéro de la composition de formes (0 à 3)
-export function PageHero({ crumbs = [], current, badge, title, lead, shapes = 0, children }) {
+// aside : remplace les formes (ex. <Portrait />)
+export function PageHero({ crumbs = [], current, badge, title, lead, shapes = 0, aside, children }) {
   return (
     <header className={styles.hero}>
       <div className={styles.heroInner}>
@@ -32,7 +51,7 @@ export function PageHero({ crumbs = [], current, badge, title, lead, shapes = 0,
           {lead && <p className={styles.heroLead}>{lead}</p>}
           {children}
         </div>
-        <HeroShapes variant={shapes} className={styles.heroShapes} />
+        {aside ?? <HeroShapes variant={shapes} className={styles.heroShapes} />}
       </div>
     </header>
   )

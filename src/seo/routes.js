@@ -101,22 +101,29 @@ export const ROUTES = [
     index: true,
   },
   {
+    path: '/retenir-ceb1',
+    title: "Café numérique de Châtelet-en-Brie #1 : l'IA et les images truquées",
+    description:
+      "Mémo de l'atelier IA de Châtelet-en-Brie : bien écrire à ChatGPT, ce qu'il ne faut jamais lui confier, repérer une image ou une vidéo créée par IA et déjouer les deepfakes.",
+    index: true,
+  },
+  {
     path: '/retenir-cn9',
-    title: "Café numérique #9 : l'IA et les images truquées",
+    title: "Café numérique de Nandy #9 : l'IA et les images truquées",
     description:
       "Mémo de l'atelier IA : la formule pour bien écrire à ChatGPT, ce qu'il ne faut jamais lui confier, les indices d'une image ou vidéo créée par IA et les réflexes face aux deepfakes.",
     index: true,
   },
   {
     path: '/retenir-cn8',
-    title: 'Café numérique #8 : WhatsApp, IA et deepfakes',
+    title: 'Café numérique de Nandy #8 : WhatsApp, IA et deepfakes',
     description:
       'Mémo de la séance #8 : reconnaître les arnaques WhatsApp, protéger son compte, la formule du prompt IA et les deepfakes vocaux.',
     index: true,
   },
   {
     path: '/retenir',
-    title: 'Café numérique #7 : arnaques, IA et réseaux sociaux',
+    title: 'Café numérique de Nandy #7 : arnaques, IA et réseaux sociaux',
     description:
       "Mémo de la séance #7 : les signaux d'alarme des arnaques en ligne, les outils IA gratuits et le lexique des réseaux sociaux.",
     index: true,

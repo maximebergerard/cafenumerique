@@ -21,6 +21,57 @@
 
 .heroShapes { width: 100%; height: auto; }
 
+/* ── Portrait rond ── */
+.portrait {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1;
+}
+
+/* Disque moutarde, en haut à droite */
+.portrait::before {
+  content: '';
+  position: absolute;
+  top: -2%;
+  right: -4%;
+  width: 44%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--c-amber);
+}
+
+/* Petit carré rose incliné, en bas à gauche */
+.portrait::after {
+  content: '';
+  position: absolute;
+  left: 3%;
+  bottom: 5%;
+  width: 17%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background: var(--c-pink);
+  transform: rotate(14deg);
+}
+
+.portraitImg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 88%;
+  height: 88%;
+  margin: 6%;
+  object-fit: cover;
+  border-radius: 50%;
+  /* Fond clair de la photo : un trait violet dessine le rond,
+     un liseré papier le détache des aplats */
+  border: 3px solid var(--c-accent);
+  outline: 6px solid var(--c-bg);
+  background: var(--c-lilac-light);
+}
+
+.heroInner > .portrait { justify-self: end; }
+
 .heroCrumbs { margin-bottom: 2rem; }
 
 .breadcrumb {
@@ -472,6 +523,7 @@ a.card:hover .cardMore { text-decoration: underline; }
 @media (max-width: 820px) {
   .heroInner { grid-template-columns: 1fr; gap: 1.5rem; }
   .heroShapes { width: 120px; justify-self: end; margin-top: -0.5rem; }
+  .heroInner > .portrait { max-width: 190px; justify-self: start; order: -1; }
   .split { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 

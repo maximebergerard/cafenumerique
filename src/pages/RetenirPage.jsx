@@ -10,7 +10,7 @@ import { Breadcrumb } from "../components/ContentBlocks.jsx";
 import styles from "./RetenirPage.module.css";
 
 // ── Numéro de séance - à mettre à jour à chaque café numérique ──
-const SESSION = "Café numérique #7";
+const SESSION = "Café numérique #7 · Nandy";
 
 const SECTIONS = [
   {

@@ -16,6 +16,7 @@ const person = {
   jobTitle: 'Expert en ingénierie numérique, animateur d’ateliers numériques',
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'HETIC' },
   url: `${SITE_URL}/a-propos`,
+  image: `${SITE_URL}${INTERVENANT.photo}`,
 }
 
 const website = {

@@ -14,6 +14,7 @@ function listeDePrenoms(noms) {
 //
 // Props :
 //   session     "Café numérique #9"
+//   lieu        "Nandy", "Châtelet-en-Brie"… (chaque lieu a sa numérotation)
 //   winners     null (vainqueurs à révéler) ou ['Prénom', 'Prénom']
 //   winnersLabel, winnersSub  textes du bloc vainqueurs
 //   sections    [{ icon, title, blocks: [{ heading, items | steps | bullets | links | resource }] }]
@@ -21,6 +22,7 @@ function listeDePrenoms(noms) {
 //   takeaways   [{ topic, text }]
 export default function RecapFiche({
   session,
+  lieu,
   winners = null,
   winnersLabel,
   winnersSub,
@@ -28,17 +30,18 @@ export default function RecapFiche({
   icons = {},
   takeaways,
 }) {
+  const titre = lieu ? `${session} · ${lieu}` : session;
   return (
     <Layout>
       <div className={styles.crumbsBar}>
         <Breadcrumb
           crumbs={[{ to: "/recaps", label: "Récaps" }]}
-          current={session}
+          current={titre}
           className={styles.crumbs}
         />
       </div>
       <header className={styles.header}>
-        <div className={styles.session}>{session}</div>
+        <div className={styles.session}>{titre}</div>
         <h1 className={styles.title}>Ce qu'il faut retenir</h1>
       </header>
 

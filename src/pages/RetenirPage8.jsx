@@ -143,6 +143,7 @@ export default function RetenirPage8() {
   return (
     <RecapFiche
       session={SESSION}
+      lieu="Nandy"
       winners={WINNERS}
       winnersLabel="Légendes du Défi des pros"
       winnersSub={WINNERS_SUB}
