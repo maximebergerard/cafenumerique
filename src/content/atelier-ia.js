@@ -76,7 +76,7 @@ export const atelierIa = {
         titre: "La commande impossible",
         duree: "15 min",
         mission:
-          "Reproduire l'image affichée à l'écran. Un seul prompt, un seul essai, un seul téléphone par binôme.",
+          "Reproduire l'image affichée à l'écran. Un seul prompt, un seul essai, un seul téléphone par équipe.",
         etapes: [
           "Regardez l'image et listez tout ce que vous y voyez.",
           "Écrivez votre demande d'un seul coup.",
