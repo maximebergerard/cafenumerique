@@ -108,7 +108,7 @@ const SECTIONS = [
         ],
       },
       {
-        heading: "L'IA générative — vigilance",
+        heading: "L'IA générative - vigilance",
         items: [
           ["Deepfakes vocaux", "→ une IA peut imiter n'importe quelle voix avec quelques secondes d'audio"],
           ["Urgence + voix connue + argent demandé", "→ raccrochez et rappelez vous-même sur le vrai numéro"],

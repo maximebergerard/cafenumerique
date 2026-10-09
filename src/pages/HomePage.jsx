@@ -45,9 +45,9 @@ export default function HomePage() {
               pour adultes et seniors
             </h1>
             <p className={styles.heroSubtitle}>
-              Arnaques en ligne, intelligence artificielle, WhatsApp : on
-              apprivoise le numérique sans jargon, sans jugement, en petit
-              groupe.
+              Le Café Numérique de Maxime Bergerard, c'est un rendez-vous pour
+              apprivoiser le numérique sans jargon, sans jugement, en petit
+              groupe : arnaques en ligne, intelligence artificielle, WhatsApp.
             </p>
             <div className={styles.heroCtas}>
               <Link to="/organiser-un-atelier" className={styles.ctaPrimary}>

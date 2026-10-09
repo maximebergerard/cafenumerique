@@ -6,6 +6,7 @@ import styles from './Layout.module.css'
 import { ATELIERS } from '../content/ateliers.js'
 import { GUIDES } from '../content/guides.js'
 import { INTERVENANT } from '../content/site.js'
+import { RECAPS } from '../content/recaps.js'
 
 const NAV_LINKS = [
   { to: '/ateliers', label: 'Les ateliers' },
@@ -16,9 +17,11 @@ const NAV_LINKS = [
   { to: '/a-propos', label: 'À propos' },
 ]
 
+// to : le titre de la colonne est aussi un lien (page d'index de la rubrique)
 const FOOTER_COLUMNS = [
   {
     title: 'Les ateliers',
+    to: '/ateliers',
     links: [
       ...ATELIERS.map((a) => ({ to: `/ateliers/${a.slug}`, label: a.nom })),
       { to: '/organiser-un-atelier', label: 'Organiser un atelier' },
@@ -26,13 +29,19 @@ const FOOTER_COLUMNS = [
   },
   {
     title: 'Guides',
+    to: '/guides',
     links: GUIDES.map((g) => ({ to: `/guides/${g.slug}`, label: g.seoTitre })),
+  },
+  {
+    // Toutes les fiches récap, pour qu'elles soient à un clic de n'importe quelle page
+    title: 'Récaps des séances',
+    to: '/recaps',
+    links: RECAPS.map((r) => ({ to: r.path, label: r.court })),
   },
   {
     title: 'Ressources',
     links: [
       { to: '/arnaques', label: "Simulations d'arnaques" },
-      { to: '/recaps', label: 'Récaps des séances' },
       { to: '/a-propos', label: 'À propos' },
       { to: '/contact', label: 'Contact' },
     ],
@@ -136,7 +145,9 @@ export default function Layout({ children }) {
           </div>
           {FOOTER_COLUMNS.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <div className={styles.footerTitle}>{col.title}</div>
+              <div className={styles.footerTitle}>
+                {col.to ? <Link to={col.to}>{col.title}</Link> : col.title}
+              </div>
               <ul className={styles.footerLinks}>
                 {col.links.map((l) => (
                   <li key={l.to}><Link to={l.to}>{l.label}</Link></li>

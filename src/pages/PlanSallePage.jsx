@@ -118,7 +118,7 @@ function Salle({ salle }) {
   return (
     <>
       <header className={styles.entete}>
-        <h1 className={styles.titre}>Plan de salle — {salle.nom}</h1>
+        <h1 className={styles.titre}>Plan de salle - {salle.nom}</h1>
         <p className={styles.intro}>
           {salle.intro} Notez le nom de chaque équipe à sa place. Tout est enregistré sur cet
           appareil, vous pouvez fermer la page et revenir.

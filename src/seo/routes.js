@@ -10,28 +10,39 @@
 // Le build échoue si les deux listes ne correspondent pas.
 // Ateliers et guides sont générés depuis src/content/ : rien à ajouter ici pour eux.
 //
-// schema : données structurées ajoutées au build (voir scripts/schema.js)
+// schema : données structurées ajoutées au build (voir scripts/schema.mjs)
 //
 // index: false → la page n'apparaît pas dans Google (noindex) ni dans le sitemap.
+// lastmod : date ISO (AAAA-MM-JJ) de la dernière vraie modification du CONTENU de la page,
+//           écrite dans le sitemap. À mettre à jour à la main quand le contenu change (pas pour
+//           une retouche de balise) : Google ignore les lastmod qui bougent sans raison.
+//           Obligatoire sur chaque page indexée, le build échoue sinon.
+// bare: true → pas de suffixe « | Café Numérique » (titre qui contient déjà la marque).
+// Limites vérifiées au build : titre complet 60 caractères, description 155.
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { ATELIERS } from '../content/ateliers.js'
 import { GUIDES } from '../content/guides.js'
 
 export const SITE_URL = 'https://cafenumerique.fr'
-export const SITE_NAME = 'Cafés numériques'
+export const SITE_NAME = 'Café Numérique'
 export const DEFAULT_IMAGE = '/og-image.png'
 // Pour les pages sans description (simulations, supports d'animation)
-export const DEFAULT_DESCRIPTION = "Support pédagogique des Cafés numériques, ateliers conviviaux pour apprivoiser le numérique."
+export const DEFAULT_DESCRIPTION = "Support pédagogique du Café Numérique, ateliers conviviaux pour apprivoiser le numérique."
+
+// Dernière modification des pages ateliers (src/content/ateliers.js). Les guides ont leur propre `misAJour`.
+const ATELIERS_LASTMOD = '2026-09-18'
 
 export const ROUTES = [
   // ── Pages publiques ──
   {
     path: '/',
-    title: 'Cafés numériques : ateliers pour apprivoiser le numérique',
+    // Seul titre sans suffixe : il porte déjà la marque et le nom (voir fullTitle)
+    title: 'Café Numérique de Maxime Bergerard : ateliers pour seniors',
     description:
-      "Ateliers numériques conviviaux en petit groupe, sans jargon : arnaques en ligne, intelligence artificielle, réseaux sociaux, WhatsApp. Organisez un atelier avec Maxime Bergerard.",
+      'Ateliers numériques conviviaux en petit groupe, sans jargon : arnaques, IA, WhatsApp. Organisez un Café Numérique avec Maxime Bergerard.',
     index: true,
+    lastmod: '2026-10-09',
   },
   {
     path: '/ateliers',
@@ -39,6 +50,7 @@ export const ROUTES = [
     description:
       "Ateliers de 2h en petit groupe sur l'intelligence artificielle, les arnaques en ligne et WhatsApp. Théâtre-forum et pratique guidée, pour grands débutants.",
     index: true,
+    lastmod: ATELIERS_LASTMOD,
     schema: 'ateliers',
   },
   ...ATELIERS.map((a) => ({
@@ -46,15 +58,17 @@ export const ROUTES = [
     title: a.seoTitre,
     description: a.seoDescription,
     index: true,
+    lastmod: ATELIERS_LASTMOD,
     schema: 'atelier',
     slug: a.slug,
   })),
   {
     path: '/organiser-un-atelier',
-    title: 'Organiser un atelier numérique dans votre structure',
+    title: 'Organiser un atelier numérique',
     description:
-      'Médiathèques, mairies, CCAS, résidences seniors, associations : comment organiser un Café numérique pour votre public. Déroulé, matériel, questions fréquentes.',
+      'Organiser un atelier numérique en médiathèque, mairie, CCAS, résidence seniors ou association : déroulé, matériel à prévoir, questions fréquentes.',
     index: true,
+    lastmod: '2026-09-18',
     schema: 'faq',
   },
   {
@@ -63,21 +77,24 @@ export const ROUTES = [
     description:
       'Des guides clairs et sans jargon pour reconnaître les arnaques en ligne, repérer les images créées par IA et utiliser WhatsApp en sécurité.',
     index: true,
+    lastmod: '2026-09-18',
   },
   ...GUIDES.map((g) => ({
     path: `/guides/${g.slug}`,
     title: g.seoTitre,
     description: g.seoDescription,
     index: true,
+    lastmod: g.misAJour,
     schema: 'guide',
     slug: g.slug,
   })),
   {
     path: '/a-propos',
-    title: 'Maxime Bergerard, animateur des Cafés numériques',
+    title: 'Maxime Bergerard, animateur d’ateliers',
     description:
-      "Diplômé d'HETIC, expert en ingénierie numérique, Maxime Bergerard anime des ateliers numériques conviviaux pour que personne ne rate le train du numérique.",
+      "Maxime Bergerard, diplômé d'HETIC, anime les Cafés numériques : des ateliers conviviaux et sans jargon pour que personne ne rate le train du numérique.",
     index: true,
+    lastmod: '2026-10-09',
   },
   {
     path: '/arnaques',
@@ -85,6 +102,7 @@ export const ROUTES = [
     description:
       "Faux SMS La Poste, pop-up Microsoft, arnaque WhatsApp au faux petit-fils : des mises en situation interactives pour apprendre à reconnaître les arnaques.",
     index: true,
+    lastmod: '2026-05-29',
   },
   {
     path: '/videos',
@@ -99,20 +117,35 @@ export const ROUTES = [
     description:
       "Les fiches mémo de chaque Café numérique : arnaques, intelligence artificielle, WhatsApp, deepfakes. À relire tranquillement après l'atelier.",
     index: true,
+    lastmod: '2026-10-09',
+  },
+  // Fiches récap : le titre contient déjà « Café numérique », donc pas de suffixe (bare)
+  {
+    path: '/retenir-ceb2',
+    title: 'Café numérique Châtelet-en-Brie #2 : IA et images truquées',
+    description:
+      "Mémo du Café numérique de Châtelet-en-Brie #2 : la formule pour bien demander à une IA, les images truquées à repérer et les réflexes face aux deepfakes.",
+    index: true,
+    bare: true,
+    lastmod: '2026-10-09',
   },
   {
     path: '/retenir-ceb1',
-    title: "Café numérique de Châtelet-en-Brie #1 : l'IA et les images truquées",
+    title: 'Café numérique Châtelet-en-Brie #1 : IA et images truquées',
     description:
-      "Mémo de l'atelier IA de Châtelet-en-Brie : bien écrire à ChatGPT, ce qu'il ne faut jamais lui confier, repérer une image ou une vidéo créée par IA et déjouer les deepfakes.",
+      "Mémo du Café numérique de Châtelet-en-Brie #1 : bien écrire à une IA, ce qu'il ne faut jamais lui confier, repérer les images truquées et les deepfakes.",
     index: true,
+    bare: true,
+    lastmod: '2026-10-09',
   },
   {
     path: '/retenir-cn9',
     title: "Café numérique de Nandy #9 : l'IA et les images truquées",
     description:
-      "Mémo de l'atelier IA : la formule pour bien écrire à ChatGPT, ce qu'il ne faut jamais lui confier, les indices d'une image ou vidéo créée par IA et les réflexes face aux deepfakes.",
+      "Mémo du Café numérique de Nandy #9 : la formule pour bien écrire à ChatGPT, les indices d'une image créée par IA et les réflexes face aux deepfakes.",
     index: true,
+    bare: true,
+    lastmod: '2026-10-09',
   },
   {
     path: '/retenir-cn8',
@@ -120,6 +153,8 @@ export const ROUTES = [
     description:
       'Mémo de la séance #8 : reconnaître les arnaques WhatsApp, protéger son compte, la formule du prompt IA et les deepfakes vocaux.',
     index: true,
+    bare: true,
+    lastmod: '2026-10-08',
   },
   {
     path: '/retenir',
@@ -127,13 +162,16 @@ export const ROUTES = [
     description:
       "Mémo de la séance #7 : les signaux d'alarme des arnaques en ligne, les outils IA gratuits et le lexique des réseaux sociaux.",
     index: true,
+    bare: true,
+    lastmod: '2026-10-08',
   },
   {
     path: '/contact',
-    title: 'Contact',
+    title: 'Contacter Maxime Bergerard',
     description:
       'Association, mairie, médiathèque, résidence seniors : contactez Maxime Bergerard pour organiser un Café numérique.',
     index: true,
+    lastmod: '2026-09-01',
   },
 
   // ── Simulations plein écran : jamais indexées ──
@@ -150,7 +188,7 @@ export const ROUTES = [
   { path: '/whatsapp-groupe', title: 'Simulation : groupe WhatsApp', index: false },
   { path: '/chiffrement', title: 'Le chiffrement expliqué', index: false },
   { path: '/scores-cn8', title: 'Scores', index: false },
-  // Page privée d'animation : plan des tables de la médiathèque de Nandy
+  // Page privée d'animation : plan des tables (un plan par lieu)
   { path: '/plan-salle', title: 'Plan de salle', index: false },
 
   // ── Atelier IA : supports d'animation, non indexés ──
@@ -182,7 +220,7 @@ export function findRoute(pathname) {
 }
 
 export function fullTitle(route) {
-  return route.path === '/' ? route.title : `${route.title} | ${SITE_NAME}`
+  return route.path === '/' || route.bare ? route.title : `${route.title} | ${SITE_NAME}`
 }
 
 export function canonicalUrl(path) {

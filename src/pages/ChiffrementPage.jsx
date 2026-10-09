@@ -82,7 +82,7 @@ export default function ChiffrementPage() {
         {/* Intro */}
         {phase === "idle" && (
           <p className={styles.intro}>
-            Choisissez comment Alice envoie son message à Bob — et observez ce
+            Choisissez comment Alice envoie son message à Bob - et observez ce
             que voit une personne malveillante qui intercepte la communication.
           </p>
         )}

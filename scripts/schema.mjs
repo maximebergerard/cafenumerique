@@ -24,6 +24,7 @@ const website = {
   '@type': 'WebSite',
   '@id': WEBSITE_ID,
   name: SITE_NAME,
+  alternateName: ['Cafés numériques', 'Café Numérique Maxime Bergerard', 'cafenumerique.fr'],
   url: `${SITE_URL}/`,
   inLanguage: 'fr-FR',
   publisher: { '@id': PERSON_ID },
@@ -77,6 +78,10 @@ export function schemaFor(route) {
         'Ateliers de 2h en petit groupe (10 personnes maximum) pour adultes et seniors : intelligence artificielle, arnaques en ligne, WhatsApp.',
       provider: { '@id': PERSON_ID },
       availableLanguage: 'fr',
+      areaServed: [
+        { '@type': 'AdministrativeArea', name: 'Seine-et-Marne' },
+        { '@type': 'AdministrativeArea', name: 'Île-de-France' },
+      ],
       url: `${SITE_URL}/`,
       hasOfferCatalog: {
         '@type': 'OfferCatalog',

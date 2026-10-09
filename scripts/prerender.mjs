@@ -47,6 +47,18 @@ if (missingSeo.length || missingApp.length) {
   process.exit(1)
 }
 
+// ── 1b. Longueurs que Google affiche : au-delà, le titre et la description sont tronqués ──
+const TITLE_MAX = 60
+const DESCRIPTION_MAX = 155
+const tropLongs = ROUTES.filter((r) => r.index).flatMap((r) => [
+  fullTitle(r).length > TITLE_MAX && `${r.path} : titre de ${fullTitle(r).length} caractères (max ${TITLE_MAX})`,
+  (r.description ?? '').length > DESCRIPTION_MAX && `${r.path} : description de ${r.description.length} caractères (max ${DESCRIPTION_MAX})`,
+]).filter(Boolean)
+if (tropLongs.length) {
+  console.error('✗ Métadonnées trop longues dans src/seo/routes.js :\n  ' + tropLongs.join('\n  '))
+  process.exit(1)
+}
+
 // ── 2. Un fichier HTML par page ──
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 const escape = (s) =>
@@ -72,6 +84,8 @@ function render(route, pathname) {
   html = setAttr(html, '<meta property="og:image"', 'content', `${SITE_URL}${route.image ?? DEFAULT_IMAGE}`)
   html = setAttr(html, '<meta name="description"', 'content', route.description ?? DEFAULT_DESCRIPTION)
   html = setAttr(html, '<meta property="og:description"', 'content', route.description ?? DEFAULT_DESCRIPTION)
+  html = setAttr(html, '<meta name="twitter:title"', 'content', title)
+  html = setAttr(html, '<meta name="twitter:description"', 'content', route.description ?? DEFAULT_DESCRIPTION)
   const schema = route.index && schemaFor(route)
   if (schema) {
     const jsonLd = JSON.stringify(schema).replace(/</g, '\\u003c')
@@ -118,8 +132,16 @@ write(
 )
 
 // ── 4. sitemap.xml ──
-const urls = ROUTES.filter((r) => r.index && !r.path.includes('/:'))
-  .map((r) => `  <url><loc>${canonicalUrl(r.path)}</loc></url>`)
+// Chaque page indexée porte un `lastmod` écrit à la main dans routes.js (date de dernière
+// modification du contenu). Jamais la date du build : Google ignore les lastmod peu fiables.
+const sitemapRoutes = ROUTES.filter((r) => r.index && !r.path.includes('/:'))
+const sansLastmod = sitemapRoutes.filter((r) => !/^\d{4}-\d{2}-\d{2}$/.test(r.lastmod ?? ''))
+if (sansLastmod.length) {
+  console.error('✗ Pages indexées sans `lastmod` valide (AAAA-MM-JJ) dans src/seo/routes.js :', sansLastmod.map((r) => r.path))
+  process.exit(1)
+}
+const urls = sitemapRoutes
+  .map((r) => `  <url><loc>${canonicalUrl(r.path)}</loc><lastmod>${r.lastmod}</lastmod></url>`)
   .join('\n')
 write(
   'sitemap.xml',

@@ -18,9 +18,9 @@ export const GUIDES = [
     slug: 'faux-sms-colis',
     theme: 'Arnaques en ligne',
     titre: 'Faux SMS de colis : comment le reconnaître et que faire',
-    seoTitre: 'Faux SMS de colis : le reconnaître et que faire',
+    seoTitre: 'Faux SMS de colis : reconnaître et agir',
     seoDescription:
-      "« Votre colis est en attente, frais de livraison à régler » : comment reconnaître un faux SMS de La Poste, Colissimo ou Chronopost, et que faire si vous avez cliqué ou payé.",
+      "« Votre colis est en attente » : comment reconnaître un faux SMS de La Poste, Colissimo ou Chronopost, et que faire si vous avez cliqué ou payé.",
     resume:
       "Le SMS de colis bloqué est l'une des arnaques les plus répandues. Voici comment la repérer en 30 secondes, et quoi faire si vous êtes tombé dans le piège.",
     misAJour: '2026-09-17',
@@ -91,9 +91,9 @@ export const GUIDES = [
     slug: 'reconnaitre-image-ia',
     theme: 'Intelligence artificielle',
     titre: 'Image ou vidéo créée par IA : comment la repérer',
-    seoTitre: 'Reconnaître une image ou une vidéo créée par IA',
+    seoTitre: 'Reconnaître une image ou vidéo créée par IA',
     seoDescription:
-      "Mains déformées, textes illisibles, arrière-plan incohérent : les indices pour repérer une image ou une vidéo générée par intelligence artificielle, et comment vérifier son origine avec Google Lens.",
+      "Reconnaître une image ou vidéo créée par IA : mains déformées, textes illisibles, décor incohérent, et comment vérifier la source avec Google Lens.",
     resume:
       "Les images créées par intelligence artificielle sont partout sur les réseaux sociaux. Quelques indices permettent souvent de les repérer, et quand l'œil ne suffit plus, on vérifie la source.",
     misAJour: '2026-09-17',
@@ -177,9 +177,9 @@ export const GUIDES = [
     slug: 'arnaque-faux-proche-whatsapp',
     theme: 'WhatsApp',
     titre: 'Arnaque au faux proche sur WhatsApp : les bons réflexes',
-    seoTitre: 'Arnaque « Maman, j’ai changé de numéro » sur WhatsApp',
+    seoTitre: 'Arnaque « Maman, j’ai changé de numéro »',
     seoDescription:
-      "« Coucou papa, j'ai cassé mon téléphone, voici mon nouveau numéro » : comment reconnaître l'arnaque au faux enfant ou petit-enfant sur WhatsApp et SMS, et comment réagir.",
+      "« Coucou papa, voici mon nouveau numéro » : reconnaître l'arnaque au faux enfant ou petit-enfant sur WhatsApp et SMS, et comment réagir.",
     resume:
       "Un message d'un numéro inconnu se présente comme votre enfant ou petit-enfant, et finit par demander de l'argent en urgence. Voici comment déjouer cette arnaque très répandue.",
     misAJour: '2026-09-17',

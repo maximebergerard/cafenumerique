@@ -20,9 +20,9 @@ export const ATELIERS = [
     icon: 'bot',
     nom: 'Intelligence artificielle',
     titre: "Découvrir et apprivoiser l'intelligence artificielle au quotidien",
-    seoTitre: 'Atelier IA pour adultes et seniors débutants',
+    seoTitre: 'Atelier IA pour adultes et seniors',
     seoDescription:
-      "Atelier de 2h pour comprendre l'intelligence artificielle sans jargon : démystifier l'IA, essayer ChatGPT et la création d'images, repérer les images truquées. Pour adultes et seniors débutants.",
+      "Atelier IA de 2h pour comprendre l'intelligence artificielle sans jargon : essayer ChatGPT, créer des images, repérer les fausses. Adultes et seniors.",
     accroche:
       "Comprendre ce qu'est l'IA, l'essayer pour de vrai et repartir avec une pratique utile dès le lendemain.",
     intro: [
@@ -79,9 +79,9 @@ export const ATELIERS = [
     icon: 'shield',
     nom: 'Arnaques en ligne',
     titre: 'Déjouer les arnaques en ligne',
-    seoTitre: 'Atelier prévention des arnaques en ligne pour seniors',
+    seoTitre: 'Atelier arnaques en ligne pour seniors',
     seoDescription:
-      "Atelier de 2h pour apprendre à repérer les faux SMS, faux mails, fausses alertes et arnaques au faux proche. Théâtre-forum et cas pratiques réalistes, pour adultes et seniors.",
+      "Atelier arnaques en ligne de 2h : repérer faux SMS, faux mails et arnaques au faux proche grâce au théâtre-forum. Pour adultes et seniors.",
     accroche:
       "Faux SMS de colis, fausse alerte Microsoft, faux petit-fils sur WhatsApp : on s'entraîne à les démasquer avant qu'ils arrivent pour de vrai.",
     intro: [
@@ -134,7 +134,7 @@ export const ATELIERS = [
     titre: 'WhatsApp en toute sérénité',
     seoTitre: 'Atelier WhatsApp pour débutants et seniors',
     seoDescription:
-      "Atelier de 2h pour bien utiliser WhatsApp : groupes, sondages, partage de position, réglages de confidentialité et arnaques à reconnaître. Pour adultes et seniors débutants.",
+      "Atelier WhatsApp de 2h : groupes, sondages, partage de position, confidentialité et arnaques à reconnaître. Pour adultes et seniors débutants.",
     accroche:
       'Groupes de famille, vocaux, sondages, position partagée : profiter de WhatsApp sans se faire piéger.',
     intro: [

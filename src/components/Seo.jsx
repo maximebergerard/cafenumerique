@@ -26,6 +26,8 @@ export default function Seo() {
     setContent('meta[property="og:image"]', `${SITE_URL}${route.image ?? DEFAULT_IMAGE}`)
     setContent('meta[name="description"]', route.description ?? DEFAULT_DESCRIPTION)
     setContent('meta[property="og:description"]', route.description ?? DEFAULT_DESCRIPTION)
+    setContent('meta[name="twitter:title"]', title)
+    setContent('meta[name="twitter:description"]', route.description ?? DEFAULT_DESCRIPTION)
   }, [pathname])
 
   return null
