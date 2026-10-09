@@ -6,9 +6,9 @@ const SESSION = "Café numérique #1";
 const LIEU = "Châtelet-en-Brie";
 
 // ✏️ VAINQUEURS de la séance (null tant qu'ils ne sont pas connus).
-// Sans WINNERS_SUB, la phrase par défaut est « Inscrits à jamais dans les annales du … ».
+// WINNERS_SUB : une phrase différente à chaque séance (sans elle : « Inscrits à jamais dans les annales du … »).
 const WINNERS = ['Patricia', 'Georgette', 'Serge'];
-const WINNERS_SUB = undefined;
+const WINNERS_SUB = 'Les tout premiers champions de Châtelet-en-Brie, ça se fête 🎉';
 
 const SECTIONS = [
   {
@@ -166,7 +166,6 @@ export default function RetenirPageCeb1() {
       session={SESSION}
       lieu={LIEU}
       winners={WINNERS}
-      winnersLabel="Champions de « IA ou pas ? »"
       winnersSub={WINNERS_SUB}
       sections={SECTIONS}
       icons={ICON_MAP}

@@ -163,7 +163,6 @@ export default function RetenirPage9() {
       session={SESSION}
       lieu="Nandy"
       winners={WINNERS}
-      winnersLabel="Champions de « IA ou pas ? »"
       winnersSub={WINNERS_SUB}
       sections={SECTIONS}
       icons={ICON_MAP}

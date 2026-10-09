@@ -16,7 +16,9 @@ function listeDePrenoms(noms) {
 //   session     "Café numérique #9"
 //   lieu        "Nandy", "Châtelet-en-Brie"… (chaque lieu a sa numérotation)
 //   winners     null (vainqueurs à révéler) ou ['Prénom', 'Prénom']
-//   winnersLabel, winnersSub  textes du bloc vainqueurs
+//   winnersLabel  titre du bloc vainqueurs (défaut « Champions du jour » : une séance a plusieurs jeux,
+//                 ne pas nommer un jeu en particulier)
+//   winnersSub    phrase sous les prénoms, à changer à chaque séance
 //   sections    [{ icon, title, blocks: [{ heading, items | steps | bullets | links | resource }] }]
 //   icons       { clé: ComposantIcône } pour `section.icon`
 //   takeaways   [{ topic, text }]
@@ -24,7 +26,7 @@ export default function RecapFiche({
   session,
   lieu,
   winners = null,
-  winnersLabel,
+  winnersLabel = "Champions du jour",
   winnersSub,
   sections,
   icons = {},

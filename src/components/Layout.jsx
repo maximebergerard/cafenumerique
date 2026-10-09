@@ -5,6 +5,7 @@ import { useLargeFont } from '../hooks/useLargeFont.js'
 import styles from './Layout.module.css'
 import { ATELIERS } from '../content/ateliers.js'
 import { GUIDES } from '../content/guides.js'
+import { INTERVENANT } from '../content/site.js'
 
 const NAV_LINKS = [
   { to: '/ateliers', label: 'Les ateliers' },
@@ -124,6 +125,14 @@ export default function Layout({ children }) {
             <Link to="/contact" className={styles.footerMail}>
               Me contacter
             </Link>
+            <a
+              href={INTERVENANT.linkedin}
+              className={styles.footerSocial}
+              target="_blank"
+              rel="me noopener noreferrer"
+            >
+              LinkedIn
+            </a>
           </div>
           {FOOTER_COLUMNS.map((col) => (
             <nav key={col.title} aria-label={col.title}>

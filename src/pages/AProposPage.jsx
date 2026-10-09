@@ -13,7 +13,18 @@ export default function AProposPage() {
         title={INTERVENANT.nom}
         lead={INTERVENANT.role}
         aside={<Portrait src={INTERVENANT.photo} alt={INTERVENANT.nom} eager />}
-      />
+      >
+        <div className={styles.heroCtas}>
+          <a
+            href={INTERVENANT.linkedin}
+            className={styles.btnOutline}
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            Me retrouver sur LinkedIn
+          </a>
+        </div>
+      </PageHero>
 
       <section className={styles.section}>
         <div className={`${styles.narrow} ${styles.prose}`}>

@@ -213,6 +213,16 @@
 
 .footerMail:hover { color: var(--c-surface); }
 
+.footerSocial {
+  display: block;
+  width: fit-content;
+  margin-top: 0.6rem;
+  color: rgba(255, 252, 246, 0.78);
+  text-underline-offset: 4px;
+}
+
+.footerSocial:hover { color: var(--c-surface); text-decoration-color: var(--c-amber); }
+
 .footerTitle {
   font-weight: 700;
   color: var(--c-surface);

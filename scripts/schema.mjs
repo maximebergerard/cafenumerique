@@ -17,6 +17,7 @@ const person = {
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'HETIC' },
   url: `${SITE_URL}/a-propos`,
   image: `${SITE_URL}${INTERVENANT.photo}`,
+  sameAs: [INTERVENANT.linkedin],
 }
 
 const website = {

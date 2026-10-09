@@ -8,6 +8,7 @@ export const INTERVENANT = {
   role: 'Expert en ingénierie numérique, animateur des Cafés numériques',
   // Recadrage carré 560×560, affiché en rond (composant Portrait)
   photo: '/images/maxime-bergerard.jpg',
+  linkedin: 'https://www.linkedin.com/in/maxime-bergerard/',
   bio: [
     "Diplômé d'HETIC en tant qu'expert en ingénierie numérique, j'ai longtemps travaillé au cœur des technologies, jusqu'au jour où j'ai réalisé que le numérique creusait autant de fossés qu'il en comblait. Trop de gens risquaient de « rater le train », faute d'un coup de main au bon moment.",
     "C'est de ce constat qu'est né le Café numérique : un espace sans prise de tête, sans jargon, où l'on apprend en faisant et en s'amusant.",
