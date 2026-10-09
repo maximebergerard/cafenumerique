@@ -5,9 +5,9 @@ import RecapFiche from "../components/RecapFiche.jsx";
 const SESSION = "Café numérique #1";
 const LIEU = "Châtelet-en-Brie";
 
-// ✏️ VAINQUEURS de la séance : null tant qu'ils ne sont pas connus,
-// puis ['Prénom', 'Prénom'] (et une phrase dans WINNERS_SUB)
-const WINNERS = null;
+// ✏️ VAINQUEURS de la séance (null tant qu'ils ne sont pas connus).
+// Sans WINNERS_SUB, la phrase par défaut est « Inscrits à jamais dans les annales du … ».
+const WINNERS = ['Patricia', 'Georgette', 'Serge'];
 const WINNERS_SUB = undefined;
 
 const SECTIONS = [
