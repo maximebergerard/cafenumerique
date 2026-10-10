@@ -127,7 +127,7 @@ export const ROUTES = [
       "Mémo du Café numérique de Châtelet-en-Brie #2 : la formule pour bien demander à une IA, les images truquées à repérer et les réflexes face aux deepfakes.",
     index: true,
     bare: true,
-    lastmod: '2026-10-09',
+    lastmod: '2026-10-10',
   },
   {
     path: '/retenir-ceb1',

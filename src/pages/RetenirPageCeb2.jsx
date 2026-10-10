@@ -6,10 +6,9 @@ const SESSION = "Café numérique #2";
 const LIEU = "Châtelet-en-Brie";
 
 // ✏️ VAINQUEURS de la séance : null tant qu'ils ne sont pas connus (« ??? & ??? »).
-// Après la séance : ['Prénom', 'Prénom'] et une phrase différente de la précédente dans WINNERS_SUB
-// (sans elle : « Inscrits à jamais dans les annales du … »).
-const WINNERS = null;
-const WINNERS_SUB = undefined;
+// Ici, une équipe : on affiche son nom. WINNERS_SUB : une phrase différente à chaque séance.
+const WINNERS = ['Les super séniors'];
+const WINNERS_SUB = 'Un nom de super-héros, un trophée bien mérité 🦸';
 
 const SECTIONS = [
   {
