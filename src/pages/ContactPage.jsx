@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Send, CheckCircle2, AlertCircle } from 'lucide-react'
+import { Envelope, PaperPlaneTilt, CheckCircle, WarningCircle } from '../icons/index.jsx'
 import Layout from '../components/Layout.jsx'
 import styles from './ContactPage.module.css'
 
@@ -50,7 +50,7 @@ export default function ContactPage() {
         <div className={styles.page}>
           <div className={styles.inner}>
             <div className={styles.success}>
-              <CheckCircle2 size={40} strokeWidth={1.75} />
+              <CheckCircle size={40} />
               <h1 className={styles.successTitle}>Message envoyé !</h1>
               <p className={styles.successDesc}>
                 Merci {values.nom.trim().split(' ')[0]}. Je vous réponds sous quelques jours,
@@ -69,7 +69,7 @@ export default function ContactPage() {
         <div className={styles.inner}>
           <div className={styles.intro}>
             <div className={styles.iconWrap}>
-              <Mail size={28} strokeWidth={1.75} />
+              <Envelope size={28} />
             </div>
             <h1 className={styles.title}>Me contacter</h1>
             <p className={styles.desc}>
@@ -188,7 +188,7 @@ export default function ContactPage() {
 
             {status === 'error' && (
               <p className={styles.error} role="alert">
-                <AlertCircle size={16} />
+                <WarningCircle size={16} />
                 L'envoi a échoué. Réessayez, ou écrivez directement à
                 {' '}
                 <a href="mailto:maxime.bergerard@gmail.com">maxime.bergerard@gmail.com</a>.
@@ -196,7 +196,7 @@ export default function ContactPage() {
             )}
 
             <button className={styles.submit} type="submit" disabled={status === 'sending'}>
-              <Send size={16} />
+              <PaperPlaneTilt size={16} />
               {status === 'sending' ? 'Envoi en cours…' : 'Envoyer le message'}
             </button>
 

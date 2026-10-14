@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft, ChevronRight, Maximize, Play, X } from 'lucide-react'
+import { CaretLeft, CaretRight, CornersOut, Play, X } from '../../icons/index.jsx'
 import ZoneIndice from '../components/ZoneIndice.jsx'
 import { atelierIa } from '../../content/atelier-ia.js'
 import { remplir } from '../texte.js'
@@ -132,14 +132,14 @@ export default function IaOuPasPage() {
         </Link>
         {!pleinEcran && (
           <button className={styles.commande} onClick={clic(basculerPleinEcran)} title={ui.pleinEcran} aria-label={ui.pleinEcran}>
-            <Maximize size={22} />
+            <CornersOut size={22} />
           </button>
         )}
         <button className={styles.commande} onClick={clic(precedent)} title={ui.precedent} aria-label={ui.precedent}>
-          <ChevronLeft size={26} />
+          <CaretLeft size={26} />
         </button>
         <button className={styles.commande} onClick={clic(suivant)} title={ui.suivant} aria-label={ui.suivant}>
-          <ChevronRight size={26} />
+          <CaretRight size={26} />
         </button>
       </div>
     </div>

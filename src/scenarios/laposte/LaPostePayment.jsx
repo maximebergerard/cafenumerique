@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLargeFont } from "../../hooks/useLargeFont.js";
 import styles from "./LaPostePayment.module.css";
+import { ArrowLeft, CreditCard, Globe, LockOpen, ShieldWarning } from '../../icons/index.jsx'
 
 export default function LaPostePayment() {
   const navigate = useNavigate();
@@ -124,7 +125,7 @@ export default function LaPostePayment() {
         >
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalTop}>
-              <div className={styles.modalIcon}>💳</div>
+              <div className={styles.modalIcon}><CreditCard size={30} /></div>
               <div className={styles.modalBadge}>Arnaque réussie</div>
             </div>
 
@@ -144,21 +145,21 @@ export default function LaPostePayment() {
             </p>
             <div className={styles.indices}>
               <div className={styles.indice}>
-                <span className={styles.indiceIcon}>🔓</span>
+                <span className={styles.indiceIcon}><LockOpen size={22} /></span>
                 <span>
                   <strong>HTTP sans cadenas</strong> - aucun site de paiement
                   sérieux n'utilise HTTP. HTTPS est obligatoire.
                 </span>
               </div>
               <div className={styles.indice}>
-                <span className={styles.indiceIcon}>🌐</span>
+                <span className={styles.indiceIcon}><Globe size={22} /></span>
                 <span>
                   <strong>laposte-paiement-rapide.xyz</strong> - le domaine
                   officiel de La Poste c'est laposte.fr, point.
                 </span>
               </div>
               <div className={styles.indice}>
-                <span className={styles.indiceIcon}>🛡️</span>
+                <span className={styles.indiceIcon}><ShieldWarning size={22} /></span>
                 <span>
                   <strong>Les badges "Sécurisé"</strong> sont des emojis collés
                   là pour rassurer - ils ne garantissent rien.
@@ -170,7 +171,7 @@ export default function LaPostePayment() {
               className={styles.modalBtn}
               onClick={() => navigate("/laposte")}
             >
-              ← Retour au mail pour débriefer
+              <ArrowLeft size={16} /> Retour au mail pour débriefer
             </button>
           </div>
         </div>
@@ -180,7 +181,7 @@ export default function LaPostePayment() {
       {!revealed && (
         <div className={styles.animatorControls}>
           <button className={styles.backBtn} onClick={() => navigate("/laposte")}>
-            ← Retour au mail
+            <ArrowLeft size={16} /> Retour au mail
           </button>
           <button className="font-toggle-btn" style={{ color: '#aeaeb2' }} onClick={toggleFont} title="Taille du texte">
             {large ? "A−" : "A+"}

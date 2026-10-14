@@ -21,6 +21,9 @@
 }
 
 .backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   color: rgba(255,255,255,0.6);
   font-size: 0.85rem;
   font-weight: 500;
@@ -75,8 +78,6 @@
   font-size: 0.85rem;
   font-weight: 600;
   color: rgba(255,255,255,0.6);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
 }
 
 .composerRow {
@@ -128,7 +129,7 @@
   border: none;
   cursor: pointer;
   font-family: inherit;
-  transition: transform 0.12s, box-shadow 0.15s;
+  transition: filter 0.15s;
 }
 
 .btnSms {
@@ -136,16 +137,16 @@
   border: 1px solid #8b2020;
   color: #ff8080;
 }
-.btnSms:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(220,38,38,0.25); }
+.btnSms:hover { filter: brightness(1.08); }
 
 .btnWa {
   background: #0d2b1a;
   border: 1px solid #166534;
   color: #4ade80;
 }
-.btnWa:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(37,211,102,0.25); }
+.btnWa:hover { filter: brightness(1.08); }
 
-.btnIcon { font-size: 1.6rem; }
+.btnIcon { display: flex; }
 .btnMain { font-size: 0.95rem; font-weight: 700; }
 .btnSub  { font-size: 0.72rem; opacity: 0.65; }
 

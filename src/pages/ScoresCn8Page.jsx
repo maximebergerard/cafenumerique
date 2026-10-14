@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { ArrowCounterClockwise, ArrowLeft, PencilSimple } from '../icons/index.jsx'
 import styles from './ScoresCn8Page.module.css'
 
 function defaultTeams() {
@@ -78,7 +79,7 @@ export default function ScoresCn8Page({ storageKey = 'cn8_teams', title = 'Score
     <div className={styles.page}>
 
       <header className={styles.header}>
-        <Link to={backTo} className={styles.backBtn}>← Retour</Link>
+        <Link to={backTo} className={styles.backBtn}><ArrowLeft size={16} /> Retour</Link>
         <span className={styles.title}>{title}</span>
         <div className={styles.headerActions}>
           {confirmReset ? (
@@ -88,7 +89,7 @@ export default function ScoresCn8Page({ storageKey = 'cn8_teams', title = 'Score
               <button className={styles.btnNo} onClick={() => setConfirmReset(false)}>Non</button>
             </>
           ) : (
-            <button className={styles.btnReset} onClick={() => setConfirmReset(true)}>↺</button>
+            <button className={styles.btnReset} onClick={() => setConfirmReset(true)} aria-label="Remettre à zéro"><ArrowCounterClockwise size={18} /></button>
           )}
         </div>
       </header>
@@ -126,7 +127,7 @@ export default function ScoresCn8Page({ storageKey = 'cn8_teams', title = 'Score
                 />
               ) : (
                 <button className={styles.nameBtn} onClick={() => startEdit(id, name)}>
-                  {name} ✏️
+                  {name} <PencilSimple size={14} />
                 </button>
               )}
 

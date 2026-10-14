@@ -1,13 +1,13 @@
-import { MessageCircle, Bot } from "lucide-react";
+import { ChatCircle, Robot } from "../icons/index.jsx";
 import RecapFiche from "../components/RecapFiche.jsx";
 
 const SESSION = "Café numérique #8";
 
-// ✏️ VAINQUEURS — À remplir après la séance !
+// VAINQUEURS : à remplir après la séance !
 // Remplace null par un tableau de prénoms, ex : ['Marie', 'Jean-Pierre']
 // Laisse null pour afficher le placeholder mystère
 const WINNERS = ['Danièle', 'Mauricette']
-const WINNERS_SUB = 'Venues tout droit des Sénioriales pour régner sur le Défi des pros 👑'
+const WINNERS_SUB = 'Venues tout droit des Sénioriales pour régner sur le Défi des pros'
 
 const SECTIONS = [
   {
@@ -17,26 +17,26 @@ const SECTIONS = [
       {
         heading: "Les arnaques à reconnaître",
         items: [
-          ["Un inconnu envoie un lien", "→ on ne clique pas, on bloque"],
-          ["Urgence + demande d'argent", "→ signal d'alarme immédiat, on raccroche et on rappelle"],
-          ["Quelqu'un prétend être un proche", "→ on rappelle sur son vrai numéro enregistré"],
-          ["Un code à 6 chiffres demandé", "→ jamais ! C'est pour voler votre compte"],
+          ["Un inconnu envoie un lien :", "on ne clique pas, on bloque"],
+          ["Urgence + demande d'argent :", "signal d'alarme immédiat, on raccroche et on rappelle"],
+          ["Quelqu'un prétend être un proche :", "on rappelle sur son vrai numéro enregistré"],
+          ["Un code à 6 chiffres demandé :", "jamais ! C'est pour voler votre compte"],
         ],
       },
       {
         heading: "Protéger son compte",
         bullets: [
-          "Photo de profil et statut → régler sur \"Mes contacts\" uniquement (Paramètres → Confidentialité)",
-          "Vérification en deux étapes → l'activer dans Paramètres → Compte",
+          "Photo de profil et statut : régler sur \"Mes contacts\" uniquement (Paramètres > Confidentialité)",
+          "Vérification en deux étapes : l'activer dans Paramètres > Compte",
           "Ne jamais partager son code à 6 chiffres, même à quelqu'un qui se dit de WhatsApp",
         ],
       },
       {
         heading: "Créer un groupe",
         items: [
-          ["Appuyez sur le bouton vert +", "→ en haut de l'écran sur iPhone, en bas à droite sur Android"],
-          ["Choisissez \"Nouveau groupe\"", "→ puis ajoutez plusieurs contacts un par un"],
-          ["Donnez un nom au groupe", "→ et c'est parti !"],
+          ["Appuyez sur le bouton vert + :", "en haut de l'écran sur iPhone, en bas à droite sur Android"],
+          ["Choisissez \"Nouveau groupe\" :", "puis ajoutez plusieurs contacts un par un"],
+          ["Donnez un nom au groupe :", "et c'est parti !"],
         ],
       },
       {
@@ -55,8 +55,8 @@ const SECTIONS = [
           "Ouvrez une conversation ou un groupe",
           "Appuyez sur le trombone 📎",
           "Choisissez « Position »",
-          "« Envoyer ma position actuelle » → envoie où vous êtes maintenant",
-          "« Partager en direct » → la personne vous voit vous déplacer en temps réel",
+          "« Envoyer ma position actuelle » : envoie où vous êtes maintenant",
+          "« Partager en direct » : la personne vous voit vous déplacer en temps réel",
         ],
       },
       {
@@ -70,9 +70,9 @@ const SECTIONS = [
       {
         heading: "Alternatives à WhatsApp",
         items: [
-          ["Signal", "→ ultra sécurisé, sans publicité - pour les plus méfiants"],
-          ["iMessage", "→ déjà sur iPhone, très simple - pour les utilisateurs Apple"],
-          ["Telegram", "→ groupes très grands, fichiers lourds - pour les associations"],
+          ["Signal :", "ultra sécurisé, sans publicité - pour les plus méfiants"],
+          ["iMessage :", "déjà sur iPhone, très simple - pour les utilisateurs Apple"],
+          ["Telegram :", "groupes très grands, fichiers lourds - pour les associations"],
         ],
       },
     ],
@@ -92,7 +92,7 @@ const SECTIONS = [
       {
         heading: "La formule magique du prompt",
         items: [
-          ['"Tu es [rôle]. Je veux [demande]. [Contexte]."', "→ plus c'est précis, meilleure est la réponse"],
+          ['"Tu es [rôle]. Je veux [demande]. [Contexte]." :', "plus c'est précis, meilleure est la réponse"],
           ["Recette", '"Tu es un cuisinier. Recette simple avec des œufs et des courgettes."'],
           ["Médical", '"Tu es un médecin. Explique-moi simplement la fibrillation auriculaire."'],
           ["Courrier", '"Tu es un conseiller. Aide-moi à écrire une réclamation à ma mutuelle."'],
@@ -110,9 +110,9 @@ const SECTIONS = [
       {
         heading: "L'IA générative - vigilance",
         items: [
-          ["Deepfakes vocaux", "→ une IA peut imiter n'importe quelle voix avec quelques secondes d'audio"],
-          ["Urgence + voix connue + argent demandé", "→ raccrochez et rappelez vous-même sur le vrai numéro"],
-          ["Images trop parfaites", "→ regardez les mains (trop de doigts), les textes illisibles, les oreilles asymétriques"],
+          ["Deepfakes vocaux :", "une IA peut imiter n'importe quelle voix avec quelques secondes d'audio"],
+          ["Urgence + voix connue + argent demandé :", "raccrochez et rappelez vous-même sur le vrai numéro"],
+          ["Images trop parfaites :", "regardez les mains (trop de doigts), les textes illisibles, les oreilles asymétriques"],
         ],
       },
     ],
@@ -135,8 +135,8 @@ const TAKEAWAYS = [
 ];
 
 const ICON_MAP = {
-  whatsapp: MessageCircle,
-  ia: Bot,
+  whatsapp: ChatCircle,
+  ia: Robot,
 };
 
 export default function RetenirPage8() {

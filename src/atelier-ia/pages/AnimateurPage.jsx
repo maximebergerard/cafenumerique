@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
-import { ChevronRight, Maximize2 } from 'lucide-react'
+import { CaretRight, ArrowsOutSimple } from '../../icons/index.jsx'
 import QrModal from '../../components/QrModal.jsx'
 import Minuteur from '../components/Minuteur.jsx'
 import { atelierIa } from '../../content/atelier-ia.js'
@@ -31,7 +31,7 @@ export default function AnimateurPage() {
                       <span className={styles.lienTitre}>{lien.titre}</span>
                       <span className={styles.lienDescription}>{lien.description}</span>
                     </span>
-                    <ChevronRight size={24} aria-hidden="true" />
+                    <CaretRight size={24} aria-hidden="true" />
                   </Link>
                 </li>
               ))}
@@ -44,7 +44,7 @@ export default function AnimateurPage() {
               <QRCodeSVG value={`${window.location.origin}${CHEMIN_DEFIS}`} size={180} fgColor="#27173A" level="M" />
             </div>
             <button className={styles.boutonPrincipal} onClick={() => setQrEnGrand(true)}>
-              <Maximize2 size={20} aria-hidden="true" />
+              <ArrowsOutSimple size={20} aria-hidden="true" />
               {ui.qrAfficher}
             </button>
           </section>

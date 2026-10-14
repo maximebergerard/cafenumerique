@@ -1,11 +1,11 @@
-import { MessageSquareText, ScanSearch, ShieldAlert, Bot } from "lucide-react";
+import { ChatText, MagnifyingGlass, ShieldWarning, Robot } from "../icons/index.jsx";
 import RecapFiche from "../components/RecapFiche.jsx";
 
 const SESSION = "Café numérique #9";
 
 // ✏️ VAINQUEURS de la séance
 const WINNERS = ['Nicole', 'Marie-Lise', 'Isabelle'];
-const WINNERS_SUB = 'Imbattables pour démasquer les images fabriquées 🔍';
+const WINNERS_SUB = 'Imbattables pour démasquer les images fabriquées';
 
 const SECTIONS = [
   {
@@ -15,10 +15,10 @@ const SECTIONS = [
       {
         heading: "La formule pour bien demander",
         items: [
-          ["Qui ?", '→ "Tu es un jardinier…", "Tu es un conseiller juridique…"'],
-          ["Quoi ?", '→ "Aide-moi à écrire…", "Explique-moi…", "Propose-moi…"'],
-          ["Pour quoi ?", '→ le contexte : "pour ma petite-fille de 8 ans", "pour ma mairie"'],
-          ["Comment ?", '→ "en 5 lignes", "avec des mots simples", "sous forme de liste"'],
+          ["Qui ?", '"Tu es un jardinier…", "Tu es un conseiller juridique…"'],
+          ["Quoi ?", '"Aide-moi à écrire…", "Explique-moi…", "Propose-moi…"'],
+          ["Pour quoi ?", 'le contexte : "pour ma petite-fille de 8 ans", "pour ma mairie"'],
+          ["Comment ?", '"en 5 lignes", "avec des mots simples", "sous forme de liste"'],
         ],
       },
       {
@@ -33,17 +33,17 @@ const SECTIONS = [
       {
         heading: "Ce qu'on ne lui confie jamais",
         items: [
-          ["Mots de passe, codes bancaires", "→ jamais, sous aucun prétexte"],
-          ["Numéro de sécurité sociale, pièce d'identité", "→ on les remplace par des XXX"],
-          ["Détails de santé ou d'argent qui vous identifient", "→ on reste général"],
-          ["Pour aller plus loin", "→ ChatGPT : Paramètres → Contrôles des données → désactiver « Améliorer le modèle pour tous »"],
+          ["Mots de passe, codes bancaires :", "jamais, sous aucun prétexte"],
+          ["Numéro de sécurité sociale, pièce d'identité :", "on les remplace par des XXX"],
+          ["Détails de santé ou d'argent qui vous identifient :", "on reste général"],
+          ["Pour aller plus loin :", "ChatGPT : Paramètres > Contrôles des données > désactiver « Améliorer le modèle pour tous »"],
         ],
       },
       {
         heading: "L'IA peut se tromper avec aplomb",
         bullets: [
           "Elle invente parfois des chiffres, des dates, des adresses : on appelle ça une « hallucination »",
-          "Santé, argent, démarches administratives → on vérifie toujours sur un site officiel ou auprès d'un professionnel",
+          "Santé, argent, démarches administratives : on vérifie toujours sur un site officiel ou auprès d'un professionnel",
           "Astuce : lui demander « Quelles sont tes sources ? » puis aller les voir",
         ],
       },
@@ -65,11 +65,11 @@ const SECTIONS = [
       {
         heading: "Les indices sur une image",
         items: [
-          ["Les mains", "→ doigts en trop, soudés ou tordus"],
-          ["Les textes", "→ panneaux, étiquettes ou affiches aux lettres illisibles"],
-          ["L'arrière-plan", "→ objets qui se fondent, lignes qui ne se raccordent pas"],
-          ["Les détails", "→ boucles d'oreilles différentes, lunettes déformées, dents trop régulières"],
-          ["L'ambiance", "→ peau trop lisse, lumière trop parfaite, image « trop belle pour être vraie »"],
+          ["Les mains :", "doigts en trop, soudés ou tordus"],
+          ["Les textes :", "panneaux, étiquettes ou affiches aux lettres illisibles"],
+          ["L'arrière-plan :", "objets qui se fondent, lignes qui ne se raccordent pas"],
+          ["Les détails :", "boucles d'oreilles différentes, lunettes déformées, dents trop régulières"],
+          ["L'ambiance :", "peau trop lisse, lumière trop parfaite, image « trop belle pour être vraie »"],
         ],
       },
       {
@@ -108,9 +108,9 @@ const SECTIONS = [
       {
         heading: "Les arnaques qui utilisent l'IA",
         items: [
-          ["Une voix familière au téléphone qui réclame de l'argent", "→ une IA peut copier une voix avec quelques secondes d'enregistrement"],
-          ["Une célébrité qui recommande un placement miracle", "→ vidéo truquée, aucune célébrité ne fait ça"],
-          ["Un faux journal télévisé ou un faux article", "→ on cherche l'info sur le vrai site du média"],
+          ["Une voix familière au téléphone qui réclame de l'argent :", "une IA peut copier une voix avec quelques secondes d'enregistrement"],
+          ["Une célébrité qui recommande un placement miracle :", "vidéo truquée, aucune célébrité ne fait ça"],
+          ["Un faux journal télévisé ou un faux article :", "on cherche l'info sur le vrai site du média"],
         ],
       },
       {
@@ -124,7 +124,7 @@ const SECTIONS = [
       {
         heading: "Signaler et se faire aider",
         items: [
-          ["Info Escroqueries", "→ 0 805 805 817 (appel gratuit)"],
+          ["Info Escroqueries :", "0 805 805 817 (appel gratuit)"],
         ],
         resource: {
           label: "cybermalveillance.gouv.fr",
@@ -151,10 +151,10 @@ const TAKEAWAYS = [
 ];
 
 const ICON_MAP = {
-  prompt: MessageSquareText,
-  iaoupas: ScanSearch,
-  deepfake: ShieldAlert,
-  ia: Bot,
+  prompt: ChatText,
+  iaoupas: MagnifyingGlass,
+  deepfake: ShieldWarning,
+  ia: Robot,
 };
 
 export default function RetenirPage9() {

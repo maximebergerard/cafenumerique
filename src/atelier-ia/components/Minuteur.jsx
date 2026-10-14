@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Pause, Play, RotateCcw } from 'lucide-react'
+import { Pause, Play, ArrowCounterClockwise } from '../../icons/index.jsx'
 import { atelierIa } from '../../content/atelier-ia.js'
 import { remplir } from '../texte.js'
 import styles from './Minuteur.module.css'
@@ -79,7 +79,7 @@ export default function Minuteur() {
           </button>
         )}
         <button className={styles.boutonSecondaire} onClick={reinitialiser}>
-          <RotateCcw size={20} aria-hidden="true" /> {ui.reinitialiser}
+          <ArrowCounterClockwise size={20} aria-hidden="true" /> {ui.reinitialiser}
         </button>
       </div>
 

@@ -42,7 +42,7 @@ export default function AProposPage() {
               const Icon = ICONS[m.icon]
               return (
                 <div key={m.titre} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} strokeWidth={1.75} /></div>
+                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
                   <h3 className={styles.cardTitle}>{m.titre}</h3>
                   <p className={styles.cardText}>{m.texte}</p>
                 </div>

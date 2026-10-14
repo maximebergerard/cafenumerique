@@ -1,16 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Package2,
-  MessageSquare,
-  Monitor,
-  ShoppingBag,
-  AlertCircle,
-  Building2,
-  MessageCircle,
-  QrCode,
-  Lock,
-} from "lucide-react";
+import { ArrowRight, Package, ChatText, Monitor, ShoppingBag, WarningCircle, Buildings, ChatCircle, QrCode, Lock } from "../icons/index.jsx";
 import Layout from "../components/Layout.jsx";
 import QrModal from "../components/QrModal.jsx";
 import styles from "./SimulationsPage.module.css";
@@ -29,7 +19,7 @@ const ICE_BREAKERS = [
   {
     id: "laposte",
     path: "/laposte",
-    Icon: Package2,
+    Icon: Package,
     label: "Ice-breaker - Faux mail La Poste",
     description:
       "L'animateur joue le rôle de quelqu'un qui reçoit un mail de phishing. Le groupe doit le démasquer. Idéal pour lancer la séance.",
@@ -39,7 +29,7 @@ const ICE_BREAKERS = [
   {
     id: "whatsapp-groupe",
     path: "/whatsapp-groupe",
-    Icon: MessageCircle,
+    Icon: ChatCircle,
     label: "Ice-breaker CN8 - Le groupe famille de l'enfer",
     description:
       "Reconstitution d'un groupe WhatsApp de famille : vocal de 3 minutes à 7h, avalanche de GIFs, 'ok' de la nièce après 3 semaines... Révélation progressive pour l'animateur.",
@@ -52,7 +42,7 @@ const SIMULATIONS = [
   {
     id: "sms-laposte",
     path: "/sms-laposte",
-    Icon: MessageSquare,
+    Icon: ChatText,
     label: "CAS 1 - SMS La Poste",
     description:
       "Un SMS prétend qu'un colis est bloqué et demande 1,95 € de frais de douane via un lien bit.ly.",
@@ -82,7 +72,7 @@ const SIMULATIONS = [
   {
     id: "whatsapp-lucas",
     path: "/whatsapp-lucas",
-    Icon: AlertCircle,
+    Icon: WarningCircle,
     label: 'CAS 4 - WhatsApp "Lucas"',
     description:
       "Un numéro inconnu se prétend être le petit-fils Lucas et demande 350 € en urgence.",
@@ -92,7 +82,7 @@ const SIMULATIONS = [
   {
     id: "sms-banque-postale",
     path: "/sms-banque-postale",
-    Icon: Building2,
+    Icon: Buildings,
     label: "CAS 5 - SMS Banque Postale",
     description:
       "Un vrai SMS d'alerte de La Banque Postale signale une connexion inhabituelle.",
@@ -102,7 +92,7 @@ const SIMULATIONS = [
   {
     id: "whatsapp-famille",
     path: "/whatsapp-famille",
-    Icon: MessageCircle,
+    Icon: ChatCircle,
     label: "CAS 6 - WhatsApp Lucas (vrai)",
     description:
       "Lucas (contact enregistré) propose de venir déjeuner dimanche avec sa compagne.",
@@ -146,7 +136,7 @@ export default function SimulationsPage() {
                   <div
                     className={`${styles.cardIconWrap} ${styles.cardIconBreaker}`}
                   >
-                    <s.Icon size={22} strokeWidth={1.75} />
+                    <s.Icon size={22} />
                   </div>
                   <div className={styles.cardBody}>
                     <div className={styles.cardTop}>
@@ -162,7 +152,7 @@ export default function SimulationsPage() {
                       ))}
                     </div>
                   </div>
-                  <div className={styles.cardArrow}>→</div>
+                  <div className={styles.cardArrow}><ArrowRight size={20} /></div>
                 </Link>
               ))}
             </div>
@@ -185,7 +175,7 @@ export default function SimulationsPage() {
                   <div
                     className={`${styles.cardIconWrap} ${s.verdict === "arnaque" ? styles.cardIconArnaque : styles.cardIconVrai}`}
                   >
-                    <s.Icon size={22} strokeWidth={1.75} />
+                    <s.Icon size={22} />
                   </div>
                   <div className={styles.cardBody}>
                     <div className={styles.cardTop}>
@@ -209,7 +199,7 @@ export default function SimulationsPage() {
                       ))}
                     </div>
                   </div>
-                  <div className={styles.cardArrow}>→</div>
+                  <div className={styles.cardArrow}><ArrowRight size={20} /></div>
                 </Link>
               ))}
             </div>
@@ -219,7 +209,7 @@ export default function SimulationsPage() {
         {/* Lien animateur discret */}
         <div className={styles.animatorBar}>
           <Link to="/scores-cn8" className={styles.animatorLink}>
-            🎯 Résultats CN8
+            Résultats CN8
           </Link>
         </div>
 

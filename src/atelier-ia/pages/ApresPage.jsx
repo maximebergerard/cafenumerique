@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ExternalLink, Heart, Target, CheckCircle2, Lightbulb, ShieldAlert } from 'lucide-react'
+import { ArrowSquareOut, Heart, Target, CheckCircle, Lightbulb, ShieldWarning } from '../../icons/index.jsx'
 import Layout from '../../components/Layout.jsx'
 import { atelierIa } from '../../content/atelier-ia.js'
 import { remplir } from '../texte.js'
@@ -76,7 +76,7 @@ export default function ApresPage() {
                       <span className={styles.outilNom}>{remplir(ui.ouvrir, { nom: outil.nom })}</span>
                       <span className={styles.outilDescription}>{outil.description}</span>
                     </span>
-                    <ExternalLink size={26} aria-hidden="true" />
+                    <ArrowSquareOut size={26} aria-hidden="true" />
                   </a>
                 </li>
               ))}
@@ -88,7 +88,7 @@ export default function ApresPage() {
             <ul className={styles.regles}>
               {regles.map((regle, i) => (
                 <li key={i} className={styles.regle}>
-                  <ShieldAlert size={26} className={styles.regleIcone} aria-hidden="true" />
+                  <ShieldWarning size={26} className={styles.regleIcone} aria-hidden="true" />
                   <span>
                     <strong className={styles.regleTitre}>{regle.titre}</strong>
                     {regle.texte}
@@ -103,7 +103,7 @@ export default function ApresPage() {
             <ul className={styles.recap}>
               {recap.map((point, i) => (
                 <li key={i}>
-                  <CheckCircle2 size={26} className={styles.recapIcone} aria-hidden="true" />
+                  <CheckCircle size={26} className={styles.recapIcone} aria-hidden="true" />
                   <span>{point}</span>
                 </li>
               ))}

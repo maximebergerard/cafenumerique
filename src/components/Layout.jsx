@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
-import { Coffee, Menu, X } from 'lucide-react'
+import { Coffee, List, X } from '../icons/index.jsx'
 import { useLargeFont } from '../hooks/useLargeFont.js'
 import styles from './Layout.module.css'
 import { ATELIERS } from '../content/ateliers.js'
@@ -59,7 +59,7 @@ export default function Layout({ children }) {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link to="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-            <Coffee size={22} strokeWidth={2.2} className={styles.logoIcon} />
+            <Coffee size={22} className={styles.logoIcon} />
             <span className={styles.logoText}>Cafés numériques</span>
           </Link>
 
@@ -89,7 +89,7 @@ export default function Layout({ children }) {
             onClick={() => setMenuOpen((o) => !o)}
             aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            {menuOpen ? <X size={22} /> : <List size={22} />}
           </button>
         </div>
 
@@ -155,6 +155,9 @@ export default function Layout({ children }) {
               </ul>
             </nav>
           ))}
+        </div>
+        <div className={styles.footerBottom}>
+          <Link to="/mentions-legales">Mentions légales et confidentialité</Link>
         </div>
       </footer>
     </div>

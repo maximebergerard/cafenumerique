@@ -117,8 +117,6 @@
 .indicesTitre {
   font-size: var(--ai-p-text);
   color: var(--ai-p-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin-bottom: 0.75rem;
 }
 
@@ -176,8 +174,6 @@
 
 .debriefTitre {
   font-size: 0.8em;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--c-accent-hover);
   margin-bottom: 0.3rem;
 }

@@ -3,6 +3,7 @@ import SimulationLayout from '../../components/SimulationLayout.jsx'
 import WhatsappFrame, { WaBubble } from '../../components/WhatsappFrame.jsx'
 import Clue from '../../components/Clue.jsx'
 import styles from './WhatsappLucas.module.css'
+import { Money } from '../../icons/index.jsx'
 
 const CLUES = [
   {
@@ -34,7 +35,7 @@ const ACTION_MODALS = {
   envoyer: {
     title: 'Vous envoyez 350 €',
     body: "En situation réelle, l'argent est immédiatement récupéré via un réseau de mules. Un virement Instantané est définitif : impossible de récupérer les fonds. Les escrocs demanderont souvent plus d'argent ensuite.",
-    icon: '💸',
+    icon: Money,
   },
 }
 
@@ -95,13 +96,13 @@ export default function WhatsappLucas() {
             {/* Good outcome: Lucas replied */}
             {appelResult && (
               <>
-                <div className={styles.callSeparator}>📞 Vous avez appelé Lucas</div>
+                <div className={styles.callSeparator}>Vous avez appelé Lucas</div>
                 <WaBubble time="14:35" sent={false}>
                   <p className={styles.waMsg}>Mamie ? Tout va bien ! Je suis au travail 😊 Tu vas bien toi ?</p>
                   <div className={styles.waMeta}><span className={styles.waTime}>14:35</span></div>
                 </WaBubble>
                 <div className={styles.successNote}>
-                  ✅ Lucas va bien. Vous avez évité l'arnaque.
+                  Lucas va bien. Vous avez évité l'arnaque.
                 </div>
               </>
             )}
@@ -114,13 +115,13 @@ export default function WhatsappLucas() {
                 className={styles.btnDanger}
                 onClick={() => onAction('envoyer')}
               >
-                💸 Envoyer l'argent
+                Envoyer l'argent
               </button>
               <button
                 className={styles.btnSuccess}
                 onClick={() => setAppelResult(true)}
               >
-                📞 Appeler Lucas
+                Appeler Lucas
               </button>
             </div>
           )}

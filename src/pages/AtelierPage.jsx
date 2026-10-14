@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { Clock, Users, UserRound } from 'lucide-react'
+import { Clock, Users, User } from '../icons/index.jsx'
 import { Asterisk } from '../components/Shapes.jsx'
 import Layout from '../components/Layout.jsx'
 import { PageHero, CtaBand } from '../components/ContentBlocks.jsx'
@@ -22,7 +22,7 @@ export default function AtelierPage() {
       <PageHero
         crumbs={[{ to: '/ateliers', label: 'Les ateliers' }]}
         current={atelier.nom}
-        badge={`Atelier · ${atelier.nom}`}
+        badge={`Atelier ${atelier.nom}`}
         shapes={ATELIER_SHAPES[atelier.slug] ?? 0}
         title={atelier.titre}
         lead={atelier.accroche}
@@ -30,7 +30,7 @@ export default function AtelierPage() {
         <ul className={styles.heroFacts}>
           <li className={styles.heroFact}><Clock size={15} /> {FORMAT.duree}</li>
           <li className={styles.heroFact}><Users size={15} /> {FORMAT.participants}</li>
-          <li className={styles.heroFact}><UserRound size={15} /> {FORMAT.public}</li>
+          <li className={styles.heroFact}><User size={15} /> {FORMAT.public}</li>
         </ul>
         <div className={styles.heroCtas}>
           <Link to="/contact" className={styles.btnDark}>Organiser cet atelier</Link>

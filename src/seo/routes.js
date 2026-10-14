@@ -31,7 +31,7 @@ export const DEFAULT_IMAGE = '/og-image.png'
 export const DEFAULT_DESCRIPTION = "Support pédagogique du Café Numérique, ateliers conviviaux pour apprivoiser le numérique."
 
 // Dernière modification des pages ateliers (src/content/ateliers.js). Les guides ont leur propre `misAJour`.
-const ATELIERS_LASTMOD = '2026-09-18'
+const ATELIERS_LASTMOD = '2026-10-14'
 
 export const ROUTES = [
   // ── Pages publiques ──
@@ -173,6 +173,8 @@ export const ROUTES = [
     index: true,
     lastmod: '2026-09-01',
   },
+  // Mentions légales : noindex (l'adresse de l'éditeur n'a pas à ressortir dans Google)
+  { path: '/mentions-legales', title: 'Mentions légales et confidentialité', index: false },
 
   // ── Simulations plein écran : jamais indexées ──
   // Ce sont de fausses pages La Poste / Microsoft / paiement : les indexer

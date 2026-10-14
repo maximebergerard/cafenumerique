@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Compass } from 'lucide-react'
+import { Compass } from '../icons/index.jsx'
 import Layout from '../components/Layout.jsx'
 import styles from './AteliersPage.module.css'
 
@@ -10,7 +10,7 @@ export default function NotFoundPage() {
         <div className={styles.inner}>
           <div className={styles.placeholder}>
             <div className={styles.placeholderIconWrap}>
-              <Compass size={32} strokeWidth={1.5} />
+              <Compass size={32} />
             </div>
             <h1 className={styles.title}>Page introuvable</h1>
             <p className={styles.desc}>

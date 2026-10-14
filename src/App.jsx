@@ -25,6 +25,7 @@ import RetenirPageCeb2 from "./pages/RetenirPageCeb2.jsx";
 const ScoresCn8Page = lazy(() => import("./pages/ScoresCn8Page.jsx"));
 const PlanSallePage = lazy(() => import("./pages/PlanSallePage.jsx"));
 import ContactPage from "./pages/ContactPage.jsx";
+import MentionsLegalesPage from "./pages/MentionsLegalesPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 // Scénarios (plein écran, sans nav)
@@ -73,6 +74,7 @@ export default function App() {
         <Route path="/retenir-ceb1" element={<RetenirPageCeb1 />} />
         <Route path="/videos" element={<VideosPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
 
         {/* Simulations plein écran (sans nav) */}
         <Route path="/laposte" element={<LaPosteScenario />} />

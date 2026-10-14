@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLargeFont } from "../hooks/useLargeFont.js";
+import { ArrowLeft, MagnifyingGlass, X } from "../icons/index.jsx";
 import styles from "./AnimatorPanel.module.css";
 
 /**
@@ -24,10 +25,10 @@ export default function AnimatorPanel({
     <>
       <div className={styles.controls}>
         <button className={styles.backBtn} onClick={() => navigate("/arnaques")}>
-          ← Scénarios
+          <ArrowLeft size={16} /> Scénarios
         </button>
         <button className={styles.triggerBtn} onClick={() => setOpen(true)}>
-          🔍 Révéler les indices
+          <MagnifyingGlass size={16} /> Révéler les indices
         </button>
         <button className={styles.fontBtn} onClick={toggleFont} title="Taille du texte">
           {large ? "A−" : "A+"}
@@ -37,15 +38,15 @@ export default function AnimatorPanel({
       {open && (
         <div className={styles.overlay} onClick={() => setOpen(false)}>
           <div className={styles.panel} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeBtn} onClick={() => setOpen(false)}>
-              ✕
+            <button className={styles.closeBtn} onClick={() => setOpen(false)} aria-label="Fermer">
+              <X size={20} />
             </button>
-            <div className={styles.panelTitle}>🎯 {title}</div>
+            <div className={styles.panelTitle}>{title}</div>
             <div className={styles.grid}>
               {indices.map((item, i) => (
                 <div key={i} className={styles.indice}>
                   <span className={styles.num}>
-                    {"①②③④⑤⑥⑦⑧⑨"[i] ?? `${i + 1}.`}
+                    {i + 1}.
                   </span>
                   <span>
                     <strong>{item.label}</strong>

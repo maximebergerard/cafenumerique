@@ -119,3 +119,21 @@ export const ORGANISER = {
     },
   ],
 }
+
+// Mentions légales (page /mentions-legales). Les champs vides ne s'affichent pas :
+// remplir `statut`, `siret` et `adresse` si Maxime intervient en tant que professionnel.
+export const LEGAL = {
+  misAJour: '14 octobre 2026',
+  editeur: {
+    nom: 'Maxime Bergerard',
+    email: 'maxime.bergerard@gmail.com',
+    statut: '',
+    siret: '',
+    adresse: '',
+  },
+  hebergeur: {
+    nom: 'Netlify, Inc.',
+    adresse: '512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis',
+    site: 'https://www.netlify.com',
+  },
+}

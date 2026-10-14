@@ -115,8 +115,6 @@
 
 .missionTitre {
   font-size: var(--ai-text-small);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: #E4DAF5;
   margin-bottom: 0.4rem;
 }

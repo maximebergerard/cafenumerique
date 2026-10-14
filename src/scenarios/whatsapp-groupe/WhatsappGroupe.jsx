@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useLargeFont } from '../../hooks/useLargeFont.js'
 import WhatsappFrame from '../../components/WhatsappFrame.jsx'
 import styles from './WhatsappGroupe.module.css'
+import { ArrowLeft, ArrowRight } from '../../icons/index.jsx'
 
 const SENDERS = {
   michele: { name: 'Michèle', color: '#1a73e8', bg: '#e3f0fd' },
@@ -64,7 +65,7 @@ function ReplyMsg({ replyFrom, replyFromColor, replyText, replyAge, text, time }
     <div className={styles.replyBubble}>
       <div className={styles.replyQuote} style={{ borderLeftColor: replyFromColor }}>
         <span className={styles.replyFrom} style={{ color: replyFromColor }}>{replyFrom}</span>
-        <span className={styles.replyAge}> · {replyAge}</span>
+        <span className={styles.replyAge}> - {replyAge}</span>
         <p className={styles.replyText}>{replyText}</p>
       </div>
       <p className={styles.replyMain}>{text}</p>
@@ -218,7 +219,7 @@ export default function WhatsappGroupe() {
   return (
     <div className={styles.page}>
       <div className={styles.topBar}>
-        <Link to="/arnaques" className={styles.backBtn}>← Retour</Link>
+        <Link to="/arnaques" className={styles.backBtn}><ArrowLeft size={16} /> Retour</Link>
         <span className={styles.topTitle}>Ice-breaker CN8 - Le groupe famille de l'enfer</span>
         <span className={styles.topStep}>
           {step === 0 ? 'Prêt à démarrer' : `Étape ${step} / ${MAX_STEP}`}
@@ -278,7 +279,7 @@ export default function WhatsappGroupe() {
           ) : (
             <div className={styles.btnRow}>
               <button className={styles.btnPlay} onClick={() => setIsPlaying(true)}>▶ Play</button>
-              <button className={styles.btnNext} onClick={handleManualNext}>→ Suivant</button>
+              <button className={styles.btnNext} onClick={handleManualNext}>Suivant <ArrowRight size={16} /></button>
             </div>
           )
         ) : (

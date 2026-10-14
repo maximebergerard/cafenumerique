@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { Clock, LifeBuoy, Sparkles, Star } from 'lucide-react'
+import { Clock, Lifebuoy, PuzzlePiece, Star } from '../../icons/index.jsx'
 import Layout from '../../components/Layout.jsx'
 import BoutonRetourDefis from '../components/BoutonRetourDefis.jsx'
 import Depliable from '../components/Depliable.jsx'
@@ -66,7 +66,7 @@ export default function DefiPage() {
           </section>
 
           {defi.siVousBloquez.length > 0 && (
-            <Depliable titre={ui.siVousBloquez} icone={<LifeBuoy size={26} />} variante="aide">
+            <Depliable titre={ui.siVousBloquez} icone={<Lifebuoy size={26} />} variante="aide">
               <ul className={styles.puces}>
                 {defi.siVousBloquez.map((aide, i) => <li key={i}>{aide}</li>)}
               </ul>
@@ -86,7 +86,7 @@ export default function DefiPage() {
 
           {/* Niveau 2 : pour aller plus loin, replié et en retrait */}
           {defi.bonus.length > 0 && (
-            <Depliable titre={ui.bonus} icone={<Sparkles size={24} />} variante="bonus">
+            <Depliable titre={ui.bonus} icone={<PuzzlePiece size={24} />} variante="bonus">
               <ul className={styles.puces}>
                 {defi.bonus.map((point, i) => <li key={i}>{point}</li>)}
               </ul>

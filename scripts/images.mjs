@@ -13,13 +13,12 @@ import { Buffer } from 'node:buffer'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Resvg } from '@resvg/resvg-js'
+import { ICON_BODIES } from '../src/icons/icons.generated.js'
 
 const pub = join(dirname(fileURLToPath(import.meta.url)), '..', 'public')
 
-// Icône "Coffee" de lucide (celle du logo dans la nav), viewBox 24×24
-const COFFEE = `
-  <path d="M10 2v2"/><path d="M14 2v2"/><path d="M6 2v2"/>
-  <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/>`
+// Icône "Coffee" de Phosphor (celle du logo dans la nav), viewBox 256×256
+const COFFEE = ICON_BODIES.Coffee
 
 // Mêmes couleurs que src/index.css
 const INK = '#27173A'
@@ -34,7 +33,7 @@ const LILAC = '#C4B5FD'
 const icon = (round) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   ${round ? '' : `<rect width="64" height="64" fill="${PAPER}"/>`}
   <circle cx="32" cy="32" r="${round ? 32 : 26}" fill="${VIOLET}"/>
-  <g transform="translate(${round ? 14 : 17.5} ${round ? 14 : 17.5}) scale(${round ? 1.5 : 1.21})" fill="none" stroke="${PAPER}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${COFFEE}</g>
+  <g transform="translate(${round ? 14 : 17.5} ${round ? 14 : 17.5}) scale(${round ? 0.1406 : 0.1133})" color="${PAPER}">${COFFEE}</g>
 </svg>`
 
 // Aperçu de partage : papier, titre serif, tasse en formes (même dessin que CupComposition)
@@ -55,14 +54,14 @@ const OG = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
     </g>
   </g>
 
-  <text x="80" y="118" font-family="Avenir Next" font-size="30" font-weight="600" fill="${VIOLET}">Cafés numériques · Maxime Bergerard</text>
+  <text x="80" y="118" font-family="Avenir Next" font-size="30" font-weight="600" fill="${VIOLET}">Cafés numériques - Maxime Bergerard</text>
   <g font-family="Avenir Next" font-weight="700" font-size="84" letter-spacing="-2" fill="${INK}">
     <text x="76" y="250">Des ateliers</text>
     <text x="76" y="350">numériques</text>
     <text x="76" y="450">conviviaux</text>
   </g>
   <path d="M80 476 q20 -15 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="${AMBER}" stroke-width="9" stroke-linecap="round"/>
-  <text x="80" y="548" font-family="Avenir Next" font-size="32" font-weight="500" fill="#564F62">pour adultes et seniors · cafenumerique.fr</text>
+  <text x="80" y="548" font-family="Avenir Next" font-size="32" font-weight="500" fill="#564F62">pour adultes et seniors - cafenumerique.fr</text>
 </svg>`
 
 function png(svg, width) {

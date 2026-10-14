@@ -31,7 +31,7 @@ export default function OrganiserPage() {
               const Icon = ICONS[s.icon]
               return (
                 <div key={s.titre} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} strokeWidth={1.75} /></div>
+                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
                   <h3 className={styles.cardTitle}>{s.titre}</h3>
                   <p className={styles.cardText}>{s.texte}</p>
                 </div>

@@ -24,7 +24,7 @@ const CLUES = [
 ]
 
 const CONCLUSION = {
-  title: 'C\'est un message légitime ✓',
+  title: 'C\'est un message légitime',
   body: "Ce SMS présente tous les signes d'authenticité : expéditeur officiel, aucun lien, mise en garde, numéro court. Comparez-le avec les arnaques : la différence est nette.",
   reflex:
     "À retenir : une vraie banque ne vous demandera jamais votre code PIN, jamais de cliquer sur un lien. En cas de doute, appelez le numéro au dos de votre carte.",
@@ -71,7 +71,7 @@ export default function SmsBanquePostale() {
                 {/* Clue 1: no link - we add a visual note for the clue panel */}
                 <Clue index={1} activeIndex={activeIndex} type="ok" as="div">
                   <div className={styles.noLinkNote}>
-                    ✅ Aucun lien dans ce message
+                    Aucun lien dans ce message
                   </div>
                 </Clue>
               </div>
@@ -84,11 +84,11 @@ export default function SmsBanquePostale() {
               className={styles.btnAppeler}
               onClick={() => setAppelSuccess(true)}
             >
-              📞 Appeler le 3639
+              Appeler le 3639
             </button>
             {appelSuccess && (
               <div className={styles.successMsg}>
-                ✅ Vous avez bien fait d'appeler ! Le conseiller confirme la tentative de connexion et sécurise votre compte.
+                Vous avez bien fait d'appeler ! Le conseiller confirme la tentative de connexion et sécurise votre compte.
               </div>
             )}
           </div>

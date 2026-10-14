@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLargeFont } from "../hooks/useLargeFont.js";
+import { ArrowCounterClockwise, ArrowDown, ArrowLeft, ArrowRight, CheckCircle, Envelope, Lock, PencilSimple, WarningCircle } from "../icons/index.jsx";
 import styles from "./ChiffrementPage.module.css";
 
 // Chiffrement César : décale les lettres A-Z/a-z, laisse les accents/chiffres/ponctuations intacts
@@ -65,7 +66,7 @@ export default function ChiffrementPage() {
       {/* Barre navigation */}
       <div className={styles.topBar}>
         <Link to="/arnaques" className={styles.backBtn}>
-          ← Retour
+          <ArrowLeft size={16} /> Retour
         </Link>
         <span className={styles.topTitle}>Le chiffrement de bout en bout</span>
         <button
@@ -89,7 +90,7 @@ export default function ChiffrementPage() {
 
         {/* Composer */}
         <div className={styles.composer}>
-          <label className={styles.composerLabel}>✏️ Message d'Alice</label>
+          <label className={styles.composerLabel}><PencilSimple size={16} /> Message d'Alice</label>
           <div className={styles.composerRow}>
             <input
               className={styles.composerInput}
@@ -103,7 +104,7 @@ export default function ChiffrementPage() {
             />
             {phase !== "idle" && (
               <button className={styles.btnReset} onClick={reset}>
-                ↺
+                <ArrowCounterClockwise size={18} />
               </button>
             )}
           </div>
@@ -111,14 +112,14 @@ export default function ChiffrementPage() {
           {phase === "idle" && (
             <div className={styles.sendBtns}>
               <button className={styles.btnSms} onClick={() => send("sms")}>
-                <span className={styles.btnIcon}>📨</span>
+                <span className={styles.btnIcon}><Envelope size={28} /></span>
                 <span className={styles.btnMain}>Envoyer par SMS</span>
                 <span className={styles.btnSub}>
-                  Non chiffré · comme une lettre ouverte
+                  Non chiffré : comme une lettre ouverte
                 </span>
               </button>
               <button className={styles.btnWa} onClick={() => send("whatsapp")}>
-                <span className={styles.btnIcon}>🔒</span>
+                <span className={styles.btnIcon}><Lock size={28} /></span>
                 <span className={styles.btnMain}>Envoyer via WhatsApp</span>
                 <span className={styles.btnSub}>Chiffré de bout en bout</span>
               </button>
@@ -164,9 +165,9 @@ export default function ChiffrementPage() {
               <div
                 className={`${styles.packet} ${phase === "sending" ? styles.packetFly : ""} ${isDone ? styles.packetDone : ""}`}
               >
-                {mode === "sms" ? "✉️" : "🔒"}
+                {mode === "sms" ? <Envelope size={26} /> : <Lock size={26} />}
               </div>
-              <div className={styles.arrowTip}>→</div>
+              <div className={styles.arrowTip}><ArrowRight size={22} /></div>
             </div>
 
             {/* ── INTERCEPTEUR ── */}
@@ -201,8 +202,8 @@ export default function ChiffrementPage() {
                   className={`${styles.verdict} ${mode === "sms" ? styles.verdictBad : styles.verdictGood}`}
                 >
                   {mode === "sms"
-                    ? "⚠️ Message exposé !"
-                    : "✅ Message illisible"}
+                    ? <><WarningCircle size={20} /> Message exposé !</>
+                    : <><CheckCircle size={20} /> Message illisible</>}
                 </div>
               )}
             </div>
@@ -212,7 +213,7 @@ export default function ChiffrementPage() {
               <div
                 className={`${styles.arrowLine} ${isDone ? styles.arrowActive : ""}`}
               />
-              <div className={styles.arrowTip}>→</div>
+              <div className={styles.arrowTip}><ArrowRight size={22} /></div>
             </div>
 
             {/* ── BOB ── */}
@@ -234,7 +235,7 @@ export default function ChiffrementPage() {
                 ) : mode === "sms" ? (
                   <div className={styles.bubbleReceived}>{msg}</div>
                 ) : bobDecrypted ? (
-                  <div className={styles.bubbleReceived}>✅ {msg}</div>
+                  <div className={styles.bubbleReceived}>{msg}</div>
                 ) : (
                   <div className={styles.bubbleEncryptedReceived}>
                     <EncryptedText text={encrypted} />
@@ -252,7 +253,7 @@ export default function ChiffrementPage() {
               )}
               {isDone && mode === "whatsapp" && bobDecrypted && (
                 <div className={`${styles.verdict} ${styles.verdictGood}`}>
-                  ✅ Déchiffré !
+                  <CheckCircle size={20} /> Déchiffré !
                 </div>
               )}
               {isDone && mode === "sms" && (
@@ -293,7 +294,7 @@ export default function ChiffrementPage() {
               {Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ").map((c) => (
                 <div key={c} className={styles.cipherCell}>
                   <span className={styles.cellPlain}>{c}</span>
-                  <span className={styles.cellArrow}>↓</span>
+                  <span className={styles.cellArrow}><ArrowDown size={12} /></span>
                   <span className={styles.cellCipher}>
                     {caesarEncrypt(c, SHIFT)}
                   </span>
@@ -307,7 +308,7 @@ export default function ChiffrementPage() {
                 "{msg.substring(0, 12)}
                 {msg.length > 12 ? "…" : ""}"
               </span>
-              <span className={styles.keyExArrow}>→</span>
+              <span className={styles.keyExArrow}><ArrowRight size={16} /></span>
               <span className={styles.keyExEnc}>
                 "{caesarEncrypt(msg.substring(0, 12), SHIFT)}
                 {msg.length > 12 ? "…" : ""}"

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ChevronRight, Clock } from 'lucide-react'
+import { CaretRight, Clock } from '../../icons/index.jsx'
 import Layout from '../../components/Layout.jsx'
 import { atelierIa } from '../../content/atelier-ia.js'
 import { remplir } from '../texte.js'
@@ -28,7 +28,7 @@ export default function DefisListePage() {
                       {defi.duree}
                     </span>
                   </span>
-                  <ChevronRight size={30} className={styles.carteFleche} aria-label={ui.voirLeDefi} />
+                  <CaretRight size={30} className={styles.carteFleche} aria-label={ui.voirLeDefi} />
                 </Link>
               </li>
             ))}

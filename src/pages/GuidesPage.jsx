@@ -23,7 +23,7 @@ export default function GuidesPage() {
                 <div className={styles.cardKicker}>{g.theme}</div>
                 <h2 className={styles.cardTitle}>{g.titre}</h2>
                 <p className={styles.cardText}>{g.resume}</p>
-                <span className={styles.cardMore}>Lire le guide →</span>
+                <span className={styles.cardMore}>Lire le guide</span>
               </Link>
             ))}
           </div>

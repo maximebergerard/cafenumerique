@@ -58,7 +58,7 @@
   text-decoration: none;
   color: inherit;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  transition: border-color var(--t-base);
 }
 
 .card:hover {

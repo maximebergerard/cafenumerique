@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Theater, FileText } from "lucide-react";
+import { PuzzlePiece, MaskHappy, FileText } from "../icons/index.jsx";
 import Layout from "../components/Layout.jsx";
 import { CupComposition, Squiggle, BandShapes } from "../components/Shapes.jsx";
 import { Portrait } from "../components/ContentBlocks.jsx";
@@ -35,7 +35,7 @@ export default function HomePage() {
         <section className={styles.hero}>
           <div className={styles.heroInner}>
             <div className={styles.heroText}>
-            <p className={styles.heroBadge}>Cafés numériques · Maxime Bergerard</p>
+            <p className={styles.heroBadge}>Cafés numériques de Maxime Bergerard</p>
             <h1 className={styles.heroTitle}>
               Des ateliers numériques{" "}
               <span className={styles.marked}>
@@ -79,7 +79,7 @@ export default function HomePage() {
                     className={`${styles.themeCard} reveal`}
                   >
                     <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}>
-                      <Icon size={22} strokeWidth={1.75} />
+                      <Icon size={22} />
                     </div>
                     <div>
                       <h3 className={styles.themeLabel}>{a.nom}</h3>
@@ -90,7 +90,7 @@ export default function HomePage() {
               })}
               <Link to="/contact" className={`${styles.themeCard} reveal`}>
                 <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[ATELIERS.length % DOT_COLORS.length] }}>
-                  <Sparkles size={22} strokeWidth={1.75} />
+                  <PuzzlePiece size={22} />
                 </div>
                 <div>
                   <h3 className={styles.themeLabel}>{SUR_MESURE.titre}</h3>
@@ -132,7 +132,7 @@ export default function HomePage() {
                 return (
                   <div key={s.titre} className={`${styles.themeCard} reveal`}>
                     <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}>
-                      <Icon size={22} strokeWidth={1.75} />
+                      <Icon size={22} />
                     </div>
                     <div>
                       <h3 className={styles.themeLabel}>{s.titre}</h3>
@@ -161,13 +161,13 @@ export default function HomePage() {
                 >
                   <div>
                     <div className={styles.resourceLabel}>{g.titre}</div>
-                    <div className={styles.resourceDesc}>Guide · {g.theme}</div>
+                    <div className={styles.resourceDesc}>Guide : {g.theme}</div>
                   </div>
                 </Link>
               ))}
               <Link to="/arnaques" className={`${styles.resourceCard} reveal`}>
                 <div className={styles.resourceIconWrap}>
-                  <Theater size={24} strokeWidth={1.75} />
+                  <MaskHappy size={24} />
                 </div>
                 <div>
                   <div className={styles.resourceLabel}>
@@ -180,7 +180,7 @@ export default function HomePage() {
               </Link>
               <Link to="/recaps" className={`${styles.resourceCard} reveal`}>
                 <div className={styles.resourceIconWrap}>
-                  <FileText size={24} strokeWidth={1.75} />
+                  <FileText size={24} />
                 </div>
                 <div>
                   <div className={styles.resourceLabel}>Récaps des séances</div>

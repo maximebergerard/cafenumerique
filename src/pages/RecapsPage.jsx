@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FileText, Clock, MapPin } from 'lucide-react'
+import { ArrowRight, FileText, Clock, MapPin } from '../icons/index.jsx'
 import Layout from '../components/Layout.jsx'
 import { LIEUX, RECAPS } from '../content/recaps.js'
 import styles from './RecapsPage.module.css'
@@ -22,7 +22,7 @@ export default function RecapsPage() {
             return (
               <section key={lieu.id} id={lieu.id} className={styles.lieu}>
                 <h2 className={styles.lieuTitle}>
-                  <MapPin size={20} strokeWidth={2} aria-hidden="true" />
+                  <MapPin size={20} aria-hidden="true" />
                   {lieu.nom}
                   <span className={styles.lieuCount}>
                     {recaps.length} {recaps.length > 1 ? 'séances' : 'séance'}
@@ -32,7 +32,7 @@ export default function RecapsPage() {
                   {recaps.map((r) => (
                     <Link key={r.id} to={r.path} className={styles.card}>
                       <div className={styles.cardIconWrap}>
-                        <FileText size={22} strokeWidth={1.75} />
+                        <FileText size={22} />
                       </div>
                       <div className={styles.cardLeft}>
                         <div className={styles.cardDate}>{r.date}</div>
@@ -44,7 +44,7 @@ export default function RecapsPage() {
                           ))}
                         </div>
                       </div>
-                      <div className={styles.cardArrow}>→</div>
+                      <div className={styles.cardArrow}><ArrowRight size={20} /></div>
                     </Link>
                   ))}
                 </div>
@@ -55,7 +55,7 @@ export default function RecapsPage() {
           {/* Entrées futures */}
           <div className={styles.cardFuture}>
             <div className={styles.futureIconWrap}>
-              <Clock size={20} strokeWidth={1.75} />
+              <Clock size={20} />
             </div>
             <div>
               <div className={styles.futureTitle}>Prochaines séances</div>

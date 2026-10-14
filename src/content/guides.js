@@ -236,8 +236,8 @@ export const GUIDES = [
           {
             liste: [
               'Ne communiquez jamais le code à 6 chiffres reçu par SMS, même à un proche : il sert à voler votre compte.',
-              'Activez la vérification en deux étapes : Paramètres → Compte → Vérification en deux étapes.',
-              'Réservez votre photo de profil et votre statut à vos contacts : Paramètres → Confidentialité.',
+              'Activez la vérification en deux étapes : Paramètres > Compte > Vérification en deux étapes.',
+              'Réservez votre photo de profil et votre statut à vos contacts : Paramètres > Confidentialité.',
             ],
           },
         ],

@@ -7,7 +7,7 @@ export default function QrModal({
   onClose,
   path = '/retenir-ceb2',
   label = 'Scannez pour garder le mémo',
-  closeLabel = 'Fermer ✕',
+  closeLabel = 'Fermer',
   size = 220,
 }) {
   const url = `${window.location.origin}${path}`

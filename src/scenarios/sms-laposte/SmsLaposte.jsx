@@ -2,6 +2,7 @@ import SimulationLayout from '../../components/SimulationLayout.jsx'
 import PhoneFrame, { SmsBubble } from '../../components/PhoneFrame.jsx'
 import Clue from '../../components/Clue.jsx'
 import styles from './SmsLaposte.module.css'
+import { CreditCard } from '../../icons/index.jsx'
 
 const CLUES = [
   {
@@ -33,7 +34,7 @@ const ACTION_MODALS = {
   lien: {
     title: 'Vous venez de cliquer !',
     body: "En situation réelle, vous seriez redirigé vers un faux site de paiement qui copie exactement la charte de La Poste. Vos coordonnées bancaires seraient volées en 30 secondes.",
-    icon: '💳',
+    icon: CreditCard,
   },
 }
 

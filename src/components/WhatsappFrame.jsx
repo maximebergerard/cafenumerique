@@ -79,7 +79,7 @@ export default function WhatsappFrame({ contactName, contactAvatar, isUnknown = 
       {/* Unknown number bar */}
       {isUnknown && (
         <div className={styles.waUnknownBar}>
-          <span className={styles.waUnknownText}>Numéro non enregistré · </span>
+          <span className={styles.waUnknownText}>Numéro non enregistré</span>
           <button className={styles.waUnknownBtn}>Ajouter aux contacts</button>
           <button className={styles.waUnknownBtn} style={{ color: '#e74c3c' }}>Signaler</button>
         </div>

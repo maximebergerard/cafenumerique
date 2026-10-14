@@ -1,22 +1,18 @@
-import {
-  Bot, ShieldAlert, MessageCircle, Theater, Hand, Users, FileText,
-  Library, Landmark, House, Heart, Sparkles, BookOpen,
-} from 'lucide-react'
+import { Robot, ShieldWarning, ChatCircle, MaskHappy, Hand, Users, FileText, Books, Bank, House, Heart, BookOpen } from '../icons/index.jsx'
 
 // Icônes utilisables par leur nom dans les fichiers de src/content/
 export const ICONS = {
-  bot: Bot,
-  shield: ShieldAlert,
-  message: MessageCircle,
-  theater: Theater,
+  bot: Robot,
+  shield: ShieldWarning,
+  message: ChatCircle,
+  theater: MaskHappy,
   hand: Hand,
   users: Users,
   file: FileText,
-  library: Library,
-  landmark: Landmark,
+  library: Books,
+  landmark: Bank,
   home: House,
   heart: Heart,
-  sparkles: Sparkles,
   book: BookOpen,
 }
 

@@ -18,10 +18,12 @@
   flex-shrink: 0;
   z-index: 10;
   border-bottom: 1px solid rgba(139,92,246,0.15);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
 }
 
 .backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: rgba(139,92,246,0.12);
   border: 1px solid rgba(139,92,246,0.2);
   color: #A78BFA;
@@ -97,7 +99,6 @@
   color: white;
   padding: 1.25rem 1.5rem;
   border-top: 2px solid #DC2626;
-  box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
 }
 
 .cluePanelHeader {
@@ -111,8 +112,6 @@
   font-size: 0.72rem;
   font-weight: 700;
   color: #F87171;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   white-space: nowrap;
 }
 
@@ -168,6 +167,9 @@
 
 /* Buttons */
 .btnReveal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: #DC2626;
   color: white;
   border: none;
@@ -183,6 +185,9 @@
 .btnReveal:hover { background: #B91C1C; }
 
 .btnRestart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: rgba(139,92,246,0.1);
   color: #A78BFA;
   border: 1px solid rgba(139,92,246,0.2);
@@ -201,6 +206,9 @@
 }
 
 .btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: #DC2626;
   color: white;
   border: none;
@@ -216,6 +224,9 @@
 .btnPrimary:hover { background: #B91C1C; }
 
 .btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: rgba(139,92,246,0.1);
   color: #A78BFA;
   border: 1px solid rgba(139,92,246,0.2);
@@ -253,14 +264,12 @@
   max-width: 560px;
   width: 100%;
   color: white;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(139,92,246,0.15);
+  border: 1px solid rgba(139,92,246,0.25);
 }
 
 .conclusionVerdict {
   font-size: 0.75rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
   padding: 0.3rem 0.75rem;
   border-radius: 20px;
   display: inline-block;
@@ -286,15 +295,15 @@
   display: flex;
   gap: 0.75rem;
   background: rgba(139,92,246,0.1);
-  border-left: 3px solid #8B5CF6;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 1rem 1.1rem;
   margin-bottom: 1.5rem;
 }
 
 .conclusionReflexIcon {
-  font-size: 1.1rem;
+  display: flex;
   flex-shrink: 0;
+  color: #C4B5FD;
   margin-top: 0.1rem;
 }
 
@@ -314,8 +323,7 @@
 .actionModalBackdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -331,12 +339,14 @@
   max-width: 440px;
   width: 100%;
   color: white;
-  box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.25);
   text-align: center;
 }
 
 .actionModalIcon {
-  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  color: #F87171;
   margin-bottom: 0.75rem;
 }
 

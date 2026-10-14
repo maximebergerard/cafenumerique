@@ -376,7 +376,7 @@ export const atelierIa = {
   // ═══════════════════════════════════════════════════════════════════════════
   animateur: {
     interface: {
-      titrePage: "Atelier IA · Animateur",
+      titrePage: "Atelier IA : espace animateur",
       modules: "Les modules",
       qrTitre: "QR code des défis",
       qrLegende: "Scannez pour voir les défis",

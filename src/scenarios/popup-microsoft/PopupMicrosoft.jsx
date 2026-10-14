@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SimulationLayout from '../../components/SimulationLayout.jsx'
 import Clue from '../../components/Clue.jsx'
 import styles from './PopupMicrosoft.module.css'
+import { CheckCircle, Phone } from '../../icons/index.jsx'
 
 const CLUES = [
   {
@@ -33,7 +34,7 @@ const ACTION_MODALS = {
   appeler: {
     title: 'Vous appelez le faux support !',
     body: "En situation réelle, un 'technicien' répondrait. Il vous demanderait d'installer un logiciel d'accès à distance (AnyDesk, TeamViewer). Une fois connecté, il pourrait tout voir et tout voler sur votre ordinateur.",
-    icon: '📞',
+    icon: Phone,
   },
 }
 
@@ -122,7 +123,7 @@ export default function PopupMicrosoft() {
                         </div>
                       </Clue>
                       <p className={styles.dialogSubtext}>
-                        Appel gratuit · Disponible 24h/24 · Ne fermez pas cette fenêtre
+                        Appel gratuit - Disponible 24h/24 - Ne fermez pas cette fenêtre
                       </p>
                     </div>
                   </div>
@@ -152,7 +153,7 @@ export default function PopupMicrosoft() {
           {/* Success toast for closing */}
           {fermerSuccess && (
             <div className={styles.successToast}>
-              <span className={styles.successIcon}>✅</span>
+              <span className={styles.successIcon}><CheckCircle size={26} /></span>
               <div>
                 <strong>Bravo ! Bon réflexe.</strong>
                 <p>Fermer la fenêtre est exactement ce qu'il faut faire. Alt+F4 ou le gestionnaire des tâches si la fenêtre refuse de se fermer.</p>

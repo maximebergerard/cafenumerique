@@ -3,7 +3,7 @@
 //
 // Ajouter un atelier = ajouter un objet dans ATELIERS. La page, le menu du
 // pied de page, le sitemap et les métadonnées SEO se mettent à jour seuls.
-// `icon` : nom d'une icône lucide déclarée dans src/components/icons.js
+// `icon` : nom d'une icône déclarée dans src/components/icons.js
 // Pas de tarifs sur le site : on renvoie vers le contact.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -85,8 +85,8 @@ export const ATELIERS = [
     accroche:
       "Faux SMS de colis, fausse alerte Microsoft, faux petit-fils sur WhatsApp : on s'entraîne à les démasquer avant qu'ils arrivent pour de vrai.",
     intro: [
-      "Les arnaques en ligne visent tout le monde, et elles sont de plus en plus soignées. La meilleure protection n'est pas la peur, c'est l'entraînement.",
-      "Dans cet atelier, on ne fait pas de cours sur les arnaques : on les vit. L'animateur joue la victime, le groupe mène l'enquête.",
+      "Les arnaques en ligne visent tout le monde, et elles sont de plus en plus soignées. On s'en protège en s'entraînant.",
+      "Dans cet atelier, l'animateur joue la victime et le groupe mène l'enquête, sans cours magistral.",
     ],
     objectifGlobal:
       "Permettre à chacun de reconnaître les signaux d'alarme d'un message frauduleux, de faire la différence avec un vrai message et de savoir quoi faire en cas de doute, ou si l'on s'est fait piéger.",

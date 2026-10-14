@@ -49,8 +49,6 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   font-size: var(--ai-text-small);
   color: #F9A8D4;
 }

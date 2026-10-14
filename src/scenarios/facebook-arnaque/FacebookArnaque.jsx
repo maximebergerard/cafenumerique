@@ -1,11 +1,12 @@
 import SimulationLayout from '../../components/SimulationLayout.jsx'
 import Clue from '../../components/Clue.jsx'
 import styles from './FacebookArnaque.module.css'
+import { Bell, ChatCircle, House, ShareFat, ShoppingBag, SquaresFour, ThumbsUp, Users } from '../../icons/index.jsx'
 
 const CLUES = [
   {
     label: 'Pas de badge de vérification',
-    detail: "Les vraies marques ont un badge bleu ✓ sur Facebook. 'Super Promos FR' n'en a pas - n'importe qui peut créer cette page.",
+    detail: "Les vraies marques ont un badge bleu de vérification sur Facebook. 'Super Promos FR' n'en a pas - n'importe qui peut créer cette page.",
   },
   {
     label: 'La remise de -90%',
@@ -32,7 +33,7 @@ const ACTION_MODALS = {
   acheter: {
     title: 'Vous allez sur le site de paiement',
     body: "Le site ressemble à un vrai site marchand. Il demande votre carte bancaire. Une fois le paiement validé : vous ne recevrez jamais le produit, et votre carte sera utilisée pour d'autres achats frauduleux.",
-    icon: '🛒',
+    icon: ShoppingBag,
   },
 }
 
@@ -60,10 +61,10 @@ export default function FacebookArnaque() {
               <span>Rechercher</span>
             </div>
             <div className={styles.fbNavIcons}>
-              <div className={styles.fbNavIcon}>🏠</div>
-              <div className={styles.fbNavIcon}>👥</div>
-              <div className={styles.fbNavIcon}>🔔</div>
-              <div className={styles.fbNavIconActive}>⊞</div>
+              <div className={styles.fbNavIcon}><House size={22} /></div>
+              <div className={styles.fbNavIcon}><Users size={22} /></div>
+              <div className={styles.fbNavIcon}><Bell size={22} /></div>
+              <div className={styles.fbNavIconActive}><SquaresFour size={22} /></div>
             </div>
           </div>
 
@@ -144,13 +145,13 @@ export default function FacebookArnaque() {
 
               <div className={styles.actionBar}>
                 <button className={styles.actionBtn}>
-                  <span>👍</span> J'aime
+                  <ThumbsUp size={18} /> J'aime
                 </button>
                 <button className={styles.actionBtn}>
-                  <span>💬</span> Commenter
+                  <ChatCircle size={18} /> Commenter
                 </button>
                 <button className={styles.actionBtn}>
-                  <span>↗</span> Partager
+                  <ShareFat size={18} /> Partager
                 </button>
               </div>
             </div>

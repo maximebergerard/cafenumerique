@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import AnimatorPanel from "../../components/AnimatorPanel.jsx";
 import styles from "./LaPosteScenario.module.css";
+import { Archive, ArrowBendUpLeft, ArrowRight, Envelope, Package, PaperPlaneTilt, Star, Trash, Tray } from '../../icons/index.jsx'
 
 // -- Utilitaires horaires -----------------------------------------------------
 
@@ -83,14 +84,14 @@ export default function LaPosteScenario() {
       <div className={styles.mailApp}>
         {/* Sidebar */}
         <div className={styles.sidebar}>
-          <div className={styles.sidebarLogo}>✉️ MonMail</div>
+          <div className={styles.sidebarLogo}><Envelope size={18} /> MonMail</div>
           <div className={`${styles.sidebarItem} ${styles.active}`}>
-            📥 Boîte de réception <span className={styles.badge}>1</span>
+            <Tray size={16} /> Boîte de réception <span className={styles.badge}>1</span>
           </div>
-          <div className={styles.sidebarItem}>⭐ Favoris</div>
-          <div className={styles.sidebarItem}>📤 Envoyés</div>
-          <div className={styles.sidebarItem}>📁 Archives</div>
-          <div className={styles.sidebarItem}>🗑️ Corbeille</div>
+          <div className={styles.sidebarItem}><Star size={16} /> Favoris</div>
+          <div className={styles.sidebarItem}><PaperPlaneTilt size={16} /> Envoyés</div>
+          <div className={styles.sidebarItem}><Archive size={16} /> Archives</div>
+          <div className={styles.sidebarItem}><Trash size={16} /> Corbeille</div>
         </div>
 
         {/* Liste des mails */}
@@ -151,9 +152,9 @@ export default function LaPosteScenario() {
         {/* Corps du mail */}
         <div className={styles.mailContent}>
           <div className={styles.mailToolbar}>
-            <button className={styles.toolbarBtn}>↩ Répondre</button>
-            <button className={styles.toolbarBtn}>→ Transférer</button>
-            <button className={styles.toolbarBtn}>🗑 Supprimer</button>
+            <button className={styles.toolbarBtn}><ArrowBendUpLeft size={16} /> Répondre</button>
+            <button className={styles.toolbarBtn}><ArrowRight size={16} /> Transférer</button>
+            <button className={styles.toolbarBtn}><Trash size={16} /> Supprimer</button>
           </div>
 
           <div className={styles.mailBody}>
@@ -163,7 +164,7 @@ export default function LaPosteScenario() {
             </div>
 
             <div className={styles.mailMeta}>
-              <div className={styles.senderAvatar}>📦</div>
+              <div className={styles.senderAvatar}><Package size={22} /></div>
               <div className={styles.senderInfo}>
                 <div className={styles.senderName}>
                   La Poste - Service Livraison

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Clock, Users, UserRound, Repeat, Sparkles } from 'lucide-react'
+import { Clock, Users, User, Repeat, PuzzlePiece } from '../icons/index.jsx'
 import Layout from '../components/Layout.jsx'
 import { PageHero, CtaBand } from '../components/ContentBlocks.jsx'
 import { ICONS, DOT_COLORS } from '../components/icons.js'
@@ -20,7 +20,7 @@ export default function AteliersPage() {
         <ul className={styles.heroFacts}>
           <li className={styles.heroFact}><Clock size={15} /> {FORMAT.duree}</li>
           <li className={styles.heroFact}><Users size={15} /> {FORMAT.participants}</li>
-          <li className={styles.heroFact}><UserRound size={15} /> Grands débutants bienvenus</li>
+          <li className={styles.heroFact}><User size={15} /> Grands débutants bienvenus</li>
           <li className={styles.heroFact}><Repeat size={15} /> {FORMAT.formats}</li>
         </ul>
       </PageHero>
@@ -34,20 +34,20 @@ export default function AteliersPage() {
               const Icon = ICONS[a.icon]
               return (
                 <Link key={a.slug} to={`/ateliers/${a.slug}`} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} strokeWidth={1.75} /></div>
+                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
                   <div className={styles.cardKicker}>{a.nom}</div>
                   <h3 className={styles.cardTitle}>{a.titre}</h3>
                   <p className={styles.cardText}>{a.accroche}</p>
-                  <span className={styles.cardMore}>Voir le programme →</span>
+                  <span className={styles.cardMore}>Voir le programme</span>
                 </Link>
               )
             })}
             <Link to="/contact" className={`${styles.card} ${styles.cardDashed}`}>
-              <div className={styles.cardIcon} style={{ background: DOT_COLORS[ATELIERS.length % DOT_COLORS.length] }}><Sparkles size={22} strokeWidth={1.75} /></div>
+              <div className={styles.cardIcon} style={{ background: DOT_COLORS[ATELIERS.length % DOT_COLORS.length] }}><PuzzlePiece size={22} /></div>
               <div className={styles.cardKicker}>Sur mesure</div>
               <h3 className={styles.cardTitle}>{SUR_MESURE.titre}</h3>
               <p className={styles.cardText}>{SUR_MESURE.texte}</p>
-              <span className={styles.cardMore}>En parler →</span>
+              <span className={styles.cardMore}>En parler</span>
             </Link>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function AteliersPage() {
               const Icon = ICONS[m.icon]
               return (
                 <div key={m.titre} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} strokeWidth={1.75} /></div>
+                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
                   <h3 className={styles.cardTitle}>{m.titre}</h3>
                   <p className={styles.cardText}>{m.texte}</p>
                 </div>

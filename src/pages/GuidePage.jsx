@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { Theater, Coffee } from 'lucide-react'
+import { MaskHappy, Coffee } from '../icons/index.jsx'
 import { Asterisk } from '../components/Shapes.jsx'
 import { DOT_COLORS } from '../components/icons.js'
 import Layout from '../components/Layout.jsx'
@@ -62,7 +62,7 @@ export default function GuidePage() {
         lead={guide.resume}
       >
         <p className={styles.meta}>
-          Par <Link to="/a-propos">Maxime Bergerard</Link> · Mis à jour le <time dateTime={guide.misAJour}>{date}</time>
+          Par <Link to="/a-propos">Maxime Bergerard</Link>, mis à jour le <time dateTime={guide.misAJour}>{date}</time>
         </p>
       </PageHero>
 
@@ -87,18 +87,18 @@ export default function GuidePage() {
           <div className={styles.aside}>
             {guide.simulation && (
               <Link to={guide.simulation.path} className={`${styles.card} reveal`}>
-                <div className={styles.cardIcon} style={{ background: DOT_COLORS[1] }}><Theater size={22} strokeWidth={1.75} /></div>
+                <div className={styles.cardIcon} style={{ background: DOT_COLORS[1] }}><MaskHappy size={22} /></div>
                 <div className={styles.cardKicker}>S'entraîner</div>
                 <span className={styles.cardTitle}>{guide.simulation.label}</span>
-                <span className={styles.cardMore}>Ouvrir la simulation →</span>
+                <span className={styles.cardMore}>Ouvrir la simulation</span>
               </Link>
             )}
             {atelier && (
               <Link to={`/ateliers/${atelier.slug}`} className={`${styles.card} reveal`}>
-                <div className={styles.cardIcon} style={{ background: DOT_COLORS[2] }}><Coffee size={22} strokeWidth={1.75} /></div>
+                <div className={styles.cardIcon} style={{ background: DOT_COLORS[2] }}><Coffee size={22} /></div>
                 <div className={styles.cardKicker}>L'atelier</div>
                 <span className={styles.cardTitle}>{atelier.titre}</span>
-                <span className={styles.cardMore}>Voir le programme →</span>
+                <span className={styles.cardMore}>Voir le programme</span>
               </Link>
             )}
           </div>

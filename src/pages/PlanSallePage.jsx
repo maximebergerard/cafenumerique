@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { RotateCcw } from 'lucide-react'
+import { ArrowCounterClockwise } from '../icons/index.jsx'
 import Layout from '../components/Layout.jsx'
 import styles from './PlanSallePage.module.css'
 
@@ -22,8 +22,8 @@ const SALLES = [
         nom: 'Îlot de gauche',
         inclinaison: 0,
         places: [
-          { id: 'cg-duo', cote: 'gauche', libelle: 'Duo · 2 personnes' },
-          { id: 'cg-trio', cote: 'droite', libelle: 'Trio · 3 personnes' },
+          { id: 'cg-duo', cote: 'gauche', libelle: 'Duo (2 personnes)' },
+          { id: 'cg-trio', cote: 'droite', libelle: 'Trio (3 personnes)' },
         ],
       },
       {
@@ -31,8 +31,8 @@ const SALLES = [
         nom: 'Îlot de droite',
         inclinaison: 0,
         places: [
-          { id: 'cd-duo', cote: 'gauche', libelle: 'Duo · 2 personnes' },
-          { id: 'cd-trio', cote: 'droite', libelle: 'Trio · 3 personnes' },
+          { id: 'cd-duo', cote: 'gauche', libelle: 'Duo (2 personnes)' },
+          { id: 'cd-trio', cote: 'droite', libelle: 'Trio (3 personnes)' },
         ],
       },
     ],
@@ -158,7 +158,7 @@ function Salle({ salle }) {
       <div className={styles.barre}>
         <span className={styles.compteur}>{remplies} équipe{remplies > 1 ? 's' : ''} sur {total}</span>
         <button type="button" className={styles.effacer} onClick={effacer}>
-          <RotateCcw size={16} />
+          <ArrowCounterClockwise size={16} />
           Tout effacer
         </button>
       </div>

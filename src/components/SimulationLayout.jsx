@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLargeFont } from '../hooks/useLargeFont.js'
+import { ArrowCounterClockwise, ArrowLeft, ArrowRight, Lightbulb, MagnifyingGlass } from '../icons/index.jsx'
 import styles from './SimulationLayout.module.css'
 
 export default function SimulationLayout({
@@ -55,7 +56,7 @@ export default function SimulationLayout({
       {/* Top bar */}
       <div className={styles.topBar}>
         <button className={styles.backBtn} onClick={() => navigate('/arnaques')}>
-          ← Retour
+          <ArrowLeft size={16} /> Retour
         </button>
         <h1 className={styles.topTitle}>{title}</h1>
         <span className={`${styles.verdictBadge} ${verdictClass}`}>{verdictLabel}</span>
@@ -89,11 +90,11 @@ export default function SimulationLayout({
                   className={styles.btnSecondary}
                   onClick={() => setActiveIndex(activeIndex - 1)}
                 >
-                  ← Précédent
+                  <ArrowLeft size={16} /> Précédent
                 </button>
               )}
               <button className={styles.btnPrimary} onClick={handleNext}>
-                {activeIndex < clues.length - 1 ? 'Suivant →' : 'Voir la conclusion →'}
+                {activeIndex < clues.length - 1 ? 'Suivant' : 'Voir la conclusion'} <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -104,7 +105,7 @@ export default function SimulationLayout({
       <div className={styles.bottomBar}>
         {phase === 'discovery' && (
           <button className={styles.btnReveal} onClick={handleReveal}>
-            🔍 Révéler les indices
+            <MagnifyingGlass size={18} /> Révéler les indices
           </button>
         )}
         {phase === 'clues' && (
@@ -116,7 +117,7 @@ export default function SimulationLayout({
         )}
         {phase === 'conclusion' && (
           <button className={styles.btnRestart} onClick={handleRestart}>
-            ↺ Recommencer
+            <ArrowCounterClockwise size={16} /> Recommencer
           </button>
         )}
       </div>
@@ -131,11 +132,11 @@ export default function SimulationLayout({
             <h2 className={styles.conclusionTitle}>{conclusion.title}</h2>
             <p className={styles.conclusionBody}>{conclusion.body}</p>
             <div className={styles.conclusionReflex}>
-              <span className={styles.conclusionReflexIcon}>💡</span>
+              <span className={styles.conclusionReflexIcon}><Lightbulb size={22} /></span>
               <p>{conclusion.reflex}</p>
             </div>
             <button className={styles.btnRestart} onClick={handleRestart}>
-              ↺ Recommencer
+              <ArrowCounterClockwise size={16} /> Recommencer
             </button>
           </div>
         </div>
@@ -145,7 +146,12 @@ export default function SimulationLayout({
       {actionModal && actionModals[actionModal] && (
         <div className={styles.actionModalBackdrop} onClick={closeActionModal}>
           <div className={styles.actionModal} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.actionModalIcon}>{actionModals[actionModal].icon}</div>
+            <div className={styles.actionModalIcon}>
+              {(() => {
+                const Icon = actionModals[actionModal].icon
+                return <Icon size={44} />
+              })()}
+            </div>
             <h3 className={styles.actionModalTitle}>{actionModals[actionModal].title}</h3>
             <p className={styles.actionModalBody}>{actionModals[actionModal].body}</p>
             <button className={styles.btnPrimary} onClick={closeActionModal}>

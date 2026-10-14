@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Video } from 'lucide-react'
+import { VideoCamera } from '../icons/index.jsx'
 import Layout from '../components/Layout.jsx'
 import styles from './AteliersPage.module.css'
 
@@ -11,7 +11,7 @@ export default function VideosPage() {
 
           <div className={styles.placeholder}>
             <div className={styles.placeholderIconWrap}>
-              <Video size={32} strokeWidth={1.5} />
+              <VideoCamera size={32} />
             </div>
             <h1 className={styles.title}>Vidéos</h1>
             <p className={styles.desc}>

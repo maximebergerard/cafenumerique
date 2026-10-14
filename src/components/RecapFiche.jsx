@@ -1,4 +1,4 @@
-import { Bot, MessageSquare, ExternalLink } from "lucide-react";
+import { Robot, ChatText, ArrowSquareOut, Trophy } from "../icons/index.jsx";
 import Layout from "./Layout.jsx";
 import { Breadcrumb } from "./ContentBlocks.jsx";
 import styles from "../pages/RetenirPage.module.css";
@@ -32,7 +32,7 @@ export default function RecapFiche({
   icons = {},
   takeaways,
 }) {
-  const titre = lieu ? `${session} · ${lieu}` : session;
+  const titre = lieu ? `${session} - ${lieu}` : session;
   return (
     <Layout>
       <div className={styles.crumbsBar}>
@@ -51,7 +51,7 @@ export default function RecapFiche({
 
         {/* ── Bloc vainqueurs ── */}
         <div className={winners ? styles.winnersCard : styles.winnersCardPending}>
-          <div className={styles.winnersTrophy}>🏆</div>
+          <div className={styles.winnersTrophy}><Trophy size={44} /></div>
           {winners ? (
             <>
               <div className={styles.winnersLabel}>{winnersLabel}</div>
@@ -74,12 +74,12 @@ export default function RecapFiche({
         </div>
 
         {sections.map((section) => {
-          const Icon = icons[section.icon] || Bot;
+          const Icon = icons[section.icon] || Robot;
           return (
             <section key={section.title} className={styles.section}>
               <div className={styles.sectionHeader}>
                 <div className={styles.sectionIconWrap}>
-                  <Icon size={18} strokeWidth={2} />
+                  <Icon size={18} />
                 </div>
                 <h2 className={styles.sectionTitle}>{section.title}</h2>
               </div>
@@ -144,7 +144,7 @@ export default function RecapFiche({
                       rel="noopener noreferrer"
                       className={styles.resourceLink}
                     >
-                      <ExternalLink size={14} strokeWidth={2} />
+                      <ArrowSquareOut size={14} />
                       {block.resource.label}
                     </a>
                   )}
@@ -158,7 +158,7 @@ export default function RecapFiche({
         <section className={styles.takeawaySection}>
           <div className={styles.sectionHeader}>
             <div className={`${styles.sectionIconWrap} ${styles.sectionIconWrapLight}`}>
-              <MessageSquare size={18} strokeWidth={2} />
+              <ChatText size={18} />
             </div>
             <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>
               Les 3 choses à retenir

@@ -244,6 +244,21 @@
 
 .footerLinks a:hover { color: var(--c-surface); text-decoration: underline; text-decoration-color: var(--c-amber); text-underline-offset: 4px; }
 
+.footerBottom {
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 252, 246, 0.16);
+  font-size: 0.9rem;
+}
+
+.footerBottom a {
+  color: rgba(255, 252, 246, 0.78);
+  text-underline-offset: 4px;
+}
+
+.footerBottom a:hover { color: var(--c-surface); text-decoration-color: var(--c-amber); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1020px) {
   .nav { display: none; }

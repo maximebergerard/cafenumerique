@@ -1,16 +1,10 @@
-import {
-  ShieldAlert,
-  Bot,
-  Smartphone,
-  MessageSquare,
-  ExternalLink,
-} from "lucide-react";
+import { ShieldWarning, Robot, DeviceMobile, ChatText, ArrowSquareOut } from "../icons/index.jsx";
 import Layout from "../components/Layout.jsx";
 import { Breadcrumb } from "../components/ContentBlocks.jsx";
 import styles from "./RetenirPage.module.css";
 
 // ── Numéro de séance - à mettre à jour à chaque café numérique ──
-const SESSION = "Café numérique #7 · Nandy";
+const SESSION = "Café numérique #7 - Nandy";
 
 const SECTIONS = [
   {
@@ -20,10 +14,10 @@ const SECTIONS = [
       {
         heading: "Les signaux d'alarme",
         items: [
-          ["Un message urgent", "→ on s'arrête, on réfléchit"],
-          ["Un lien bizarre ou raccourci", "→ on ne clique pas"],
-          ["Un petit montant demandé", "→ c'est fait pour sembler anodin"],
-          ["Un numéro ou mail expéditeur inconnu", "→ on vérifie"],
+          ["Un message urgent :", "on s'arrête, on réfléchit"],
+          ["Un lien bizarre ou raccourci :", "on ne clique pas"],
+          ["Un petit montant demandé :", "c'est fait pour sembler anodin"],
+          ["Un numéro ou mail expéditeur inconnu :", "on vérifie"],
         ],
       },
       {
@@ -37,7 +31,7 @@ const SECTIONS = [
             "Le cadenas dans le navigateur",
             "ne veut pas dire que le site est honnête",
           ],
-          ["En cas de doute", "→ on rappelle soi-même sur le numéro officiel"],
+          ["En cas de doute :", "on rappelle soi-même sur le numéro officiel"],
           ["On en parle à un proche", "avant d'agir"],
         ],
       },
@@ -127,9 +121,9 @@ const TAKEAWAYS = [
 ];
 
 const ICON_MAP = {
-  arnaques: ShieldAlert,
-  ia: Bot,
-  lexique: Smartphone,
+  arnaques: ShieldWarning,
+  ia: Robot,
+  lexique: DeviceMobile,
 };
 
 export default function RetenirPage() {
@@ -149,12 +143,12 @@ export default function RetenirPage() {
 
       <div className={styles.main}>
         {SECTIONS.map((section) => {
-          const Icon = ICON_MAP[section.icon] || ShieldAlert;
+          const Icon = ICON_MAP[section.icon] || ShieldWarning;
           return (
             <section key={section.title} className={styles.section}>
               <div className={styles.sectionHeader}>
                 <div className={styles.sectionIconWrap}>
-                  <Icon size={18} strokeWidth={2} />
+                  <Icon size={18} />
                 </div>
                 <h2 className={styles.sectionTitle}>{section.title}</h2>
               </div>
@@ -231,7 +225,7 @@ export default function RetenirPage() {
                       rel="noopener noreferrer"
                       className={styles.resourceLink}
                     >
-                      <ExternalLink size={14} strokeWidth={2} />
+                      <ArrowSquareOut size={14} />
                       {block.resource.label}
                     </a>
                   )}
@@ -247,7 +241,7 @@ export default function RetenirPage() {
             <div
               className={`${styles.sectionIconWrap} ${styles.sectionIconWrapLight}`}
             >
-              <MessageSquare size={18} strokeWidth={2} />
+              <ChatText size={18} />
             </div>
             <h2
               className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}

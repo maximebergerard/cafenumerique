@@ -24,7 +24,7 @@ const CLUES = [
 ]
 
 const CONCLUSION = {
-  title: 'C\'est un vrai message ✓',
+  title: 'C\'est un vrai message',
   body: "Lucas vous envoie un message tout à fait ordinaire. Comparez-le avec l'arnaque du CAS 4 : la différence est dans le numéro (connu vs inconnu), l'urgence (nulle vs forte), et la demande (une visite vs de l'argent).",
   reflex:
     "À retenir : la présence dans les contacts, l'absence d'urgence et l'absence de demande d'argent sont les trois signaux positifs d'un message légitime.",
@@ -104,14 +104,14 @@ export default function WhatsappFamille() {
                 className={styles.btnRepondre}
                 onClick={() => setReplied(true)}
               >
-                💬 Répondre à Lucas
+                Répondre à Lucas
               </button>
             </div>
           )}
 
           {replied && (
             <div className={styles.replySuccess}>
-              ✅ Dimanche en famille, c'est noté ! Les vrais messages méritent une vraie réponse.
+              Dimanche en famille, c'est noté ! Les vrais messages méritent une vraie réponse.
             </div>
           )}
         </div>
