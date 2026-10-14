@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { PuzzlePiece, MaskHappy, FileText } from "../icons/index.jsx";
+import { BookOpen, PuzzlePiece, MaskHappy, FileText } from "../icons/index.jsx";
 import Layout from "../components/Layout.jsx";
 import { CupComposition, Squiggle, BandShapes } from "../components/Shapes.jsx";
 import { Portrait } from "../components/ContentBlocks.jsx";
@@ -45,9 +45,9 @@ export default function HomePage() {
               pour adultes et seniors
             </h1>
             <p className={styles.heroSubtitle}>
-              Le Café Numérique de Maxime Bergerard, c'est un rendez-vous pour
-              apprivoiser le numérique sans jargon, sans jugement, en petit
-              groupe : arnaques en ligne, intelligence artificielle, WhatsApp.
+              Je vous propose un rendez-vous pour apprivoiser le numérique sans
+              jargon, sans jugement, en petit groupe : arnaques en ligne,
+              intelligence artificielle, WhatsApp.
             </p>
             <div className={styles.heroCtas}>
               <Link to="/organiser-un-atelier" className={styles.ctaPrimary}>
@@ -159,6 +159,9 @@ export default function HomePage() {
                   to={`/guides/${g.slug}`}
                   className={`${styles.resourceCard} reveal`}
                 >
+                  <div className={styles.resourceIconWrap}>
+                    <BookOpen size={24} />
+                  </div>
                   <div>
                     <div className={styles.resourceLabel}>{g.titre}</div>
                     <div className={styles.resourceDesc}>Guide : {g.theme}</div>
@@ -198,10 +201,9 @@ export default function HomePage() {
           <div className={`${styles.sectionInner} ${styles.intervenant} reveal`}>
             <Portrait src={INTERVENANT.photo} alt={INTERVENANT.nom} className={styles.intervenantPhoto} />
             <div>
-              <h2 className={styles.sectionTitle}>L'intervenant</h2>
+              <h2 className={styles.sectionTitle}>Qui je suis</h2>
               <p className={`${styles.sectionDesc} ${styles.intervenantText}`}>
-                <strong>{INTERVENANT.nom}</strong>, {INTERVENANT.role.charAt(0).toLowerCase() + INTERVENANT.role.slice(1)}.{" "}
-                {INTERVENANT.bio[1]}{" "}
+                {INTERVENANT.presentation}{" "}
                 <Link to="/a-propos">En savoir plus</Link>
               </p>
             </div>
@@ -220,7 +222,7 @@ export default function HomePage() {
               de votre public, le programme s'adapte à vos besoins.
             </p>
             <Link to="/contact" className={styles.ctaPrimary}>
-              Écrire à Maxime
+              M'écrire
             </Link>
           </div>
         </section>

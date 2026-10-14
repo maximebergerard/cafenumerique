@@ -102,7 +102,7 @@
   max-width: 42em;
 }
 
-.sectionDesc a { color: var(--c-text); font-weight: 700; text-underline-offset: 4px; text-decoration-color: var(--c-accent); text-decoration-thickness: 2px; }
+.sectionDesc a { white-space: nowrap; color: var(--c-text); font-weight: 700; text-underline-offset: 4px; text-decoration-color: var(--c-accent); text-decoration-thickness: 2px; }
 .sectionDesc a:hover { color: var(--c-accent-hover); }
 
 /* ── INTERVENANT : photo ronde + texte ── */

@@ -22,7 +22,7 @@ const ICE_BREAKERS = [
     Icon: Package,
     label: "Ice-breaker - Faux mail La Poste",
     description:
-      "L'animateur joue le rôle de quelqu'un qui reçoit un mail de phishing. Le groupe doit le démasquer. Idéal pour lancer la séance.",
+      "Je joue le rôle de quelqu'un qui reçoit un mail de phishing. Le groupe doit me démasquer. Idéal pour lancer la séance.",
     tags: ["Phishing", "Urgence artificielle", "Faux lien"],
     type: "ice-breaker",
   },
@@ -32,7 +32,7 @@ const ICE_BREAKERS = [
     Icon: ChatCircle,
     label: "Ice-breaker CN8 - Le groupe famille de l'enfer",
     description:
-      "Reconstitution d'un groupe WhatsApp de famille : vocal de 3 minutes à 7h, avalanche de GIFs, 'ok' de la nièce après 3 semaines... Révélation progressive pour l'animateur.",
+      "Reconstitution d'un groupe WhatsApp de famille : vocal de 3 minutes à 7h, avalanche de GIFs, 'ok' de la nièce après 3 semaines... Je révèle les indices progressivement.",
     tags: ["WhatsApp", "Groupe", "Humour", "CN8"],
     type: "ice-breaker",
   },
@@ -114,8 +114,8 @@ export default function SimulationsPage() {
             <h1 className={styles.title}>Simulations d'arnaques</h1>
             <p className={styles.desc}>
               Des interfaces réalistes pour apprendre à repérer les signaux
-              d'alarme - en binôme ou en groupe. L'animateur peut projeter
-              chaque cas et révéler les indices progressivement.
+              d'alarme, en binôme ou en groupe. Je projette chaque cas en atelier
+              et je révèle les indices un par un.
             </p>
             <button className={styles.qrBtn} onClick={() => setShowQr(true)}>
               <QrCode size={16} />
@@ -128,7 +128,7 @@ export default function SimulationsPage() {
               Ice-breaker - Pour lancer la séance
             </h2>
             <p className={styles.sectionDesc}>
-              L'animateur joue un personnage, le groupe joue les détectives.
+              Je joue un personnage, le groupe joue les détectives.
             </p>
             <div className={styles.grid}>
               {ICE_BREAKERS.map((s) => (

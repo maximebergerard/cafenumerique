@@ -21,7 +21,7 @@ export const atelierIa = {
   defis: {
     interface: {
       titrePage: "Les défis",
-      intro: "Choisissez le défi annoncé par l'animateur.",
+      intro: "Choisissez le défi que je viens d'annoncer.",
       numero: "Défi {n}",
       voirLeDefi: "Voir le défi",
       mission: "Votre mission",

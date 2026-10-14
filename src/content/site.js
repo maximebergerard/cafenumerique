@@ -9,6 +9,9 @@ export const INTERVENANT = {
   // Recadrage carré 560×560, affiché en rond (composant Portrait)
   photo: '/images/maxime-bergerard.jpg',
   linkedin: 'https://www.linkedin.com/in/maxime-bergerard/',
+  // Courte présentation à la première personne (accueil)
+  presentation:
+    "Je m'appelle Maxime Bergerard, je suis expert en ingénierie numérique. J'ai créé le Café numérique parce que trop de gens risquaient de « rater le train » faute d'un coup de main au bon moment : un espace sans prise de tête, sans jargon, où l'on apprend en faisant et en s'amusant.",
   bio: [
     "Diplômé d'HETIC en tant qu'expert en ingénierie numérique, j'ai longtemps travaillé au cœur des technologies, jusqu'au jour où j'ai réalisé que le numérique creusait autant de fossés qu'il en comblait. Trop de gens risquaient de « rater le train », faute d'un coup de main au bon moment.",
     "C'est de ce constat qu'est né le Café numérique : un espace sans prise de tête, sans jargon, où l'on apprend en faisant et en s'amusant.",
@@ -21,7 +24,7 @@ export const METHODE = [
     icon: 'theater',
     titre: 'Le théâtre-forum',
     texte:
-      "L'animateur joue un personnage face à une situation piégée, le groupe mène l'enquête et l'arrête à temps. On apprend en riant, et on retient.",
+      "Je joue un personnage face à une situation piégée, le groupe mène l'enquête et m'arrête à temps. On apprend en riant, et on retient.",
   },
   {
     icon: 'hand',

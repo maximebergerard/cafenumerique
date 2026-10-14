@@ -9,7 +9,7 @@ export default function AProposPage() {
     <Layout>
       <PageHero
         current="À propos"
-        badge="L'intervenant"
+        badge="Qui je suis"
         title={INTERVENANT.nom}
         lead={INTERVENANT.role}
         aside={<Portrait src={INTERVENANT.photo} alt={INTERVENANT.nom} eager />}

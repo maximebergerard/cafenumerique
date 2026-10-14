@@ -86,7 +86,7 @@ export const ATELIERS = [
       "Faux SMS de colis, fausse alerte Microsoft, faux petit-fils sur WhatsApp : on s'entraîne à les démasquer avant qu'ils arrivent pour de vrai.",
     intro: [
       "Les arnaques en ligne visent tout le monde, et elles sont de plus en plus soignées. On s'en protège en s'entraînant.",
-      "Dans cet atelier, l'animateur joue la victime et le groupe mène l'enquête, sans cours magistral.",
+      "Dans cet atelier, je joue la victime et le groupe mène l'enquête, sans cours magistral.",
     ],
     objectifGlobal:
       "Permettre à chacun de reconnaître les signaux d'alarme d'un message frauduleux, de faire la différence avec un vrai message et de savoir quoi faire en cas de doute, ou si l'on s'est fait piéger.",
@@ -100,7 +100,7 @@ export const ATELIERS = [
       {
         titre: 'Ice-breaker : le faux mail La Poste',
         texte:
-          "L'animateur reçoit « en direct » un mail de colis bloqué et s'apprête à payer. Le groupe doit l'arrêter et expliquer pourquoi. C'est du théâtre-forum : on rit, et on retient.",
+          "Je reçois « en direct » un mail de colis bloqué et je m'apprête à payer. Le groupe doit m'arrêter et expliquer pourquoi. C'est du théâtre-forum : on rit, et on retient.",
       },
       {
         titre: 'Enquête en binôme',

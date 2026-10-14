@@ -129,7 +129,7 @@ export default function Layout({ children }) {
               Cafés numériques
             </Link>
             <p className={styles.footerTagline}>
-              Ateliers numériques conviviaux pour adultes et seniors, animés par Maxime Bergerard.
+              Ateliers numériques conviviaux pour adultes et seniors, que j'anime en petit groupe.
             </p>
             <Link to="/contact" className={styles.footerMail}>
               Me contacter
