@@ -127,8 +127,8 @@ export const LEGAL = {
   editeur: {
     nom: 'Maxime Bergerard',
     email: 'maxime.bergerard@gmail.com',
-    statut: '',
-    siret: '',
+    statut: 'Microentreprise',
+    siret: '94927186000015',
     adresse: '',
   },
   hebergeur: {
