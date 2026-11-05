@@ -22,6 +22,7 @@ import RetenirPage8 from "./pages/RetenirPage8.jsx";
 import RetenirPage9 from "./pages/RetenirPage9.jsx";
 import RetenirPageCeb1 from "./pages/RetenirPageCeb1.jsx";
 import RetenirPageCeb2 from "./pages/RetenirPageCeb2.jsx";
+import RetenirPageCeb3 from "./pages/RetenirPageCeb3.jsx";
 const ScoresCn8Page = lazy(() => import("./pages/ScoresCn8Page.jsx"));
 const PlanSallePage = lazy(() => import("./pages/PlanSallePage.jsx"));
 import ContactPage from "./pages/ContactPage.jsx";
@@ -70,6 +71,7 @@ export default function App() {
         <Route path="/retenir" element={<RetenirPage />} />
         <Route path="/retenir-cn8" element={<RetenirPage8 />} />
         <Route path="/retenir-cn9" element={<RetenirPage9 />} />
+        <Route path="/retenir-ceb3" element={<RetenirPageCeb3 />} />
         <Route path="/retenir-ceb2" element={<RetenirPageCeb2 />} />
         <Route path="/retenir-ceb1" element={<RetenirPageCeb1 />} />
         <Route path="/videos" element={<VideosPage />} />

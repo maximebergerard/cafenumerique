@@ -117,9 +117,18 @@ export const ROUTES = [
     description:
       "Les fiches mémo de chaque Café numérique : arnaques, intelligence artificielle, WhatsApp, deepfakes. À relire tranquillement après l'atelier.",
     index: true,
-    lastmod: '2026-10-09',
+    lastmod: '2026-11-05',
   },
   // Fiches récap : le titre contient déjà « Café numérique », donc pas de suffixe (bare)
+  {
+    path: '/retenir-ceb3',
+    title: 'Café numérique Châtelet-en-Brie #3 : IA et images truquées',
+    description:
+      "Mémo du Café numérique de Châtelet-en-Brie #3 : bien demander à une IA, ce qu'on ne lui confie pas, repérer les images truquées et les deepfakes.",
+    index: true,
+    bare: true,
+    lastmod: '2026-11-05',
+  },
   {
     path: '/retenir-ceb2',
     title: 'Café numérique Châtelet-en-Brie #2 : IA et images truquées',
