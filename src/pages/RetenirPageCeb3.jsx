@@ -8,7 +8,7 @@ const LIEU = "Châtelet-en-Brie";
 
 // ✏️ VAINQUEURS de la séance : null tant qu'ils ne sont pas connus (« ??? & ??? »).
 // Prénoms ['Prénom', 'Prénom'] ou nom d'équipe ['Nom']. WINNERS_SUB : une phrase différente à chaque séance.
-const WINNERS = null;
+const WINNERS = ['Jocelyne', 'Brigitte'];
 const WINNERS_SUB = 'Jamais deux sans trois : le trophée a trouvé preneur';
 
 const SECTIONS = [
