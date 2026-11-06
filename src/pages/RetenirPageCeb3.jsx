@@ -1,8 +1,8 @@
-import { ChatText, MagnifyingGlass, ShieldWarning, Robot } from "../icons/index.jsx";
+import { ChatText, MagnifyingGlass, ShieldWarning, Robot, Package, Lock } from "../icons/index.jsx";
 import RecapFiche from "../components/RecapFiche.jsx";
 
 // Châtelet-en-Brie a sa propre numérotation (Nandy : #7, #8, #9…).
-// ✏️ Contenu repris de la #2 en attendant celui de la séance : à adapter.
+// Séance du 6 novembre 2026 (Médiathèque du Château des Dames), d'après les slides de Maxime.
 const SESSION = "Café numérique #3";
 const LIEU = "Châtelet-en-Brie";
 
@@ -12,56 +12,6 @@ const WINNERS = null;
 const WINNERS_SUB = 'Jamais deux sans trois : le trophée a trouvé preneur';
 
 const SECTIONS = [
-  {
-    icon: "prompt",
-    title: "Discuter avec une IA",
-    blocks: [
-      {
-        heading: "La formule pour bien demander",
-        items: [
-          ["Qui ?", '"Tu es un jardinier…", "Tu es un conseiller juridique…"'],
-          ["Quoi ?", '"Aide-moi à écrire…", "Explique-moi…", "Propose-moi…"'],
-          ["Pour quoi ?", 'le contexte : "pour ma petite-fille de 8 ans", "pour ma mairie"'],
-          ["Comment ?", '"en 5 lignes", "avec des mots simples", "sous forme de liste"'],
-        ],
-      },
-      {
-        heading: "La réponse ne convient pas ? On continue la conversation",
-        bullets: [
-          "« Plus court », « plus simple », « plus chaleureux »",
-          "« Donne-moi 3 autres idées »",
-          "« Je n'ai pas compris ce passage, reformule »",
-          "Pas besoin de tout réécrire : l'IA se souvient du début de la conversation",
-        ],
-      },
-      {
-        heading: "Ce qu'on ne lui confie jamais",
-        items: [
-          ["Mots de passe, codes bancaires :", "jamais, sous aucun prétexte"],
-          ["Numéro de sécurité sociale, pièce d'identité :", "on les remplace par des XXX"],
-          ["Détails de santé ou d'argent qui vous identifient :", "on reste général"],
-          ["Pour aller plus loin :", "ChatGPT : Paramètres > Contrôles des données > désactiver « Améliorer le modèle pour tous »"],
-        ],
-      },
-      {
-        heading: "L'IA peut se tromper avec aplomb",
-        bullets: [
-          "Elle invente parfois des chiffres, des dates, des adresses : on appelle ça une « hallucination »",
-          "Santé, argent, démarches administratives : on vérifie toujours sur un site officiel ou auprès d'un professionnel",
-          "Astuce : lui demander « Quelles sont tes sources ? » puis aller les voir",
-        ],
-      },
-      {
-        heading: "Les outils gratuits",
-        links: [
-          { name: "ChatGPT", url: "https://chatgpt.com" },
-          { name: "Le Chat de Mistral (français)", url: "https://chat.mistral.ai" },
-          { name: "Gemini", url: "https://gemini.google.com" },
-          { name: "Claude", url: "https://claude.ai" },
-        ],
-      },
-    ],
-  },
   {
     icon: "iaoupas",
     title: "IA ou pas ? Repérer les images et vidéos",
@@ -106,6 +56,154 @@ const SECTIONS = [
     ],
   },
   {
+    icon: "prompt",
+    title: "Discuter avec une IA",
+    blocks: [
+      {
+        heading: "C'est quoi l'IA, vraiment ?",
+        bullets: [
+          "Elle ne sait rien : elle a tout lu. Des milliards de pages, avalées pendant son entraînement",
+          "Elle devine le mot suivant : « Il pleut des… » cordes ou hallebardes, oui ; téléphones ou voitures, non",
+          "Résultat : elle peut se tromper. On reste curieux et on garde son esprit critique",
+        ],
+      },
+      {
+        heading: "La formule pour bien demander",
+        items: [
+          ["Qui je suis et à qui je parle :", "« Je suis un piètre cuisinier… J'ai des œufs, des courgettes et du fromage. »"],
+          ["Ce que je veux exactement, longueur comprise :", "« Propose-moi une recette simple pour ce soir, en 5 étapes maximum. »"],
+          ["Comment je veux que ça sonne :", "« Un ton clair et rassurant, comme pour un débutant. »"],
+        ],
+      },
+      {
+        heading: "Pour comprendre n'importe quel sujet",
+        bullets: [
+          "« Explique-moi ce qu'est [...] en trois phrases simples, comme à quelqu'un qui n'y connaît rien. »",
+          "Remplacez [...] par le sujet de votre choix",
+        ],
+      },
+      {
+        heading: "La réponse ne convient pas ? On continue la conversation",
+        bullets: [
+          "« Plus court », « plus simple », « plus chaleureux »",
+          "« Donne-moi 3 autres idées »",
+          "« Je n'ai pas compris ce passage, reformule »",
+          "Pas besoin de tout réécrire : l'IA se souvient du début de la conversation",
+          "On peut lui montrer une photo",
+          "On peut lui parler avec le mode vocal",
+        ],
+      },
+      {
+        heading: "Le défi à la carte : à vous de choisir",
+        bullets: [
+          "Le frigo : une recette pour ce soir",
+          "Une histoire pour des enfants",
+          "Une sortie dimanche, en douceur",
+          "Un SMS louche : arnaque ou pas ?",
+          "Puis 2 relances pour affiner la réponse",
+          "Niveau 2 : ajoutez des contraintes",
+        ],
+      },
+      {
+        heading: "L'IA peut se tromper avec aplomb",
+        bullets: [
+          "Elle invente parfois des chiffres, des dates, des adresses : on appelle ça une « hallucination »",
+          "Santé, argent, démarches administratives : on vérifie toujours sur un site officiel ou auprès d'un professionnel",
+          "Astuce : lui demander « Quelles sont tes sources ? » puis aller les voir",
+        ],
+      },
+      {
+        heading: "Les outils gratuits",
+        links: [
+          { name: "ChatGPT : le plus connu, interface simple", url: "https://chatgpt.com" },
+          { name: "Le Chat de Mistral : une IA créée par des Français", url: "https://chat.mistral.ai" },
+          { name: "Claude : très bon pour la rédaction et les explications", url: "https://claude.ai" },
+          { name: "Gemini : l'IA de Google, connectée à l'actualité", url: "https://gemini.google.com" },
+        ],
+      },
+    ],
+  },
+  {
+    icon: "objet",
+    title: "L'objet mystère : vous contre l'IA",
+    blocks: [
+      {
+        heading: "Les règles du duel",
+        steps: [
+          "Un objet est photographié",
+          "Votre équipe parie, sur papier",
+          "L'IA donne son avis",
+          "Son propriétaire donne la vérité",
+        ],
+        bullets: ["Les points se comptent en grains de café : vous contre l'IA !"],
+      },
+      {
+        heading: "La question posée à l'IA",
+        bullets: [
+          "« Voici la photo d'un objet. Dis-moi ce que c'est, de quelle époque il date, et traduis ce qui est écrit dessus. Sur quoi te bases-tu ? »",
+        ],
+      },
+      {
+        heading: "Les objets mystères du jour",
+        items: [
+          ["Une machine à écrire :", "fabriquée en 1949, en Corée du Sud"],
+          ["Un moulin à café :", "fabriqué entre 1920 et 1940, en Turquie"],
+        ],
+      },
+      {
+        heading: "Ce qu'on en retient",
+        bullets: [
+          "Avec une simple photo, l'IA propose un nom, une époque et une traduction",
+          "Mais elle peut se tromper, surtout quand elle estime l'âge d'un objet",
+          "Le bon réflexe : lui demander « Sur quoi te bases-tu ? »",
+          "L'histoire de votre objet, c'est vous qui la connaissez",
+        ],
+      },
+      {
+        heading: "Votre défi de la semaine",
+        bullets: [
+          "Prenez en photo un objet de chez vous dont vous ignorez l'histoire, et demandez à l'IA de la raconter !",
+        ],
+      },
+    ],
+  },
+  {
+    icon: "garde-fous",
+    title: "Les garde-fous : ne pas tout partager à l'IA",
+    blocks: [
+      {
+        heading: "Ce qu'on ne lui confie jamais",
+        items: [
+          ["Numéro de sécurité sociale :", "jamais, pièce d'identité non plus : on remplace par des XXX"],
+          ["Codes et mots de passe :", "jamais, sous aucun prétexte"],
+          ["Coordonnées bancaires :", "jamais, ni IBAN ni numéro de carte"],
+          ["Ce qui concerne la santé de quelqu'un d'autre :", "on reste général, sans donner de noms"],
+          ["Votre nom et votre adresse :", "inutiles pour poser une question, on s'en passe"],
+          ["Pour aller plus loin :", "ChatGPT : Paramètres > Contrôles des données > désactiver « Améliorer le modèle pour tous »"],
+        ],
+      },
+      {
+        heading: "Elle ne remplace pas",
+        bullets: [
+          "Votre médecin",
+          "Votre banquier",
+          "Votre pharmacien",
+          "Votre notaire",
+          "Mais elle vous aide à bien préparer les rendez-vous !",
+        ],
+      },
+      {
+        heading: "Vrai ou faux ? Les réponses",
+        items: [
+          ["« Quand l'IA estime l'âge d'un objet, elle ne se trompe jamais » :", "faux"],
+          ["« Je peux demander à l'IA ses sources » :", "vrai"],
+          ["« Je peux poser une question à l'IA sans lui donner mon nom ni mon adresse » :", "vrai"],
+          ["« Si la voix au téléphone ressemble à celle de mon fils, c'est forcément lui » :", "faux"],
+        ],
+      },
+    ],
+  },
+  {
     icon: "deepfake",
     title: "Deepfakes et arnaques",
     blocks: [
@@ -142,21 +240,23 @@ const SECTIONS = [
 const TAKEAWAYS = [
   {
     topic: "Pour bien demander",
-    text: "Qui, quoi, pour quoi, comment. Et si la réponse ne va pas, on continue la conversation au lieu d'abandonner.",
+    text: "Qui je suis, ce que je veux, comment je veux que ça sonne. Et si la réponse ne va pas, on continue la conversation au lieu d'abandonner.",
   },
   {
-    topic: "Face à une image ou une vidéo",
-    text: "Mains, textes, arrière-plan. Et surtout : qui la publie ? Dans le doute, on ne partage pas.",
+    topic: "Face à une réponse, une image ou une vidéo",
+    text: "L'IA a tout lu mais ne sait rien : elle peut se tromper. On garde son esprit critique, on lui demande « Sur quoi te bases-tu ? » et, dans le doute, on ne partage pas.",
   },
   {
-    topic: "Face à un appel urgent",
-    text: "Voix connue + urgence + argent = on raccroche et on rappelle soi-même. Cette semaine, choisissez votre mot de code familial.",
+    topic: "Ce qu'on garde pour soi",
+    text: "Numéro de sécurité sociale, codes et mots de passe, coordonnées bancaires, santé d'un proche : jamais à l'IA. Et face à une voix connue qui réclame de l'argent, on raccroche et on rappelle soi-même.",
   },
 ];
 
 const ICON_MAP = {
   prompt: ChatText,
   iaoupas: MagnifyingGlass,
+  objet: Package,
+  "garde-fous": Lock,
   deepfake: ShieldWarning,
   ia: Robot,
 };
