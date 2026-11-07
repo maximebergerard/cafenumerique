@@ -14,6 +14,16 @@ export const LIEUX = [
 // court : libellé du lien dans le pied de page
 export const RECAPS = [
   {
+    id: 'ceb4',
+    lieu: 'chatelet-en-brie',
+    path: '/retenir-ceb4',
+    date: 'Novembre 2026',
+    title: 'Séance #4',
+    court: 'Châtelet-en-Brie #4',
+    themes: ['Intelligence artificielle', 'Objet mystère', 'Garde-fous'],
+    desc: "Bien écrire à une IA, le duel de l'objet mystère contre l'IA, ce qu'il ne faut jamais lui confier et les arnaques aux deepfakes.",
+  },
+  {
     id: 'ceb3',
     lieu: 'chatelet-en-brie',
     path: '/retenir-ceb3',
