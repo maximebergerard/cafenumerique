@@ -17,11 +17,47 @@ export default function RecapsPage() {
             </p>
           </div>
 
+          <nav className={styles.lieuxNav} aria-labelledby="recaps-nav-titre">
+            <p id="recaps-nav-titre" className={styles.lieuxNavTitre}>
+              Choisissez votre lieu d'atelier
+            </p>
+            <ul className={styles.lieuxNavListe}>
+              {LIEUX.map((lieu) => {
+                const n = RECAPS.filter((r) => r.lieu === lieu.id).length
+                return (
+                  <li key={lieu.id}>
+                    <a
+                      href={`#${lieu.id}`}
+                      className={styles.lieuxNavLien}
+                      onClick={(e) => {
+                        // Le défilement natif de l'ancre remet le focus à zéro : on gère le
+                        // saut nous-mêmes pour que clavier et lecteur d'écran continuent
+                        // depuis le titre du lieu.
+                        const titre = document.getElementById(`${lieu.id}-titre`)
+                        if (!titre) return
+                        e.preventDefault()
+                        window.history.pushState(null, '', `#${lieu.id}`)
+                        document.getElementById(lieu.id)?.scrollIntoView()
+                        titre.focus({ preventScroll: true })
+                      }}
+                    >
+                      <MapPin size={24} aria-hidden="true" />
+                      <span className={styles.lieuxNavNom}>{lieu.nom}</span>
+                      <span className={styles.lieuxNavNb}>
+                        {n} {n > 1 ? 'fiches' : 'fiche'}
+                      </span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+
           {LIEUX.map((lieu) => {
             const recaps = RECAPS.filter((r) => r.lieu === lieu.id)
             return (
-              <section key={lieu.id} id={lieu.id} className={styles.lieu}>
-                <h2 className={styles.lieuTitle}>
+              <section key={lieu.id} id={lieu.id} className={styles.lieu} aria-labelledby={`${lieu.id}-titre`}>
+                <h2 id={`${lieu.id}-titre`} className={styles.lieuTitle} tabIndex={-1}>
                   <MapPin size={20} aria-hidden="true" />
                   {lieu.nom}
                   <span className={styles.lieuCount}>
