@@ -157,6 +157,15 @@ export const ROUTES = [
     lastmod: '2026-10-09',
   },
   {
+    path: '/retenir-cn10',
+    title: 'Café numérique de Nandy #10 : photos et IA',
+    description:
+      "Mémo du Café numérique de Nandy #10 : ranger et sauvegarder ses photos, bien écrire à une IA, l'objet mystère et les garde-fous.",
+    index: true,
+    bare: true,
+    lastmod: '2026-11-13',
+  },
+  {
     path: '/retenir-cn9',
     title: "Café numérique de Nandy #9 : l'IA et les images truquées",
     description:

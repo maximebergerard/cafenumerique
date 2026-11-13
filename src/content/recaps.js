@@ -14,6 +14,16 @@ export const LIEUX = [
 // court : libellé du lien dans le pied de page
 export const RECAPS = [
   {
+    id: 'cn10',
+    lieu: 'nandy',
+    path: '/retenir-cn10',
+    date: 'Novembre 2026',
+    title: 'Séance #10',
+    court: 'Nandy #10',
+    themes: ['Photos du téléphone', 'Intelligence artificielle', 'Objet mystère'],
+    desc: "Ranger, retrouver et sauvegarder ses photos, bien écrire à une IA, le duel de l'objet mystère et ce qu'il ne faut jamais lui confier.",
+  },
+  {
     id: 'ceb4',
     lieu: 'chatelet-en-brie',
     path: '/retenir-ceb4',
