@@ -10,7 +10,7 @@
 export const FORMAT = {
   duree: '2 heures',
   participants: "Jusqu'à 10 personnes",
-  public: 'Adultes et seniors, grands débutants bienvenus',
+  public: 'Adultes, grands débutants bienvenus',
   formats: 'Séance unique ou cycle de 4 ateliers',
 }
 
@@ -30,7 +30,7 @@ export const ATELIERS = [
       "Cet atelier propose une première approche concrète, sans jargon, dans un esprit d'échange et d'entraide.",
     ],
     objectifGlobal:
-      "Permettre à des adultes et des seniors, sans prérequis technique, de comprendre ce qu'est l'IA, de manipuler des outils accessibles et de repartir avec une pratique concrète, applicable dès le lendemain.",
+      "Permettre à des adultes, sans prérequis technique, de comprendre ce qu'est l'IA, de manipuler des outils accessibles et de repartir avec une pratique concrète, applicable dès le lendemain.",
     objectifs: [
       "Comprendre ce qu'est l'intelligence artificielle et ce qu'elle n'est pas (démystifier les représentations)",
       'Identifier des usages concrets et utiles dans la vie quotidienne : rédaction, image, assistance, recherche',

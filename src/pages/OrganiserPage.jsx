@@ -25,7 +25,7 @@ export default function OrganiserPage() {
       <section className={styles.section}>
         <div className={styles.inner}>
           <h2 className={styles.h2}>Pour qui ?</h2>
-          <p className={styles.lead}>Toute structure qui accueille des adultes ou des seniors éloignés du numérique.</p>
+          <p className={styles.lead}>Toute structure qui accueille des adultes éloignés du numérique.</p>
           <div className={`${styles.grid} ${styles.grid2}`}>
             {STRUCTURES.map((s, i) => {
               const Icon = ICONS[s.icon]

@@ -38,7 +38,7 @@ export const ROUTES = [
   {
     path: '/',
     // Seul titre sans suffixe : il porte déjà la marque et le nom (voir fullTitle)
-    title: 'Café Numérique de Maxime Bergerard : ateliers pour seniors',
+    title: 'Café Numérique de Maxime Bergerard : ateliers pour adultes',
     description:
       'Ateliers numériques conviviaux en petit groupe, sans jargon : arnaques, IA, WhatsApp. Organisez un Café Numérique avec Maxime Bergerard.',
     index: true,

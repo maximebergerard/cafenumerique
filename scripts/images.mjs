@@ -61,7 +61,7 @@ const OG = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
     <text x="76" y="450">conviviaux</text>
   </g>
   <path d="M80 476 q20 -15 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="${AMBER}" stroke-width="9" stroke-linecap="round"/>
-  <text x="80" y="548" font-family="Avenir Next" font-size="32" font-weight="500" fill="#564F62">pour adultes et seniors - cafenumerique.fr</text>
+  <text x="80" y="548" font-family="Avenir Next" font-size="32" font-weight="500" fill="#564F62">pour adultes - cafenumerique.fr</text>
 </svg>`
 
 function png(svg, width) {

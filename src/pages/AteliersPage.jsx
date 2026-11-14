@@ -15,7 +15,7 @@ export default function AteliersPage() {
         badge="Cafés numériques"
         shapes={0}
         title="Des ateliers numériques pour apprendre en faisant"
-        lead="Des ateliers conviviaux de 2 heures, en petit groupe, pour adultes et seniors. Pas de cours magistral : on joue, on manipule, on s'entraide."
+        lead="Des ateliers conviviaux de 2 heures, en petit groupe, pour adultes. Pas de cours magistral : on joue, on manipule, on s'entraide."
       >
         <ul className={styles.heroFacts}>
           <li className={styles.heroFact}><Clock size={15} /> {FORMAT.duree}</li>

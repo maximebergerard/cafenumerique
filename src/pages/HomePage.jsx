@@ -42,7 +42,7 @@ export default function HomePage() {
                 conviviaux
                 <Squiggle className={styles.squiggle} />
               </span>{" "}
-              pour adultes et seniors
+              pour adultes
             </h1>
             <p className={styles.heroSubtitle}>
               Je vous propose un rendez-vous pour apprivoiser le numérique sans
@@ -122,8 +122,7 @@ export default function HomePage() {
           <div className={`${styles.sectionInner} reveal`}>
             <h2 className={styles.sectionTitle}>Pour votre structure</h2>
             <p className={styles.sectionDesc}>
-              J'interviens auprès des structures qui accueillent des adultes
-              et des seniors.{" "}
+              J'interviens auprès des structures qui accueillent des adultes.{" "}
               <Link to="/organiser-un-atelier">Comment ça se passe</Link>
             </p>
             <div className={styles.themesGrid}>
