@@ -31,7 +31,7 @@ export const DEFAULT_IMAGE = '/og-image.png'
 export const DEFAULT_DESCRIPTION = "Support pédagogique du Café Numérique, ateliers conviviaux pour apprivoiser le numérique."
 
 // Dernière modification des pages ateliers (src/content/ateliers.js). Les guides ont leur propre `misAJour`.
-const ATELIERS_LASTMOD = '2026-10-14'
+const ATELIERS_LASTMOD = '2026-11-15'
 
 export const ROUTES = [
   // ── Pages publiques ──
@@ -42,7 +42,7 @@ export const ROUTES = [
     description:
       'Ateliers numériques conviviaux en petit groupe, sans jargon : arnaques, IA, WhatsApp. Organisez un Café Numérique avec Maxime Bergerard.',
     index: true,
-    lastmod: '2026-10-09',
+    lastmod: '2026-11-15',
   },
   {
     path: '/ateliers',
