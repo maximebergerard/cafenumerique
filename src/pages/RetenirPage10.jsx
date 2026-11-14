@@ -6,8 +6,8 @@ const LIEU = "Nandy";
 
 // ✏️ VAINQUEURS de la séance : null tant qu'ils ne sont pas connus (« ??? & ??? »).
 // Prénoms ['Prénom', 'Prénom'] ou nom d'équipe ['Nom']. WINNERS_SUB : une phrase différente à chaque séance.
-const WINNERS = null;
-const WINNERS_SUB = "Les grains de café ont tranché, vous contre l'IA";
+const WINNERS = ['Danièle', 'Margaret'];
+const WINNERS_SUB = 'Deux têtes bien faites qui ont damé le pion à l\'IA';
 
 const SECTIONS = [
   {
