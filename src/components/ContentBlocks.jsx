@@ -76,3 +76,37 @@ export function CtaBand({
     </section>
   )
 }
+
+// Galerie de photos d'atelier : grille 2 colonnes, légende sous chaque photo
+// photos : [{ src, w, h, alt, legende }]
+export function Galerie({ photos }) {
+  return (
+    <ul className={styles.galerie}>
+      {photos.map((p) => (
+        <li key={p.src} className={`${styles.galerieItem} reveal`}>
+          <img src={p.src} width={p.w} height={p.h} alt={p.alt} loading="lazy" decoding="async" className={styles.galeriePhoto} />
+          <p className={styles.galerieLegende}>{p.legende}</p>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+// Retours de structures : citation, puis nom et rôle sous un filet
+// items : [{ texte, nom, role, quand }]
+export function Temoignages({ items }) {
+  return (
+    <div className={styles.temoignages}>
+      {items.map((t) => (
+        <figure key={t.nom} className={`${styles.temoignage} reveal`}>
+          <blockquote className={styles.temoignageTexte}>{'\u00AB\u00A0'}{t.texte}{'\u00A0\u00BB'}</blockquote>
+          <figcaption className={styles.temoignageAuteur}>
+            <strong>{t.nom}</strong>
+            <span>{t.role}</span>
+            <span className={styles.temoignageQuand}>{t.quand}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  )
+}

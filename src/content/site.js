@@ -140,3 +140,54 @@ export const LEGAL = {
     site: 'https://www.netlify.com',
   },
 }
+
+// Photos prises en atelier (public/images/ateliers/), retouchées en lumière et contraste.
+// Pas de lieu dans les légendes : les photos viennent de plusieurs séances.
+// w/h = taille réelle du fichier (évite que la page saute pendant le chargement).
+// MASQUÉ (pas affiché sur le site) : visages reconnaissables, en attente de l accord des participants.
+export const PHOTOS_ATELIER = [
+  {
+    src: '/images/ateliers/accompagnement-individuel.jpg',
+    w: 1400, h: 1186,
+    alt: "Maxime penché au-dessus d'une table, un participant assis devant lui, pendant qu'un autre groupe suit l'atelier",
+    legende: "Un coup de main à la demande : chacun avance sur son propre appareil.",
+  },
+  {
+    src: '/images/ateliers/objet-mystere.jpg',
+    w: 1400, h: 1050,
+    alt: "Maxime tient un masque devant un écran de projection, deux participantes l'écoutent",
+    legende: "Atelier IA, l'objet mystère : on devine d'abord, on demande à l'IA ensuite.",
+  },
+  {
+    src: '/images/ateliers/pari-photos.jpg',
+    w: 1400, h: 1050,
+    alt: "Des participants regardent l'écran où s'affiche un pari : vrai, faux ou ça dépend",
+    legende: "On parie « vrai », « faux » ou « ça dépend », puis on vérifie ensemble.",
+  },
+  {
+    src: '/images/ateliers/accompagnement-tablette.jpg',
+    w: 1000, h: 1192,
+    alt: "Maxime montre quelque chose sur la tablette d'une participante assise à une table",
+    legende: "Pas de cours magistral : on manipule, on se trompe, on recommence.",
+  },
+]
+
+// Retours reçus par mail des structures d'accueil. Citations exactes, coupées seulement
+// là où « […] » l'indique. À ne publier qu'avec l'accord de chaque personne.
+// MASQUÉ (pas affiché sur le site) : en attente de la validation de Marie-Christine et Karine.
+export const TEMOIGNAGES = [
+  {
+    texte:
+      "On a eu des retours très très positifs […]. Encore un grand merci pour la qualité de tes interventions et ton investissement.",
+    nom: 'Marie-Christine Pastorino',
+    role: 'Directrice de la médiathèque Marguerite Yourcenar, Nandy',
+    quand: 'Après un café numérique, mai 2025',
+  },
+  {
+    texte:
+      "Le plaisir fut partagé tant par notre équipe que par les participants, merci ! […] Nous réfléchissons à te proposer d'autres dates, la demande a été assez forte.",
+    nom: 'Karine Lavocat-Ghazali',
+    role: 'Responsable du service culturel, médiathèque du Châtelet-en-Brie',
+    quand: 'Après un cycle de quatre ateliers, novembre 2026',
+  },
+]
