@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 CLAUDE.md
+
+# Réglages Claude Code propres à cette machine
+.claude/settings.json
