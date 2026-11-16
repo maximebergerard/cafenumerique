@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { BookOpen, PuzzlePiece, MaskHappy, FileText } from "../icons/index.jsx";
 import Layout from "../components/Layout.jsx";
 import { CupComposition, Squiggle, BandShapes } from "../components/Shapes.jsx";
-import { Portrait } from "../components/ContentBlocks.jsx";
+import { Portrait, Galerie } from "../components/ContentBlocks.jsx";
 import { ICONS } from "../components/icons.js";
 import { ATELIERS, SUR_MESURE } from "../content/ateliers.js";
 import { GUIDES } from "../content/guides.js";
-import { INTERVENANT, STRUCTURES } from "../content/site.js";
+import { INTERVENANT, STRUCTURES, PHOTOS_ATELIER } from "../content/site.js";
 import styles from "./HomePage.module.css";
 
 const HOW_IT_WORKS = [
@@ -114,6 +114,18 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* En atelier : photos (visages floutés) */}
+        <section className={styles.section}>
+          <div className={`${styles.sectionInner} reveal`}>
+            <h2 className={styles.sectionTitle}>En atelier</h2>
+            <p className={styles.sectionDesc}>
+              Quelques images des séances : petit groupe, écran partagé, et beaucoup de
+              manipulation.
+            </p>
+            <Galerie photos={PHOTOS_ATELIER} />
           </div>
         </section>
 

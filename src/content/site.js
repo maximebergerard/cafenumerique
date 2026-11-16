@@ -144,7 +144,7 @@ export const LEGAL = {
 // Photos prises en atelier (public/images/ateliers/), retouchées en lumière et contraste.
 // Pas de lieu dans les légendes : les photos viennent de plusieurs séances.
 // w/h = taille réelle du fichier (évite que la page saute pendant le chargement).
-// MASQUÉ (pas affiché sur le site) : visages reconnaissables, en attente de l accord des participants.
+// Photos : visages des participants floutés (originaux retouchés dans ../Images/retouchees-pour-le-site/).
 export const PHOTOS_ATELIER = [
   {
     src: '/images/ateliers/accompagnement-individuel.jpg',

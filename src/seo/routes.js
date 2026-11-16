@@ -42,7 +42,7 @@ export const ROUTES = [
     description:
       'Ateliers numériques conviviaux en petit groupe, sans jargon : arnaques, IA, WhatsApp. Organisez un Café Numérique avec Maxime Bergerard.',
     index: true,
-    lastmod: '2026-11-15',
+    lastmod: '2026-11-16',
   },
   {
     path: '/ateliers',
