@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Clock, Users, User, Repeat, PuzzlePiece } from '../icons/index.jsx'
 import Layout from '../components/Layout.jsx'
 import { PageHero, CtaBand } from '../components/ContentBlocks.jsx'
-import { ICONS, DOT_COLORS } from '../components/icons.js'
+import { ICONS } from '../components/icons.js'
 import { ATELIERS, FORMAT, SUR_MESURE } from '../content/ateliers.js'
 import { METHODE } from '../content/site.js'
 import styles from '../components/Content.module.css'
@@ -30,11 +30,11 @@ export default function AteliersPage() {
           <h2 className={styles.h2}>Les thèmes proposés</h2>
           <p className={styles.lead}>Chaque atelier se concentre sur un sujet du quotidien numérique.</p>
           <div className={`${styles.grid} ${styles.grid2}`}>
-            {ATELIERS.map((a, i) => {
+            {ATELIERS.map((a) => {
               const Icon = ICONS[a.icon]
               return (
                 <Link key={a.slug} to={`/ateliers/${a.slug}`} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
+                  <div className={styles.cardIcon}><Icon size={40} /></div>
                   <div className={styles.cardKicker}>{a.nom}</div>
                   <h3 className={styles.cardTitle}>{a.titre}</h3>
                   <p className={styles.cardText}>{a.accroche}</p>
@@ -43,7 +43,7 @@ export default function AteliersPage() {
               )
             })}
             <Link to="/contact" className={`${styles.card} ${styles.cardDashed}`}>
-              <div className={styles.cardIcon} style={{ background: DOT_COLORS[ATELIERS.length % DOT_COLORS.length] }}><PuzzlePiece size={22} /></div>
+              <div className={styles.cardIcon}><PuzzlePiece size={40} /></div>
               <div className={styles.cardKicker}>Sur mesure</div>
               <h3 className={styles.cardTitle}>{SUR_MESURE.titre}</h3>
               <p className={styles.cardText}>{SUR_MESURE.texte}</p>
@@ -60,11 +60,11 @@ export default function AteliersPage() {
             On retient bien mieux ce qu'on a vécu que ce qu'on a écouté. Chaque atelier alterne mises en situation, pratique et échanges.
           </p>
           <div className={`${styles.grid} ${styles.grid2}`}>
-            {METHODE.map((m, i) => {
+            {METHODE.map((m) => {
               const Icon = ICONS[m.icon]
               return (
                 <div key={m.titre} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
+                  <div className={styles.cardIcon}><Icon size={40} /></div>
                   <h3 className={styles.cardTitle}>{m.titre}</h3>
                   <p className={styles.cardText}>{m.texte}</p>
                 </div>

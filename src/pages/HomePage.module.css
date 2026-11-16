@@ -140,13 +140,8 @@ a.themeCard { transition: background var(--t-fast); }
 a.themeCard:hover { border-color: var(--c-accent); background: var(--c-accent-pale); }
 
 .themeIconWrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  color: var(--c-primary);
+  color: var(--c-accent);
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
 }
 

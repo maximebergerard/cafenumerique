@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Layout from '../components/Layout.jsx'
 import { PageHero, CtaBand } from '../components/ContentBlocks.jsx'
-import { ICONS, DOT_COLORS } from '../components/icons.js'
+import { ICONS } from '../components/icons.js'
 import { ATELIERS } from '../content/ateliers.js'
 import { ORGANISER, STRUCTURES } from '../content/site.js'
 import styles from '../components/Content.module.css'
@@ -27,11 +27,11 @@ export default function OrganiserPage() {
           <h2 className={styles.h2}>Pour qui ?</h2>
           <p className={styles.lead}>Toute structure qui accueille des adultes éloignés du numérique.</p>
           <div className={`${styles.grid} ${styles.grid2}`}>
-            {STRUCTURES.map((s, i) => {
+            {STRUCTURES.map((s) => {
               const Icon = ICONS[s.icon]
               return (
                 <div key={s.titre} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
+                  <div className={styles.cardIcon}><Icon size={40} /></div>
                   <h3 className={styles.cardTitle}>{s.titre}</h3>
                   <p className={styles.cardText}>{s.texte}</p>
                 </div>

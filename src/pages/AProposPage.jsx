@@ -1,6 +1,6 @@
 import Layout from '../components/Layout.jsx'
 import { PageHero, CtaBand, Portrait } from '../components/ContentBlocks.jsx'
-import { ICONS, DOT_COLORS } from '../components/icons.js'
+import { ICONS } from '../components/icons.js'
 import { INTERVENANT, METHODE } from '../content/site.js'
 import styles from '../components/Content.module.css'
 
@@ -38,11 +38,11 @@ export default function AProposPage() {
           <h2 className={styles.h2}>Ma façon d'animer</h2>
           <p className={styles.lead}>Apprendre en faisant, pas en écoutant.</p>
           <div className={`${styles.grid} ${styles.grid2}`}>
-            {METHODE.map((m, i) => {
+            {METHODE.map((m) => {
               const Icon = ICONS[m.icon]
               return (
                 <div key={m.titre} className={`${styles.card} reveal`}>
-                  <div className={styles.cardIcon} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}><Icon size={22} /></div>
+                  <div className={styles.cardIcon}><Icon size={40} /></div>
                   <h3 className={styles.cardTitle}>{m.titre}</h3>
                   <p className={styles.cardText}>{m.texte}</p>
                 </div>

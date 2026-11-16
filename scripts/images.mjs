@@ -17,8 +17,9 @@ import { ICON_BODIES } from '../src/icons/icons.generated.js'
 
 const pub = join(dirname(fileURLToPath(import.meta.url)), '..', 'public')
 
-// Icône "Coffee" de Phosphor (celle du logo dans la nav), viewBox 256×256
-const COFFEE = ICON_BODIES.Coffee
+// Icône "Coffee" (celle du logo dans la nav), avec sa propre taille (viewBox w×h)
+const COFFEE = ICON_BODIES.Coffee.body
+const COFFEE_W = ICON_BODIES.Coffee.w
 
 // Mêmes couleurs que src/index.css
 const INK = '#27173A'
@@ -33,7 +34,7 @@ const LILAC = '#C4B5FD'
 const icon = (round) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   ${round ? '' : `<rect width="64" height="64" fill="${PAPER}"/>`}
   <circle cx="32" cy="32" r="${round ? 32 : 26}" fill="${VIOLET}"/>
-  <g transform="translate(${round ? 14 : 17.5} ${round ? 14 : 17.5}) scale(${round ? 0.1406 : 0.1133})" color="${PAPER}">${COFFEE}</g>
+  <g transform="translate(${round ? 14 : 17.5} ${round ? 14 : 17.5}) scale(${(round ? 36 : 29) / COFFEE_W})" color="${PAPER}">${COFFEE}</g>
 </svg>`
 
 // Aperçu de partage : papier, titre serif, tasse en formes (même dessin que CupComposition)

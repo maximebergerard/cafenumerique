@@ -3,7 +3,7 @@ import { BookOpen, PuzzlePiece, MaskHappy, FileText } from "../icons/index.jsx";
 import Layout from "../components/Layout.jsx";
 import { CupComposition, Squiggle, BandShapes } from "../components/Shapes.jsx";
 import { Portrait } from "../components/ContentBlocks.jsx";
-import { ICONS, DOT_COLORS } from "../components/icons.js";
+import { ICONS } from "../components/icons.js";
 import { ATELIERS, SUR_MESURE } from "../content/ateliers.js";
 import { GUIDES } from "../content/guides.js";
 import { INTERVENANT, STRUCTURES } from "../content/site.js";
@@ -70,7 +70,7 @@ export default function HomePage() {
               Chaque atelier se concentre sur un sujet du quotidien numérique.
             </p>
             <div className={styles.themesGrid}>
-              {ATELIERS.map((a, i) => {
+              {ATELIERS.map((a) => {
                 const Icon = ICONS[a.icon];
                 return (
                   <Link
@@ -78,8 +78,8 @@ export default function HomePage() {
                     to={`/ateliers/${a.slug}`}
                     className={`${styles.themeCard} reveal`}
                   >
-                    <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}>
-                      <Icon size={22} />
+                    <div className={styles.themeIconWrap}>
+                      <Icon size={40} />
                     </div>
                     <div>
                       <h3 className={styles.themeLabel}>{a.nom}</h3>
@@ -89,8 +89,8 @@ export default function HomePage() {
                 );
               })}
               <Link to="/contact" className={`${styles.themeCard} reveal`}>
-                <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[ATELIERS.length % DOT_COLORS.length] }}>
-                  <PuzzlePiece size={22} />
+                <div className={styles.themeIconWrap}>
+                  <PuzzlePiece size={40} />
                 </div>
                 <div>
                   <h3 className={styles.themeLabel}>{SUR_MESURE.titre}</h3>
@@ -126,12 +126,12 @@ export default function HomePage() {
               <Link to="/organiser-un-atelier">Comment ça se passe</Link>
             </p>
             <div className={styles.themesGrid}>
-              {STRUCTURES.map((s, i) => {
+              {STRUCTURES.map((s) => {
                 const Icon = ICONS[s.icon];
                 return (
                   <div key={s.titre} className={`${styles.themeCard} reveal`}>
-                    <div className={styles.themeIconWrap} style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}>
-                      <Icon size={22} />
+                    <div className={styles.themeIconWrap}>
+                      <Icon size={40} />
                     </div>
                     <div>
                       <h3 className={styles.themeLabel}>{s.titre}</h3>

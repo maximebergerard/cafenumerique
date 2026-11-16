@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { MaskHappy, Coffee } from '../icons/index.jsx'
 import { Asterisk } from '../components/Shapes.jsx'
-import { DOT_COLORS } from '../components/icons.js'
 import Layout from '../components/Layout.jsx'
 import { PageHero, CtaBand } from '../components/ContentBlocks.jsx'
 import { findGuide } from '../content/guides.js'
@@ -87,7 +86,7 @@ export default function GuidePage() {
           <div className={styles.aside}>
             {guide.simulation && (
               <Link to={guide.simulation.path} className={`${styles.card} reveal`}>
-                <div className={styles.cardIcon} style={{ background: DOT_COLORS[1] }}><MaskHappy size={22} /></div>
+                <div className={styles.cardIcon}><MaskHappy size={40} /></div>
                 <div className={styles.cardKicker}>S'entraîner</div>
                 <span className={styles.cardTitle}>{guide.simulation.label}</span>
                 <span className={styles.cardMore}>Ouvrir la simulation</span>
@@ -95,7 +94,7 @@ export default function GuidePage() {
             )}
             {atelier && (
               <Link to={`/ateliers/${atelier.slug}`} className={`${styles.card} reveal`}>
-                <div className={styles.cardIcon} style={{ background: DOT_COLORS[2] }}><Coffee size={22} /></div>
+                <div className={styles.cardIcon}><Coffee size={40} /></div>
                 <div className={styles.cardKicker}>L'atelier</div>
                 <span className={styles.cardTitle}>{atelier.titre}</span>
                 <span className={styles.cardMore}>Voir le programme</span>

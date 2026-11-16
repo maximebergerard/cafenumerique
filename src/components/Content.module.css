@@ -244,14 +244,8 @@ a.card:hover { border-color: var(--c-accent); background: var(--c-accent-pale); 
 a.card:hover .cardMore { text-decoration: underline; }
 
 .cardIcon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--c-accent-light);
-  color: var(--c-primary);
+  color: var(--c-accent);
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
   margin-bottom: 0.25rem;
 }

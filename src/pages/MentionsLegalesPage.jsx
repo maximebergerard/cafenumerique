@@ -80,6 +80,17 @@ export default function MentionsLegalesPage() {
             Pour les reprendre ou les projeter dans un autre cadre que votre atelier, écrivez-moi
             d'abord.
           </p>
+
+          <h2 className={styles.h2}>Crédits</h2>
+          <p>
+            Les petites icônes du site viennent de trois bibliothèques libres :{' '}
+            <a href="https://github.com/CyCraft/pepicons" target="_blank" rel="noopener noreferrer">Pepicons Pop</a>{' '}
+            (CyCraft, licence CC BY 4.0),{' '}
+            <a href="https://github.com/halfmage/majesticons" target="_blank" rel="noopener noreferrer">Majesticons</a>{' '}
+            (Gerrit Halfmann, licence MIT) et{' '}
+            <a href="https://github.com/webalys-hq/streamline-vectors" target="_blank" rel="noopener noreferrer">Streamline Freehand</a>{' '}
+            (Streamline, licence CC BY 4.0).
+          </p>
         </div>
       </section>
     </Layout>
